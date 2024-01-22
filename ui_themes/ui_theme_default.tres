@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcma3f2wjixis"]
+
+[ext_resource type="FontFile" uid="uid://b7bb3r1nvjtu4" path="res://Fonts/ChewedPenBB.otf" id="1_8v31l"]
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_8v31l")
