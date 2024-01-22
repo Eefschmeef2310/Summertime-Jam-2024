@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df4ao4eauwen" path="res://Interactives/BaseInteractive.tscn" id="1_wvbf2"]
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="2_3oh6b"]
-[ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="4_6hcao"]
+[ext_resource type="PackedScene" path="res://Levels/TargetManager.tscn" id="4_6hcao"]
 [ext_resource type="PackedScene" uid="uid://c68xchab0wojc" path="res://Interactives/Customers/customer_base.tscn" id="4_f42f8"]
 
 [node name="InteractionTest" type="Node2D"]

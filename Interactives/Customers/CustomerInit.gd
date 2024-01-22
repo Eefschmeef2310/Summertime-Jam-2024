@@ -16,4 +16,4 @@ func initialise():
 	skin_color = CustomerPool.skin_colors.pick_random()
 	clothing = CustomerPool.clothes.pick_random()
 	habit = CustomerPool.habit.pick_random()
-	order_pref = CustomerPool.order_prefs.pick_random()
+	order_pref = CustomerPool.order_pref.pick_random()
