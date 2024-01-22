@@ -22,3 +22,9 @@ position = Vector2(447, 239)
 
 [node name="Customer" parent="." instance=ExtResource("3_kiux6")]
 position = Vector2(529, 305)
+
+[node name="Customer2" parent="." instance=ExtResource("3_kiux6")]
+position = Vector2(468, 292)
+
+[node name="Customer3" parent="." instance=ExtResource("3_kiux6")]
+position = Vector2(560, 246)

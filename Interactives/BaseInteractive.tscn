@@ -1,20 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://df4ao4eauwen"]
+[gd_scene load_steps=3 format=3 uid="uid://df4ao4eauwen"]
 
 [ext_resource type="Script" path="res://Interactives/BaseInteractive.gd" id="1_i554m"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="2_f1n2t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_flgv5"]
-radius = 32.0
-
 [node name="Interactive" type="StaticBody2D" groups=["Interactive"]]
 script = ExtResource("1_i554m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_flgv5")
-
 [node name="InteractivePrompt" parent="." instance=ExtResource("2_f1n2t")]
-visible = false
-offset_left = -117.0
-offset_top = -166.0
-offset_right = -117.0
-offset_bottom = -166.0

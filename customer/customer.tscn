@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=9 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://d127nnfqss41i" path="res://customer/sprites/customer_walk.png" id="2_q84sp"]
 [ext_resource type="Texture2D" uid="uid://cjhocbctl6ylm" path="res://customer/sprites/customer_sit.png" id="3_bf1sv"]
+[ext_resource type="PackedScene" uid="uid://df4ao4eauwen" path="res://Interactives/BaseInteractive.tscn" id="4_datmp"]
 
 [sub_resource type="Animation" id="Animation_e6ccg"]
 resource_name = "walk"
@@ -67,3 +68,14 @@ texture = ExtResource("2_q84sp")
 libraries = {
 "": SubResource("AnimationLibrary_ceya1")
 }
+
+[node name="Interactive" parent="." instance=ExtResource("4_datmp")]
+visible = false
+position = Vector2(0, -16)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(1.1, 1)
+
+[connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

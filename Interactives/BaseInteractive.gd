@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 signal interacted()
 
@@ -6,4 +6,5 @@ func toggle_prompt(toggle:bool):
 	$InteractivePrompt.visible = toggle
 
 func interact():
-	interacted.emit()
+	if visible:
+		interacted.emit()
