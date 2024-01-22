@@ -11,4 +11,5 @@ func _ready():
 	for i in get_tree().get_nodes_in_group("Customer"):
 		if i != target:
 			i.target_manager = self
+			print(i.target_manager)
 			i.initialise()
