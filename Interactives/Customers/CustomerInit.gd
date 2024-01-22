@@ -4,13 +4,13 @@ var target_manager
 
 var complete: bool = false
 
-var headpiece
+var headpiece: CustomerHeadpiece
 var skin_color
-var clothing
+var clothing: CustomerClothes
 var habit
 var order_pref
 
-func initialise():
+func _ready():
 	#Random shuffle if target manager is null (if !target_manager, then node is target)
 	#Every time shuffle occurs, if target_manager, check random attributes against target. reshuffle accordingly
 	
@@ -18,6 +18,7 @@ func initialise():
 	
 	while target_manager and !complete:
 		generate_attributes()
+	
 	
 func generate_attributes():
 	headpiece = CustomerPool.headpieces.pick_random()
@@ -42,3 +43,8 @@ func generate_attributes():
 			
 		complete = differences > 3
 	
+	print(headpiece.text)
+	
+func set_textures_for_animation(s: String):
+	$"../Sprite2DH".texture = headpiece.get("texture_" + s)
+	$"../Sprite2DS".texture = clothing.get("texture_" + s)

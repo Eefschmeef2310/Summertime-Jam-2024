@@ -1,12 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7htgkoo6ouf7"]
+[gd_scene load_steps=16 format=3 uid="uid://b7htgkoo6ouf7"]
 
 [ext_resource type="Script" path="res://Interactives/Customers/CustomerPool.gd" id="1_wanuu"]
-[ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="2_h8pai"]
+[ext_resource type="Script" path="res://Interactives/Customers/customer_headpiece.gd" id="2_y57vj"]
+[ext_resource type="Texture2D" uid="uid://bi0bweuqvg24x" path="res://customer/sprites/walk/customer_walk_h1black.png" id="3_mbuhm"]
+[ext_resource type="Texture2D" uid="uid://dbgto2b65mewi" path="res://customer/sprites/walk/customer_walk_h1blond.png" id="4_2522i"]
+[ext_resource type="Texture2D" uid="uid://b6wtnkt243a37" path="res://customer/sprites/walk/customer_walk_h1brown.png" id="5_f3m15"]
+[ext_resource type="Script" path="res://Interactives/Customers/customer_clothes.gd" id="6_workc"]
+[ext_resource type="Texture2D" uid="uid://h8nmpry5xyca" path="res://customer/sprites/walk/customer_walk_s1mustard.png" id="7_akx1t"]
+[ext_resource type="Texture2D" uid="uid://dhri4jgdm2iqs" path="res://customer/sprites/walk/customer_walk_s1olive.png" id="8_bsm3y"]
+[ext_resource type="Texture2D" uid="uid://ddbmrxrwl64he" path="res://customer/sprites/walk/customer_walk_s1red.png" id="9_djpfy"]
+
+[sub_resource type="Resource" id="Resource_kkbhf"]
+script = ExtResource("2_y57vj")
+text = "Short Black Hair"
+texture_walk = ExtResource("3_mbuhm")
+
+[sub_resource type="Resource" id="Resource_7ksuu"]
+script = ExtResource("2_y57vj")
+text = "Short Blonde Hair"
+texture_walk = ExtResource("4_2522i")
+
+[sub_resource type="Resource" id="Resource_cl3im"]
+script = ExtResource("2_y57vj")
+text = "Short Brown Hair"
+texture_walk = ExtResource("5_f3m15")
+
+[sub_resource type="Resource" id="Resource_psayi"]
+script = ExtResource("6_workc")
+text = "Mustard Shirt"
+texture_walk = ExtResource("7_akx1t")
+
+[sub_resource type="Resource" id="Resource_l01jh"]
+script = ExtResource("6_workc")
+text = "Olive Shirt"
+texture_walk = ExtResource("8_bsm3y")
+
+[sub_resource type="Resource" id="Resource_k2b6l"]
+script = ExtResource("6_workc")
+text = "Red Shirt"
+texture_walk = ExtResource("9_djpfy")
 
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
-headpieces = Array[Texture2D]([ExtResource("2_h8pai"), ExtResource("2_h8pai"), ExtResource("2_h8pai"), ExtResource("2_h8pai")])
+headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im")])
 skin_colors = Array[Color]([Color(0.290196, 0, 0, 1), Color(0.894118, 0.752941, 0.482353, 1), Color(1, 0.776471, 0.776471, 1)])
-clothes = Array[Texture2D]([ExtResource("2_h8pai"), ExtResource("2_h8pai"), ExtResource("2_h8pai")])
+clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l")])
 habit = Array[String](["Smoke", "Phone", "Gaming"])
 order_pref = Array[String](["Kebab", "Sausage", "Souvlaki"])

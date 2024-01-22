@@ -1,8 +1,8 @@
 extends Node
 
-@export var headpieces: Array[Texture2D]
+@export var headpieces: Array[CustomerHeadpiece]
 @export var skin_colors : Array[Color]
-@export var clothes : Array[Texture2D]
+@export var clothes : Array[CustomerClothes]
 
 @export var habit : Array[String]
 

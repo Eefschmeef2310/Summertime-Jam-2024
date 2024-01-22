@@ -5,7 +5,9 @@ var state = "entering"
 var target_chair = null
 var just_interacted_with = false
 
-var move_speed = 50
+var move_speed = 75
+
+@export var animation_players: Array[AnimationPlayer]
 
 func _ready():
 	pass
@@ -24,8 +26,12 @@ func _process(delta):
 func _on_interactive_interacted():
 	just_interacted_with = true
 
+func play_animation(s):
+	for ap in animation_players:
+		ap.play(s)
+
 func state_entering(delta):
-	$AnimationPlayer.play("walk")
+	play_animation("walk")
 	if !target_chair:
 		var chairs = get_tree().get_nodes_in_group("chair")
 		for chair in chairs:
@@ -45,7 +51,7 @@ func state_entering(delta):
 func state_waiting_order():
 	position = target_chair.position
 	scale.x = target_chair.scale.x
-	$AnimationPlayer.play("sit")
+	play_animation("sit")
 	
 	$Interactive.show()
 	if just_interacted_with:
@@ -56,7 +62,7 @@ func state_waiting_order():
 func state_waiting_food():
 	position = target_chair.position
 	scale.x = target_chair.scale.x
-	$AnimationPlayer.play("sit")
+	play_animation("sit")
 	
 	$Interactive.show()
 	if just_interacted_with:
@@ -65,7 +71,7 @@ func state_waiting_food():
 		state = "exiting"
 
 func state_exiting(delta):
-	$AnimationPlayer.play("walk")
+	play_animation("walk")
 	if target_chair:
 		target_chair.occupant = null
 		position.y = target_chair.position.y + 5
