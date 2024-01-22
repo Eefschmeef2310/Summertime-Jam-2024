@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwa61yens38wp"]
+
+[ext_resource type="Script" path="res://customer/chair.gd" id="1_ehdtj"]
+[ext_resource type="Texture2D" uid="uid://dwhmcul8vf6up" path="res://customer/sprites/chair.png" id="1_keq5t"]
+
+[node name="Chair" type="Node2D" groups=["chair"]]
+script = ExtResource("1_ehdtj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_keq5t")

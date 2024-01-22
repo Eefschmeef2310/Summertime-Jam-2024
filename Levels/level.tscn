@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt6yx3efi0388"]
+
+[ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
+[ext_resource type="PackedScene" uid="uid://bwa61yens38wp" path="res://customer/chair.tscn" id="2_hwcln"]
+[ext_resource type="PackedScene" uid="uid://noad0i08d3s3" path="res://customer/customer.tscn" id="3_kiux6"]
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_0sgre")]
+position = Vector2(297, 113)
+
+[node name="Chair" parent="." instance=ExtResource("2_hwcln")]
+position = Vector2(205, 242)
+
+[node name="Chair2" parent="." instance=ExtResource("2_hwcln")]
+position = Vector2(314, 241)
+scale = Vector2(-1, 1)
+
+[node name="Chair3" parent="." instance=ExtResource("2_hwcln")]
+position = Vector2(447, 239)
+
+[node name="Customer" parent="." instance=ExtResource("3_kiux6")]
+position = Vector2(529, 305)
