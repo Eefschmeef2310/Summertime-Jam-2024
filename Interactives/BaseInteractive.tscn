@@ -7,3 +7,4 @@
 script = ExtResource("1_i554m")
 
 [node name="InteractivePrompt" parent="." instance=ExtResource("2_f1n2t")]
+visible = false
