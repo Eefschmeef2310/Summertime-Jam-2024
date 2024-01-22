@@ -20,6 +20,7 @@ func _process(delta):
 	if global_position.distance_to(closest_interactive.global_position) < min_interaction_distance:
 		closest_interactive.toggle_prompt(true)
 		if Input.is_action_just_pressed("Interact"):
+			closest_interactive.interact()
 			print("successful interaction")
 	else:
 		closest_interactive.toggle_prompt(false)
