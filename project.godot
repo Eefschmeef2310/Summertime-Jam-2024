@@ -14,6 +14,10 @@ config/name="Summertime-jam-2024"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AirtableManager="*res://online/AirtableManager.gd"
+
 [file_customization]
 
 folder_colors={
@@ -21,7 +25,8 @@ folder_colors={
 "res://Interactives/": "yellow",
 "res://Levels/": "blue",
 "res://Levels/Tests/": "red",
-"res://Player/": "green"
+"res://Player/": "green",
+"res://online/": "purple"
 }
 
 [input]

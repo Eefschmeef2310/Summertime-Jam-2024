@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn8inqvlch863"]
+
+[ext_resource type="Script" path="res://OnlineFeatures/leaderboard_entry.gd" id="1_7mpdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4oj6"]
+bg_color = Color(0.215686, 0.305882, 0.290196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_52wf5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wvxe1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y687e"]
+content_margin_right = 8.0
+
+[node name="Leaderboard Entry" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 28)
+offset_right = 127.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c4oj6")
+script = ExtResource("1_7mpdf")
+
+[node name="Columns" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Position" type="Label" parent="Columns"]
+custom_minimum_size = Vector2(25.93, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "1"
+label_settings = SubResource("LabelSettings_52wf5")
+horizontal_alignment = 1
+
+[node name="Username" type="Label" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player 1"
+label_settings = SubResource("LabelSettings_wvxe1")
+
+[node name="Score" type="Label" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y687e")
+text = "120"
+label_settings = SubResource("LabelSettings_52wf5")
+horizontal_alignment = 2
