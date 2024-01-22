@@ -18,17 +18,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Leftside" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Title" type="TextureRect" parent="HBoxContainer/Leftside"]
-custom_minimum_size = Vector2(0, 195.69)
+custom_minimum_size = Vector2(0, 113.68)
 layout_mode = 2
 texture = ExtResource("2_jdbwi")
 expand_mode = 3
@@ -55,18 +57,11 @@ layout_mode = 2
 text = "Quit"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(282.04, 0)
 layout_mode = 2
 texture = ExtResource("3_m5v2r")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
+expand_mode = 4
+stretch_mode = 5
 
 [connection signal="pressed" from="HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]

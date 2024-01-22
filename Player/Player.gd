@@ -14,7 +14,7 @@ func _process(delta):
 	velocity = direction * move_speed * delta
 	move_and_slide()
 	
-	get_min_distance()
+	get_closest_interactable()
 	
 	if is_instance_valid(closest_interactive):
 		if global_position.distance_to(closest_interactive.global_position) < min_interaction_distance and closest_interactive.visible:
@@ -27,12 +27,15 @@ func _process(delta):
 	else:
 		closest_interactive = null
 	
-func get_min_distance():
+func get_closest_interactable():
+	#Also turns off prompts lol - E
 	var interactives = get_tree().get_nodes_in_group("Interactive")
 	if interactives:
 		var minimum = interactives[0].global_position.distance_to(global_position)
 		var min_index = 0;
+		interactives[0].toggle_prompt(false)
 		for i in range(1, interactives.size()):
+			interactives[i].toggle_prompt(false)
 			if interactives[i].global_position.distance_to(global_position) < minimum:
 				minimum = interactives[i].global_position.distance_to(global_position)
 				min_index = i
