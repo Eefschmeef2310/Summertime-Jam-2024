@@ -25,10 +25,10 @@ func _process(delta):
 		closest_interactive.toggle_prompt(false)
 	
 func get_min_distance():
-	var min = interactives[0].global_position.distance_to(global_position)
+	var minimum = interactives[0].global_position.distance_to(global_position)
 	var min_index = 0;
 	for i in range(1, interactives.size()):
-		if interactives[i].global_position.distance_to(global_position) < min:
-			min = interactives[i].global_position.distance_to(global_position)
+		if interactives[i].global_position.distance_to(global_position) < minimum:
+			minimum = interactives[i].global_position.distance_to(global_position)
 			min_index = i
 	closest_interactive = interactives[min_index]

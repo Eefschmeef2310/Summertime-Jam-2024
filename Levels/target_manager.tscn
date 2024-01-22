@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dism4ew1psvbp"]
+
+[ext_resource type="Script" path="res://Levels/target_manager.gd" id="1_cu1sg"]
+
+[node name="TargetManager" type="Node"]
+script = ExtResource("1_cu1sg")

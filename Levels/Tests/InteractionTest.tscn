@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://vjgyr7jlrxad"]
+[gd_scene load_steps=5 format=3 uid="uid://vjgyr7jlrxad"]
 
 [ext_resource type="PackedScene" uid="uid://df4ao4eauwen" path="res://Interactives/BaseInteractive.tscn" id="1_wvbf2"]
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="2_3oh6b"]
+[ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="4_6hcao"]
+[ext_resource type="PackedScene" uid="uid://c68xchab0wojc" path="res://Interactives/Customers/customer_base.tscn" id="4_f42f8"]
 
 [node name="InteractionTest" type="Node2D"]
 
@@ -11,5 +13,10 @@ position = Vector2(59, 58)
 [node name="Player" parent="." instance=ExtResource("2_3oh6b")]
 position = Vector2(208, 145)
 
-[node name="BaseInteractive2" parent="." instance=ExtResource("1_wvbf2")]
-position = Vector2(896, 379)
+[node name="BaseInteractive2" parent="." instance=ExtResource("4_f42f8")]
+position = Vector2(695, 270)
+
+[node name="BaseInteractive3" parent="." instance=ExtResource("4_f42f8")]
+position = Vector2(346, 408)
+
+[node name="TargetManager" parent="." instance=ExtResource("4_6hcao")]
