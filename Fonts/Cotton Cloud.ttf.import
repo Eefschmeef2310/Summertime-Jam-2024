@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dp5m7ypmwxooo"
+path="res://.godot/imported/Cotton Cloud.ttf-85b7d68d2e770757a076c6d840bd5c27.fontdata"
+
+[deps]
+
+source_file="res://Fonts/Cotton Cloud.ttf"
+dest_files=["res://.godot/imported/Cotton Cloud.ttf-85b7d68d2e770757a076c6d840bd5c27.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
