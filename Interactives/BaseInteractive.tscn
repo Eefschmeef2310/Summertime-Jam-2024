@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://df4ao4eauwen"]
 
-[ext_resource type="Script" path="res://Interactives/BaseInteractive.gd" id="1_i554m"]
+[ext_resource type="Script" path="res://Interactives/InteractivePrompt.gd" id="1_bkp54"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="2_f1n2t"]
 
 [node name="Interactive" type="StaticBody2D" groups=["Interactive"]]
-script = ExtResource("1_i554m")
+script = ExtResource("1_bkp54")
 
 [node name="InteractivePrompt" parent="." instance=ExtResource("2_f1n2t")]
 visible = false

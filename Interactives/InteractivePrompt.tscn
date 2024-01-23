@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvv5nlyq1crgg"]
 
-[ext_resource type="Script" path="res://Interactives/BaseInteractive.gd" id="1_otfcx"]
+[ext_resource type="Script" path="res://Interactives/InteractivePrompt.gd" id="1_bju06"]
 [ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="1_wv61g"]
 
 [node name="InteractivePrompt" type="Control" groups=["Interactive"]]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_otfcx")
+script = ExtResource("1_bju06")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false

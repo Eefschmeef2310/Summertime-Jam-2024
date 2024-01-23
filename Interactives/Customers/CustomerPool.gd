@@ -1,7 +1,7 @@
 extends Node
 
 var max_targets: int = 1
-var number_of_customers_total = 8
+var number_of_customers_total = 6
 
 @export var headpieces: Array[CustomerHeadpiece]
 @export var skin_colors : Array[Color]

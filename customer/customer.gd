@@ -1,5 +1,13 @@
 extends Node2D
 
+@onready var interactive_prompt = $InteractivePrompt
+@onready var sprite_2d = $Sprite2D
+@onready var sprite_2df = $Sprite2DF
+@onready var sprite_2dh = $Sprite2DH
+@onready var sprite_2ds = $Sprite2DS
+@onready var sprite_2d_hands = $Sprite2DHands
+
+
 var state = "entering"
 
 var target_chair = null
@@ -13,9 +21,12 @@ var data: CustomerData
 
 var poisoned = false
 
+var facing = 1
+
 @export var animation_players: Array[AnimationPlayer]
 
 func _ready():
+	interactive_prompt.enabled = false
 	var target_manager = get_tree().get_first_node_in_group("target_manager")
 	if target_manager:
 		data = target_manager.generate_new_customer_data()
@@ -23,6 +34,12 @@ func _ready():
 			$TargetLabel.show()
 
 func _process(delta):
+	var should_flip = (facing < 0)
+	sprite_2d.flip_h = should_flip
+	sprite_2df.flip_h = should_flip
+	sprite_2dh.flip_h = should_flip
+	sprite_2ds.flip_h = should_flip
+	sprite_2d_hands.flip_h = should_flip
 	match state:
 		"entering":
 			state_entering(delta)
@@ -33,7 +50,7 @@ func _process(delta):
 		"exiting":
 			state_exiting(delta)
 
-func _on_interactive_interacted():
+func _on_interactive_prompt_interacted():
 	just_interacted_with = true
 
 func play_animation(s):
@@ -53,7 +70,7 @@ func state_entering(delta):
 	else:
 		position = position.move_toward(target_chair.position, move_speed * delta)
 		position.y = target_chair.position.y + 5
-		scale.x = -1 * sign(position.x - target_chair.position.x)
+		facing = -1 * sign(position.x - target_chair.position.x)
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
 			state = "waiting_order"
@@ -69,9 +86,9 @@ func state_waiting_order():
 		play_animation("sit_hold")
 	
 	position = target_chair.position
-	scale.x = target_chair.scale.x
+	facing = target_chair.scale.x
 	
-	$Interactive.show()
+	interactive_prompt.enabled = true
 	if just_interacted_with:
 		print("Thanks for taking my order!")
 		just_interacted_with = false
@@ -85,9 +102,9 @@ func state_waiting_food():
 		just_entered_state = false
 	
 	position = target_chair.position
-	scale.x = target_chair.scale.x
+	facing = target_chair.scale.x
 	
-	$Interactive.show()
+	interactive_prompt.enabled = true
 	if just_interacted_with:
 		print("Thanks for the food!")
 		just_interacted_with = false
@@ -99,10 +116,10 @@ func state_exiting(delta):
 	if target_chair:
 		target_chair.occupant = null
 		position.y = target_chair.position.y + 5
-		scale.x = -1 * sign(target_chair.scale.x)
-		$Interactive.hide()
+		facing = -1 * sign(target_chair.scale.x)
+		interactive_prompt.enabled = false
 		target_chair = null
-	position.x += move_speed * sign(scale.x) * delta
+	position.x += move_speed * sign(facing) * delta
 
 func set_textures_for_animation(s: String):
 	$Sprite2DH.texture = data.headpiece.get("texture_" + s)
