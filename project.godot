@@ -32,6 +32,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Autoloads/": "purple",
+"res://Fonts/": "green",
 "res://Interactives/": "yellow",
 "res://Levels/": "blue",
 "res://Levels/Tests/": "red",
