@@ -1,7 +1,7 @@
 ## Welcome to the new and enchanced airtable manager
-# this time my manager supports usernames!!!!
+# this time my manager supports logging in to a premae username and editing saves on the server
 # during the game store and track the score and game time 
-# then just call GameComplete(score, playtime)
+# then just call GameComplete(score, playtime) TODO bear in mind this might change for the new project
 # and the system should handle the rest
 ## simples!
 
@@ -15,12 +15,13 @@ extends HTTPRequest
 var headers = ["Content-Type: application/json", "Authorization: Bearer pat4TZdDHn5W4cwql.86f6516a64f037bd6545f3a08516d8f7a2ae6eb2b4c12831329800d1beea0237"]
 var usernamePickerScene = "res://Levels/usernamePicker.tscn" #yoink the user to this scene if no account is detected 
 var saveLoaderScene = "res://Levels/saveLoader.tscn" #sent the user to the save loader after they create their user or login
-var menuSceme = "res://Levels/level.tscn"
+var menuSceme = "res://Levels/level.tscn" #where to send the user after login is complete
 
 var saveRes : SaveDataRes
 var savePath : String = "user://savegame.tres"
-var waitState : String = "" #emoty menas the code is not expecting anything from the server
+var waitState : String = "" #empty menas the code is not expecting anything from the server
 var idOfLastCheck : String = ""
+var offlineModeActive = false
 
 var debugNewSave = false #set to true to force a new username to be picked
 var GAME_VERSION = 1 #increment this for leaderboard resets!
