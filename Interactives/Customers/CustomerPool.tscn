@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://v0fvyv6bd5si" path="res://customer/sprites/sit/customer_sit_s1mustard.png" id="10_5pw0p"]
 [ext_resource type="Texture2D" uid="uid://ccyj007ru3oil" path="res://customer/sprites/sit/customer_sit_s1olive.png" id="12_x43ps"]
 [ext_resource type="Texture2D" uid="uid://c717hjs6vyb6" path="res://customer/sprites/sit/customer_sit_s1red.png" id="14_mrfm1"]
-[ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_beef.tres" id="16_dlega"]
+[ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="16_dlega"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_habit.gd" id="16_wj8q0"]
 [ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="17_mq1c4"]
-[ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_lamb.tres" id="18_cpgcg"]
+[ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_kebab.tres" id="18_cpgcg"]
 
 [sub_resource type="Resource" id="Resource_kkbhf"]
 script = ExtResource("2_y57vj")

@@ -1,6 +1,6 @@
 extends Control
 
-var enabled = false
+var enabled = true
 
 signal interacted()
 

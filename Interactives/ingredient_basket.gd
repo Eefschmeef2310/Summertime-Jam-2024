@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var holdable_item_resource: HoldableItem
+@export var holdable_item_resource: OrderResource
 
 @onready var holdable_item_scene : PackedScene = preload("res://holdable_items/scenes/holdable_item_scene.tscn")
 

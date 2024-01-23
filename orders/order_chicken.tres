@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="OrderResource" load_steps=2 format=3 uid="uid://b17gbc3qv43ga"]
+[gd_resource type="Resource" script_class="OrderResource" load_steps=4 format=3 uid="uid://b17gbc3qv43ga"]
 
 [ext_resource type="Script" path="res://orders/order_resource.gd" id="1_766f3"]
+[ext_resource type="Texture2D" uid="uid://dtx2ibpgfxx0r" path="res://PlaceholderSprites/580b57fbd9996e24bc43c0ce.png" id="1_mshf3"]
+[ext_resource type="Texture2D" uid="uid://bdnp7yq1cn67y" path="res://PlaceholderSprites/3b0bc6d5b8bdcfeb9c3a0f88b76750a9.jpg" id="3_a2urr"]
 
 [resource]
 script = ExtResource("1_766f3")
 name = "Chicken"
+uncooked_texture = ExtResource("3_a2urr")
+cooked_texture = ExtResource("1_mshf3")

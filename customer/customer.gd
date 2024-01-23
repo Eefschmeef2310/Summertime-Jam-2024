@@ -7,6 +7,7 @@ extends Node2D
 @onready var sprite_2ds = $Sprite2DS
 @onready var sprite_2d_hands = $Sprite2DHands
 
+var player
 
 var state = "entering"
 
@@ -27,6 +28,7 @@ var facing = 1
 
 func _ready():
 	interactive_prompt.enabled = false
+	player = get_tree().get_first_node_in_group("Player")
 	var target_manager = get_tree().get_first_node_in_group("target_manager")
 	if target_manager:
 		data = target_manager.generate_new_customer_data()
@@ -90,7 +92,7 @@ func state_waiting_order():
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
-		print("Thanks for taking my order!")
+		print("I want " + data.order_pref.name + "!")
 		just_interacted_with = false
 		just_entered_state = true
 		state = "waiting_food"
@@ -106,9 +108,21 @@ func state_waiting_food():
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
-		print("Thanks for the food!")
+		var player_food_holding: OrderResource = player.held_item.item_resource
+		if data.order_pref == player_food_holding:
+			# correct food
+			if player.held_item.cooked:
+				# cooked food
+				print("Thanks for the food!")
+				player.held_item.queue_free()
+				state = "exiting"
+			else:
+				# uncooked food
+				print("This isn't cooked! Are you trying to poison me?")
+		else:
+			# incorrect food
+			print("Kill yourself!")
 		just_interacted_with = false
-		state = "exiting"
 
 func state_exiting(delta):
 	$AnimationPlayerHands.play("none")

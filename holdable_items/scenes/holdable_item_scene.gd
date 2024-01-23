@@ -1,8 +1,7 @@
 extends Sprite2D
 class_name HoldableItemScene
 
-var item_resource : HoldableItem = HoldableItem.new()
-var item_type
+var item_resource : OrderResource = OrderResource.new()
 
 var cooked: bool = false
 var poisoned: bool = false
@@ -11,7 +10,6 @@ var poisoned: bool = false
 
 func _ready():
 	texture = item_resource.cooked_texture if cooked else item_resource.uncooked_texture
-	item_type = item_resource.type
 
 func _process(_delta):
 	if !$CookTimer.is_stopped():

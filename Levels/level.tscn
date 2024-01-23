@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dny2y6h01yq37" path="res://customer/table.tscn" id="4_cljbk"]
 [ext_resource type="PackedScene" uid="uid://d3uce38en0ui4" path="res://Interactives/BBQ.tscn" id="5_7wowj"]
 [ext_resource type="PackedScene" uid="uid://c2c0qjo2pe2u8" path="res://Interactives/ingredient_basket.tscn" id="6_e0uaq"]
-[ext_resource type="Resource" uid="uid://bbh5lkiyp4ocs" path="res://holdable_items/sausage_item.tres" id="7_rgu51"]
-[ext_resource type="Resource" uid="uid://tu320rp5rnbi" path="res://holdable_items/kebab_item.tres" id="8_csi2u"]
-[ext_resource type="Resource" uid="uid://ddma41706r3xc" path="res://holdable_items/chicken_item.tres" id="9_tqpcw"]
+[ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="7_ocrlp"]
+[ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_kebab.tres" id="8_6xudt"]
+[ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="9_605p5"]
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="10_l2v2k"]
 
 [node name="Level" type="Node2D"]
@@ -61,21 +61,21 @@ position = Vector2(340, 92)
 
 [node name="SausageBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(65, 92)
-holdable_item_resource = ExtResource("7_rgu51")
+holdable_item_resource = ExtResource("7_ocrlp")
 
 [node name="Label" parent="SausageBasket/InteractivePrompt" index="1"]
 text = "Sausage"
 
 [node name="KebabBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(120, 124)
-holdable_item_resource = ExtResource("8_csi2u")
+holdable_item_resource = ExtResource("8_6xudt")
 
 [node name="Label" parent="KebabBasket/InteractivePrompt" index="1"]
 text = "Kebab"
 
 [node name="ChickenBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(183, 95)
-holdable_item_resource = ExtResource("9_tqpcw")
+holdable_item_resource = ExtResource("9_605p5")
 
 [node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
 text = "Chicken"
