@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+AirtableManager="*res://online/AirtableManager.gd"
 CustomerPool="*res://Interactives/Customers/CustomerPool.tscn"
 
 [display]
