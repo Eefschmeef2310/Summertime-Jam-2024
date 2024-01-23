@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4dqulc66ytm4"]
+
+[ext_resource type="Script" path="res://online/usernamePicker.gd" id="1_rscvl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_16ysa"]
+
+[node name="UsernamePicker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rscvl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -52.0
+offset_right = 264.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ErrorText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Please enter your username!"
+label_settings = SubResource("LabelSettings_16ysa")
+horizontal_alignment = 1
+
+[node name="LoginInfo" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "If this is your first time playing please enter a username for the leaderboards, if you've played before type in the username you used last time and you can log in :3"
+fit_content = true
+
+[node name="UsernameFeild" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Username"
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Submit"
+
+[node name="Login Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Login"
+
+[connection signal="pressed" from="VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Login Button" to="." method="_on_login_button_pressed"]
