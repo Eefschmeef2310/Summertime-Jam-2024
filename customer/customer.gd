@@ -11,6 +11,8 @@ var move_speed = 75
 var target_manager
 var data: CustomerData
 
+var poisoned = false
+
 @export var animation_players: Array[AnimationPlayer]
 
 func _ready():
@@ -73,10 +75,15 @@ func state_waiting_order():
 	if just_interacted_with:
 		print("Thanks for taking my order!")
 		just_interacted_with = false
+		just_entered_state = true
 		state = "waiting_food"
 		print(data.habit.description)
 
 func state_waiting_food():
+	if just_entered_state:
+		$AnimationPlayerHands.play(data.habit.anim_name.pick_random())
+		just_entered_state = false
+	
 	position = target_chair.position
 	scale.x = target_chair.scale.x
 	

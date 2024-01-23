@@ -58,12 +58,12 @@ texture_sit = ExtResource("14_mrfm1")
 
 [sub_resource type="Resource" id="Resource_apqln"]
 script = ExtResource("16_wj8q0")
-anim_name = Array[String](["game"])
+anim_name = Array[String](["habit_game"])
 description = "playing video games"
 
 [sub_resource type="Resource" id="Resource_6sg6n"]
 script = ExtResource("16_wj8q0")
-anim_name = Array[String](["habit_book", "habit_book_2", "habit_book_3", "habit_book_4", "habit_book_5"])
+anim_name = Array[String](["habit_book", "habit_book_1", "habit_book_2", "habit_book_3", "habit_book_4"])
 description = "reading books"
 
 [node name="CustomerPool" type="Node"]
