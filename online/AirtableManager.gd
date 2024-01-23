@@ -14,8 +14,8 @@ extends HTTPRequest
 
 var headers = ["Content-Type: application/json", "Authorization: Bearer pat4TZdDHn5W4cwql.86f6516a64f037bd6545f3a08516d8f7a2ae6eb2b4c12831329800d1beea0237"]
 var usernamePickerScene = "res://Levels/usernamePicker.tscn" #yoink the user to this scene if no account is detected 
-var nextScene = "res://Levels/saveLoader.tscn" #sent the user to the save loader after they create their user or login
-
+var saveLoaderScene = "res://Levels/saveLoader.tscn" #sent the user to the save loader after they create their user or login
+var menuSceme = "res://Levels/Tests/InteractionTest.tscn"
 
 var saveRes : SaveDataRes
 var savePath : String = "user://savegame.tres"
@@ -36,7 +36,7 @@ func _ready():
 	request_completed.connect(_on_request_completed)
 	if (FileAccess.file_exists(savePath)||debugNewSave):
 		Load()
-		get_tree().change_scene_to_file(nextScene)
+		get_tree().change_scene_to_file(saveLoaderScene)
 	else:
 		#create a new save file
 		saveRes = SaveDataRes.new()

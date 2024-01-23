@@ -47,11 +47,11 @@ func OnNewUserResponse(newID : String):
 		AirtableManager.SetSaveData(newID, usernameTemp)
 		error_text.text = "User created, ID: " + newID
 		error_text.label_settings.font_color = Color.MEDIUM_TURQUOISE
-		get_tree().change_scene_to_file("res://Levels/MainMenu.tscn")
+		get_tree().change_scene_to_file(AirtableManager.saveLoaderScene)
 	else:
 		print("issue wth new user response, recevied id: " + newID)
 
 
 func _on_login_button_pressed():
 	AirtableManager.saveRes.userID = AirtableManager.idOfLastCheck
-	get_tree().change_scene_to_file("res://Levels/saveLoader.tscn")
+	get_tree().change_scene_to_file(AirtableManager.saveLoaderScene)
