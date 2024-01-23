@@ -31,6 +31,11 @@ func _process(delta):
 	else:
 		closest_interactive = null
 	
+	# TODO PLACEHOLDER FOR DEBUG
+	if held_item and Input.is_action_just_pressed("Poison"):
+		held_item.poisoned = true
+		print("Food poisoned. >:)")
+	
 func get_closest_interactable():
 	#Also turns off prompts lol - E
 	var interactives = get_tree().get_nodes_in_group("Interactive")

@@ -51,6 +51,8 @@ func _process(delta):
 			state_waiting_food()
 		"exiting":
 			state_exiting(delta)
+		"die":
+			state_die()
 
 func _on_interactive_prompt_interacted():
 	just_interacted_with = true
@@ -107,15 +109,24 @@ func state_waiting_food():
 	facing = target_chair.scale.x
 	
 	interactive_prompt.enabled = true
-	if just_interacted_with:
+	if just_interacted_with and player.held_item:
 		var player_food_holding: OrderResource = player.held_item.item_resource
 		if data.order_pref == player_food_holding:
 			# correct food
 			if player.held_item.cooked:
 				# cooked food
-				print("Thanks for the food!")
-				player.held_item.queue_free()
-				state = "exiting"
+				if player.held_item.poisoned:
+					# poisoned food
+					print("You... cunt...")
+					just_entered_state = true
+					player.held_item.queue_free()
+					state = "die"
+					$DeathDespawnTimer.start()
+				else:
+					# perfectly good eatable food
+					print("Thanks for the food!")
+					player.held_item.queue_free()
+					state = "exiting"
 			else:
 				# uncooked food
 				print("This isn't cooked! Are you trying to poison me?")
@@ -123,6 +134,13 @@ func state_waiting_food():
 			# incorrect food
 			print("Kill yourself!")
 		just_interacted_with = false
+
+func state_die():
+	interactive_prompt.enabled = false
+	if just_entered_state:
+		$AnimationPlayerHands.play("none")
+		play_animation("die")
+		just_entered_state = false
 
 func state_exiting(delta):
 	$AnimationPlayerHands.play("none")
@@ -142,3 +160,10 @@ func set_textures_for_animation(s: String):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if state == "exiting":
 		queue_free()
+
+
+func _on_death_despawn_timer_timeout():
+	if target_chair:
+		target_chair.occupant = null
+		target_chair = null
+	queue_free()
