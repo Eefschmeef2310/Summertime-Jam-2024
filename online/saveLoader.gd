@@ -6,6 +6,7 @@ var headers = ["Content-Type: application/json", "Authorization: Bearer pat4TZdD
 @onready var label = $MarginContainer/VBoxContainer/Label
 @onready var retry_button = $MarginContainer/VBoxContainer/RetryButton
 @onready var create_new_button = $MarginContainer/VBoxContainer/CreateNewButton
+@onready var offline_mode = $MarginContainer/VBoxContainer/OfflineMode
 
 #var nextScene = "res://Levels/Tests/InteractionTest.tscn" #menu scene goes here
 #var usernameScene = "res://Levels/usernamePicker.tscn" # send them back here if loading fails
@@ -34,6 +35,7 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 		label.label_settings.font_color = Color.CRIMSON
 		retry_button.visible = true
 		create_new_button.visible = true
+		offline_mode.visible = true
 	else:
 		print(json.fields.get("Games Played"))
 		
@@ -73,4 +75,9 @@ func _on_retry_button_pressed():
 	label.label_settings.font_color = Color.WHITE
 	retry_button.visible = false
 	create_new_button.visible = false
+	offline_mode.visible = false
 	get_tree().change_scene_to_file(AirtableManager.saveLoaderScene)
+
+
+func _on_offline_mode_pressed():
+	get_tree().change_scene_to_file(AirtableManager.menuSceme)
