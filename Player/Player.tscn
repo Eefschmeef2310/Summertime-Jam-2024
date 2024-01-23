@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le5dp"]
 size = Vector2(30, 10)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_3wgci")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -16,3 +16,6 @@ texture = ExtResource("2_xqke0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_le5dp")
+
+[node name="FoodMarker" type="Marker2D" parent="."]
+position = Vector2(-10, -18)

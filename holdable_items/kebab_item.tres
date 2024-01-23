@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="HoldableItem" load_steps=2 format=3 uid="uid://tu320rp5rnbi"]
+
+[ext_resource type="Script" path="res://holdable_items/holdable_item_base.gd" id="1_exca0"]
+
+[resource]
+script = ExtResource("1_exca0")
+type = 0

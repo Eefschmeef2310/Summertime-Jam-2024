@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://nn71prxne0x2"]
+
+[ext_resource type="Script" path="res://holdable_items/scenes/holdable_item_scene.gd" id="1_8a604"]
+[ext_resource type="Texture2D" uid="uid://bdnp7yq1cn67y" path="res://PlaceholderSprites/3b0bc6d5b8bdcfeb9c3a0f88b76750a9.jpg" id="1_p0dqm"]
+[ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="3_jwkqw"]
+
+[node name="HoldableItemScene" type="Sprite2D"]
+texture = ExtResource("1_p0dqm")
+script = ExtResource("1_8a604")
+
+[node name="CookTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -90.0
+offset_right = -16.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+fill_mode = 5
+texture_progress = ExtResource("3_jwkqw")
+
+[connection signal="timeout" from="CookTimer" to="." method="_on_cook_timer_timeout"]

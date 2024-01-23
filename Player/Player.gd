@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
+signal PlayerManagerInit()
+
 @export var move_speed: float = 20000
 @export var min_interaction_distance : float = 50
 
 var interactives : Array
-var closest_interactive : Node2D
+var closest_interactive : Control
+
+var held_item: Node2D
 
 func _ready():
-	pass
+	PlayerManagerInit.emit()
 
 func _process(delta):
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -17,7 +21,7 @@ func _process(delta):
 	get_closest_interactable()
 	
 	if is_instance_valid(closest_interactive):
-		if global_position.distance_to(closest_interactive.global_position) < min_interaction_distance and closest_interactive.visible:
+		if global_position.distance_to(closest_interactive.global_position) < min_interaction_distance:
 			closest_interactive.toggle_prompt(true)
 			if Input.is_action_just_pressed("Interact"):
 				closest_interactive.interact()
