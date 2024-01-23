@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt6yx3efi0388"]
+[gd_scene load_steps=10 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
 [ext_resource type="PackedScene" uid="uid://bwa61yens38wp" path="res://customer/chair.tscn" id="2_hwcln"]
@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://bbh5lkiyp4ocs" path="res://holdable_items/sausage_item.tres" id="7_rgu51"]
 [ext_resource type="Resource" uid="uid://tu320rp5rnbi" path="res://holdable_items/kebab_item.tres" id="8_csi2u"]
 [ext_resource type="Resource" uid="uid://ddma41706r3xc" path="res://holdable_items/chicken_item.tres" id="9_tqpcw"]
-[ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="10_l2v2k"]
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -63,27 +62,24 @@ position = Vector2(340, 92)
 
 [node name="SausageBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(65, 92)
-holdable_item_resource = ExtResource("7_rgu51")
+item = ExtResource("7_rgu51")
 
 [node name="Label" parent="SausageBasket/InteractivePrompt" index="1"]
 text = "Sausage"
 
 [node name="KebabBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(120, 124)
-holdable_item_resource = ExtResource("8_csi2u")
+item = ExtResource("8_csi2u")
 
 [node name="Label" parent="KebabBasket/InteractivePrompt" index="1"]
 text = "Kebab"
 
 [node name="ChickenBasket" parent="." instance=ExtResource("6_e0uaq")]
 position = Vector2(183, 95)
-holdable_item_resource = ExtResource("9_tqpcw")
+item = ExtResource("9_tqpcw")
 
 [node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
 text = "Chicken"
-
-[node name="Bin" parent="." instance=ExtResource("10_l2v2k")]
-position = Vector2(518, 103)
 
 [editable path="SausageBasket"]
 [editable path="SausageBasket/InteractivePrompt"]

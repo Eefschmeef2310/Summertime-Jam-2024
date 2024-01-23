@@ -10,9 +10,6 @@ var move_speed = 75
 
 @export var animation_players: Array[AnimationPlayer]
 
-func _ready():
-	pass
-
 func _process(delta):
 	match state:
 		"entering":
@@ -23,9 +20,6 @@ func _process(delta):
 			state_waiting_food()
 		"exiting":
 			state_exiting(delta)
-
-func _on_interactive_interacted():
-	just_interacted_with = true
 
 func play_animation(s):
 	for ap in animation_players:
@@ -62,7 +56,7 @@ func state_waiting_order():
 	position = target_chair.position
 	scale.x = target_chair.scale.x
 	
-	$Interactive.show()
+	#$InteractivePrompt.show()
 	if just_interacted_with:
 		print("Thanks for taking my order!")
 		just_interacted_with = false
@@ -73,7 +67,7 @@ func state_waiting_food():
 	scale.x = target_chair.scale.x
 	play_animation("sit_hold")
 	
-	$Interactive.show()
+	#$InteractivePrompt.show()
 	if just_interacted_with:
 		print("Thanks for the food!")
 		just_interacted_with = false
@@ -85,7 +79,7 @@ func state_exiting(delta):
 		target_chair.occupant = null
 		position.y = target_chair.position.y + 5
 		scale.x = -1 * sign(position.x - target_chair.scale.x)
-		$Interactive.hide()
+		#$InteractivePrompt.hide()
 		target_chair = null
 	position.x += move_speed * sign(scale.x) * delta
 
@@ -93,3 +87,6 @@ func state_exiting(delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if state == "exiting":
 		queue_free()
+
+func _on_interactive_prompt_interacted():
+	just_interacted_with = true

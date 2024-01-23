@@ -1,9 +1,9 @@
-extends Node2D
+extends Control
 
 signal interacted()
 
 func toggle_prompt(toggle:bool):
-	$InteractivePrompt.visible = toggle
+	visible = toggle
 
 func interact():
 	if visible:
