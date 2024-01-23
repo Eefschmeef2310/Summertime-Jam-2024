@@ -3,6 +3,7 @@ extends Node2D
 var state = "entering"
 
 var target_chair = null
+var just_entered_state = false
 var just_interacted_with = false
 
 var move_speed = 75
@@ -47,11 +48,19 @@ func state_entering(delta):
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
 			state = "waiting_order"
+			just_entered_state = true
 
 func state_waiting_order():
+	if just_entered_state:
+		play_animation("sit")
+		just_entered_state = false
+	
+	elif !$AnimationPlayer.is_playing():
+		
+		play_animation("sit_hold")
+	
 	position = target_chair.position
 	scale.x = target_chair.scale.x
-	play_animation("sit")
 	
 	$Interactive.show()
 	if just_interacted_with:
@@ -62,7 +71,7 @@ func state_waiting_order():
 func state_waiting_food():
 	position = target_chair.position
 	scale.x = target_chair.scale.x
-	play_animation("sit")
+	play_animation("sit_hold")
 	
 	$Interactive.show()
 	if just_interacted_with:

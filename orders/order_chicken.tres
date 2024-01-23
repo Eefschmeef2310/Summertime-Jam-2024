@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="OrderResource" load_steps=2 format=3 uid="uid://b17gbc3qv43ga"]
+
+[ext_resource type="Script" path="res://orders/order_resource.gd" id="1_766f3"]
+
+[resource]
+script = ExtResource("1_766f3")
+name = "Chicken"

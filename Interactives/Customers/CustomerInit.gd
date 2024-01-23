@@ -44,6 +44,5 @@ func generate_attributes():
 		complete = differences > 3
 	
 func set_textures_for_animation(s: String):
-	print(clothing.get("texture_" + s))
 	$"../Sprite2DH".texture = headpiece.get("texture_" + s)
 	$"../Sprite2DS".texture = clothing.get("texture_" + s)
