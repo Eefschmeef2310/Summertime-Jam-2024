@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7htgkoo6ouf7"]
+[gd_scene load_steps=28 format=3 uid="uid://b7htgkoo6ouf7"]
 
 [ext_resource type="Script" path="res://Interactives/Customers/CustomerPool.gd" id="1_wanuu"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_headpiece.gd" id="2_y57vj"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://v0fvyv6bd5si" path="res://customer/sprites/sit/customer_sit_s1mustard.png" id="10_5pw0p"]
 [ext_resource type="Texture2D" uid="uid://ccyj007ru3oil" path="res://customer/sprites/sit/customer_sit_s1olive.png" id="12_x43ps"]
 [ext_resource type="Texture2D" uid="uid://c717hjs6vyb6" path="res://customer/sprites/sit/customer_sit_s1red.png" id="14_mrfm1"]
+[ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_beef.tres" id="16_dlega"]
+[ext_resource type="Script" path="res://Interactives/Customers/customer_habit.gd" id="16_wj8q0"]
+[ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="17_mq1c4"]
+[ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_lamb.tres" id="18_cpgcg"]
 
 [sub_resource type="Resource" id="Resource_kkbhf"]
 script = ExtResource("2_y57vj")
@@ -52,10 +56,20 @@ text = "Red Shirt"
 texture_walk = ExtResource("9_djpfy")
 texture_sit = ExtResource("14_mrfm1")
 
+[sub_resource type="Resource" id="Resource_apqln"]
+script = ExtResource("16_wj8q0")
+anim_name = Array[String](["habit_game"])
+description = "playing video games"
+
+[sub_resource type="Resource" id="Resource_6sg6n"]
+script = ExtResource("16_wj8q0")
+anim_name = Array[String](["habit_book", "habit_book_1", "habit_book_2", "habit_book_3", "habit_book_4"])
+description = "reading books"
+
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
 headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im")])
 skin_colors = Array[Color]([Color(0.290196, 0, 0, 1), Color(0.894118, 0.752941, 0.482353, 1), Color(1, 0.776471, 0.776471, 1)])
 clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l")])
-habit = Array[String](["Smoke", "Phone", "Gaming"])
-order_pref = Array[String](["Kebab", "Sausage", "Souvlaki"])
+habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n")])
+order_pref = Array[Resource("res://orders/order_resource.gd")]([ExtResource("16_dlega"), ExtResource("17_mq1c4"), ExtResource("18_cpgcg")])
