@@ -8,10 +8,17 @@ var just_interacted_with = false
 
 var move_speed = 75
 
+var target_manager
+var data: CustomerData
+
 @export var animation_players: Array[AnimationPlayer]
 
 func _ready():
-	pass
+	var target_manager = get_tree().get_first_node_in_group("target_manager")
+	if target_manager:
+		data = target_manager.generate_new_customer()
+		if data.is_target:
+			$TargetLabel.show()
 
 func _process(delta):
 	match state:
@@ -89,6 +96,9 @@ func state_exiting(delta):
 		target_chair = null
 	position.x += move_speed * sign(scale.x) * delta
 
+func set_textures_for_animation(s: String):
+	$Sprite2DH.texture = data.headpiece.get("texture_" + s)
+	$Sprite2DS.texture = data.clothing.get("texture_" + s)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if state == "exiting":
