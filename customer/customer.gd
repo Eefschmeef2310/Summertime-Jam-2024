@@ -16,7 +16,7 @@ var data: CustomerData
 func _ready():
 	var target_manager = get_tree().get_first_node_in_group("target_manager")
 	if target_manager:
-		data = target_manager.generate_new_customer()
+		data = target_manager.generate_new_customer_data()
 		if data.is_target:
 			$TargetLabel.show()
 
@@ -43,7 +43,7 @@ func state_entering(delta):
 	if !target_chair:
 		var chairs = get_tree().get_nodes_in_group("chair")
 		for chair in chairs:
-			if !chair.occupant != null:
+			if chair.occupant == null:
 				chair.occupant = self
 				target_chair = chair
 				position.y = target_chair.position.y + 5
@@ -51,7 +51,7 @@ func state_entering(delta):
 	else:
 		position = position.move_toward(target_chair.position, move_speed * delta)
 		position.y = target_chair.position.y + 5
-		scale.x = -1 * sign(position.x - target_chair.scale.x)
+		scale.x = -1 * sign(position.x - target_chair.position.x)
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
 			state = "waiting_order"
@@ -74,11 +74,11 @@ func state_waiting_order():
 		print("Thanks for taking my order!")
 		just_interacted_with = false
 		state = "waiting_food"
+		print(data.habit.description)
 
 func state_waiting_food():
 	position = target_chair.position
 	scale.x = target_chair.scale.x
-	play_animation("sit_hold")
 	
 	$Interactive.show()
 	if just_interacted_with:
@@ -87,11 +87,12 @@ func state_waiting_food():
 		state = "exiting"
 
 func state_exiting(delta):
+	$AnimationPlayerHands.play("none")
 	play_animation("walk")
 	if target_chair:
 		target_chair.occupant = null
 		position.y = target_chair.position.y + 5
-		scale.x = -1 * sign(position.x - target_chair.scale.x)
+		scale.x = -1 * sign(target_chair.scale.x)
 		$Interactive.hide()
 		target_chair = null
 	position.x += move_speed * sign(scale.x) * delta

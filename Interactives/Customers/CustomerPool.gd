@@ -6,7 +6,7 @@ var number_of_customers_total = 8
 @export var headpieces: Array[CustomerHeadpiece]
 @export var skin_colors : Array[Color]
 @export var clothes : Array[CustomerClothes]
-@export var habit : Array[String]
+@export var habit : Array[CustomerHabit]
 @export var order_pref : Array[OrderResource]
 
 func get_random_combo() -> CustomerData:

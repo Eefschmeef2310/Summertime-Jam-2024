@@ -1,5 +1,7 @@
 extends Node
 
+var customer_scene: PackedScene = preload("res://customer/customer.tscn")
+
 var target_data: Array[CustomerData]
 var targets_that_have_been_spawned: Array[CustomerData]
 var spawn_target_odds: Array[bool] = []
@@ -24,8 +26,32 @@ func _ready():
 	for n in CustomerPool.max_targets:
 		if n < spawn_target_odds.size():
 			spawn_target_odds[n] = true
+	
 
-func generate_new_customer() -> CustomerData:
+func instantiate_customer():
+	# Check if there are any customers left to spawn
+	if !spawn_target_odds.is_empty():
+		# Check if there is at least 1 empty chair
+		var chairs = get_tree().get_nodes_in_group("chair")
+		var free_chair = false
+		for chair in chairs:
+			if chair.occupant == null:
+				free_chair = true
+				break
+		
+		if free_chair:
+			# Spawn customer
+			var customer = customer_scene.instantiate()
+			if randi_range(0, 1) == 0:
+				customer.position.x = 0 - 20
+			else:
+				customer.position.x = 640 + 20
+			get_parent().add_child(customer)
+		
+	# Start spawn timer
+	$SpawnTimer.start()
+
+func generate_new_customer_data() -> CustomerData:
 	# Decide if this customer should be a target or not
 	var rand = randi_range(0, spawn_target_odds.size()-1)
 	var spawn_target = spawn_target_odds[rand]
@@ -66,3 +92,11 @@ func generate_new_customer() -> CustomerData:
 			#i.target_manager = self
 			#print(i.target_manager)
 			#i.initialise()
+
+
+func _on_startup_timer_timeout():
+	instantiate_customer()
+
+
+func _on_spawn_timer_timeout():
+	instantiate_customer()
