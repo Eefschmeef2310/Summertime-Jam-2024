@@ -29,6 +29,8 @@ func _process(_delta):
 	if held_item and Input.is_action_just_pressed("Poison"):
 		held_item.poisoned = true
 	
+	handle_animation()
+	
 func get_closest_interactable():
 	#Also turns off prompts lol - E
 	var interactives = get_tree().get_nodes_in_group("Interactive")
@@ -42,3 +44,7 @@ func get_closest_interactable():
 				minimum = interactives[i].global_position.distance_to(global_position)
 				min_index = i
 		closest_interactive = interactives[min_index]
+
+func handle_animation():
+	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	pass

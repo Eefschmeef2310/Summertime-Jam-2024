@@ -1,18 +1,112 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2dba2snopj2"]
+[gd_scene load_steps=7 format=3 uid="uid://b2dba2snopj2"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_3wgci"]
-[ext_resource type="Texture2D" uid="uid://b7pu4ou3l7ujx" path="res://Player/sprites/player.png" id="2_xqke0"]
+[ext_resource type="Texture2D" uid="uid://dlr7dujjfjtyg" path="res://Player/sprites/player_run.png" id="2_l2867"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le5dp"]
 size = Vector2(30, 10)
+
+[sub_resource type="Animation" id="Animation_yn15y"]
+resource_name = "run"
+length = 0.9
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteBody:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_l2867")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteBody:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteBody:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_7opcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteBody:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_l2867")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteBody:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteBody:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wj2g"]
+_data = {
+"RESET": SubResource("Animation_7opcy"),
+"run": SubResource("Animation_yn15y")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_3wgci")
 move_speed = 200.0
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="SpriteBody" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("2_xqke0")
+texture = ExtResource("2_l2867")
+hframes = 6
+frame = 1
+
+[node name="SpriteHandsFront" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+hframes = 6
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -20,3 +114,8 @@ shape = SubResource("RectangleShape2D_le5dp")
 
 [node name="FoodMarker" type="Marker2D" parent="."]
 position = Vector2(-10, -18)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0wj2g")
+}
