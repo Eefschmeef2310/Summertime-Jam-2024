@@ -51,6 +51,8 @@ func _process(delta):
 			state_waiting_food()
 		"exiting":
 			state_exiting(delta)
+		"eat":
+			state_eat()
 		"die":
 			state_die()
 
@@ -113,25 +115,18 @@ func state_waiting_food():
 		if player.held_item:
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
-				
 				#update score
 				ScoreManager.score += 10 if data.is_target else 5
-				
 				# correct food
 				if player.held_item.cooked:
 					# cooked food
 					if player.held_item.poisoned:
-						# poisoned food
-						print("You... cunt...")
-						just_entered_state = true
-						player.held_item.queue_free()
-						state = "die"
-						$DeathDespawnTimer.start()
-					else:
-						# perfectly good eatable food
-						print("Thanks for the food!")
-						player.held_item.queue_free()
-						state = "exiting"
+						print("this is poisoned...")
+						poisoned = true
+					print("Thanks for the food!")
+					just_entered_state = true
+					player.held_item.queue_free()
+					state = "eat"
 				else:
 					# uncooked food
 					print("This isn't cooked! Are you trying to poison me?")
@@ -140,10 +135,21 @@ func state_waiting_food():
 				print("Kill yourself!")
 		just_interacted_with = false
 
+func state_eat():
+	interactive_prompt.enabled = false
+	if just_entered_state:
+		print("YEEEEEAP")
+		$AnimationPlayerHands.play("none")
+		$DieFromPoisonTimer.start()
+		$ExitTimer.start()
+		play_animation("eat")
+		just_entered_state = false
+
 func state_die():
 	interactive_prompt.enabled = false
 	if just_entered_state:
 		$AnimationPlayerHands.play("none")
+		$ExitTimer.stop()
 		play_animation("die")
 		just_entered_state = false
 
@@ -171,3 +177,14 @@ func _on_death_despawn_timer_timeout():
 		target_chair.occupant = null
 		target_chair = null
 	queue_free()
+
+
+func _on_die_from_poison_timer_timeout():
+	if poisoned:
+		just_entered_state = true
+		state = "die"
+		$DeathDespawnTimer.start()
+
+
+func _on_exit_timer_timeout():
+	state = "exiting"
