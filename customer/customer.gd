@@ -112,6 +112,10 @@ func state_waiting_food():
 	if just_interacted_with and player.held_item:
 		var player_food_holding: OrderResource = player.held_item.item_resource
 		if data.order_pref == player_food_holding:
+			
+			#update score
+			ScoreManager.score += 10 if data.is_target else 5
+			
 			# correct food
 			if player.held_item.cooked:
 				# cooked food
@@ -160,7 +164,6 @@ func set_textures_for_animation(s: String):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if state == "exiting":
 		queue_free()
-
 
 func _on_death_despawn_timer_timeout():
 	if target_chair:
