@@ -17,8 +17,12 @@ func _ready():
 	texture = item_resource.cooked_texture if cooked else item_resource.uncooked_texture
 
 func _process(_delta):
+	$GPUParticles2D.emitting = false
+	$TextureProgressBar.hide()
 	if !$CookTimer.is_stopped():
-		$TextureProgressBar.value = ($CookTimer.time_left / $CookTimer.wait_time)
+		$GPUParticles2D.emitting = true
+		$TextureProgressBar.show()
+		$TextureProgressBar.value = 1 - ($CookTimer.time_left / $CookTimer.wait_time)
 	
 func start_cook_timer():
 	$CookTimer.start()

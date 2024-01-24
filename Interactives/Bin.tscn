@@ -1,22 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcqnkx76lt3jc"]
+[gd_scene load_steps=5 format=3 uid="uid://bcqnkx76lt3jc"]
 
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="1_32lpj"]
-[ext_resource type="Texture2D" uid="uid://v7i8wsmjygun" path="res://PlaceholderSprites/4021663.png" id="1_o0wwk"]
 [ext_resource type="Script" path="res://Interactives/Bin.gd" id="1_wxgtw"]
+[ext_resource type="Texture2D" uid="uid://cfefgnl4cdl5e" path="res://orders/sprites/bin.png" id="2_gf3sw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_747uc"]
+size = Vector2(40, 10)
 
 [node name="Bin" type="Node2D"]
 script = ExtResource("1_wxgtw")
 
 [node name="Bin" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_o0wwk")
+position = Vector2(0, -19)
+texture = ExtResource("2_gf3sw")
 
 [node name="InteractivePrompt" parent="." instance=ExtResource("1_32lpj")]
-offset_top = -33.0
-offset_bottom = -33.0
+offset_top = -5.0
+offset_bottom = -5.0
 
 [node name="Label" parent="InteractivePrompt" index="1"]
+offset_top = -56.0
+offset_bottom = -33.0
 text = "Bin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_747uc")
 
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 

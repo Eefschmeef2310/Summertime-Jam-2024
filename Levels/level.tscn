@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt6yx3efi0388"]
+[gd_scene load_steps=15 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_hlcwv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="10_l2v2k"]
 [ext_resource type="Texture2D" uid="uid://bc1wvvf86t7fq" path="res://orders/sprites/food_kebab_raw.png" id="10_yjf0y"]
 [ext_resource type="Script" path="res://Levels/UI.gd" id="11_wcp83"]
+[ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_pnhxy"]
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -27,13 +28,13 @@ autostart = true
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_0sgre")]
-position = Vector2(297, 113)
+position = Vector2(309, 153)
 
 [node name="Chair" parent="." instance=ExtResource("2_hwcln")]
 position = Vector2(156, 242)
 
 [node name="Table" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(191, 243)
+position = Vector2(191, 241)
 
 [node name="Chair2" parent="." instance=ExtResource("2_hwcln")]
 position = Vector2(226, 242)
@@ -43,7 +44,7 @@ scale = Vector2(-1, 1)
 position = Vector2(394, 242)
 
 [node name="Table2" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(429, 243)
+position = Vector2(429, 241)
 
 [node name="Chair4" parent="." instance=ExtResource("2_hwcln")]
 position = Vector2(464, 242)
@@ -53,17 +54,17 @@ scale = Vector2(-1, 1)
 position = Vector2(275, 296)
 
 [node name="Table3" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(310, 297)
+position = Vector2(310, 295)
 
 [node name="Chair6" parent="." instance=ExtResource("2_hwcln")]
 position = Vector2(345, 296)
 scale = Vector2(-1, 1)
 
 [node name="Bbq" parent="." instance=ExtResource("5_7wowj")]
-position = Vector2(322, 103)
+position = Vector2(365, 96)
 
 [node name="SausageBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(65, 108)
+position = Vector2(121, 108)
 holdable_item_resource = ExtResource("7_ocrlp")
 
 [node name="IngredientSprite" parent="SausageBasket" index="2"]
@@ -73,7 +74,7 @@ texture = ExtResource("8_j80l1")
 text = "Sausage"
 
 [node name="KebabBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(121, 108)
+position = Vector2(177, 108)
 holdable_item_resource = ExtResource("8_6xudt")
 
 [node name="IngredientSprite" parent="KebabBasket" index="2"]
@@ -83,14 +84,14 @@ texture = ExtResource("10_yjf0y")
 text = "Kebab"
 
 [node name="ChickenBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(177, 108)
+position = Vector2(233, 108)
 holdable_item_resource = ExtResource("9_605p5")
 
 [node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
 text = "Chicken"
 
 [node name="Bin" parent="." instance=ExtResource("10_l2v2k")]
-position = Vector2(518, 103)
+position = Vector2(497, 113)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("11_wcp83")
@@ -106,6 +107,24 @@ offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "SCORE: O"
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("14_pnhxy")]
+position = Vector2(0, 180)
+scale = Vector2(1, 20)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("14_pnhxy")]
+position = Vector2(640, 180)
+scale = Vector2(1, 20)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("14_pnhxy")]
+position = Vector2(303, 40)
+scale = Vector2(40, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("14_pnhxy")]
+position = Vector2(303, 360)
+scale = Vector2(40, 1)
 
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
 [connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
