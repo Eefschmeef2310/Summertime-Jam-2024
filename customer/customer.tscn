@@ -1295,6 +1295,10 @@ one_shot = true
 wait_time = 7.0
 one_shot = true
 
+[node name="DeathCheckIfTargetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="OrderPrefSprite" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -60)
@@ -1330,7 +1334,7 @@ texture_under = ExtResource("10_3jtpx")
 texture_progress = ExtResource("11_bgr0n")
 
 [node name="OrderTimer" type="Timer" parent="OrderCountdown/TextureProgressBar"]
-wait_time = 25.0
+wait_time = 30.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OrderCountdown/TextureProgressBar"]
 libraries = {
@@ -1349,6 +1353,7 @@ gizmo_extents = 20.0
 [connection signal="timeout" from="DeathDespawnTimer" to="." method="_on_death_despawn_timer_timeout"]
 [connection signal="timeout" from="DieFromPoisonTimer" to="." method="_on_die_from_poison_timer_timeout"]
 [connection signal="timeout" from="ExitTimer" to="." method="_on_exit_timer_timeout"]
+[connection signal="timeout" from="DeathCheckIfTargetTimer" to="." method="_on_death_check_if_target_timer_timeout"]
 [connection signal="timeout" from="OrderCountdown/TextureProgressBar/OrderTimer" to="." method="_on_order_timer_timeout"]
 
 [editable path="InteractivePrompt"]

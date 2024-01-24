@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt6yx3efi0388"]
+[gd_scene load_steps=16 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_hlcwv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="10_l2v2k"]
 [ext_resource type="Texture2D" uid="uid://bc1wvvf86t7fq" path="res://orders/sprites/food_kebab_raw.png" id="10_yjf0y"]
 [ext_resource type="Script" path="res://Levels/UI.gd" id="11_wcp83"]
+[ext_resource type="Script" path="res://Levels/target_ui.gd" id="14_40s3l"]
 [ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_pnhxy"]
 
 [node name="Level" type="Node2D"]
@@ -25,7 +26,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="TargetManager"]
-wait_time = 6.0
+wait_time = 8.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_0sgre")]
@@ -109,6 +110,10 @@ position = Vector2(497, 73)
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("11_wcp83")
 
+[node name="TargetUI" type="Node2D" parent="UI"]
+position = Vector2(8, 261)
+script = ExtResource("14_40s3l")
+
 [node name="Label" type="Label" parent="UI"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -122,6 +127,7 @@ grow_vertical = 0
 text = "SCORE: O"
 
 [node name="Walls" type="Node2D" parent="."]
+visible = false
 
 [node name="Wall" parent="Walls" instance=ExtResource("14_pnhxy")]
 position = Vector2(0, 180)
@@ -139,6 +145,8 @@ scale = Vector2(40, 1)
 position = Vector2(303, 360)
 scale = Vector2(40, 1)
 
+[connection signal="target_killed" from="TargetManager" to="UI/TargetUI" method="_on_target_manager_target_killed"]
+[connection signal="targets_created" from="TargetManager" to="UI/TargetUI" method="_on_target_manager_targets_created"]
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
 [connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
 

@@ -28,42 +28,42 @@
 
 [sub_resource type="Resource" id="Resource_kkbhf"]
 script = ExtResource("2_y57vj")
-text = "Short Black Hair"
+text = "Short black hair"
 texture_walk = ExtResource("3_mbuhm")
 texture_sit = ExtResource("3_j5our")
 texture_die = ExtResource("3_2itd2")
 
 [sub_resource type="Resource" id="Resource_7ksuu"]
 script = ExtResource("2_y57vj")
-text = "Short Blonde Hair"
+text = "Short blonde hair"
 texture_walk = ExtResource("4_2522i")
 texture_sit = ExtResource("5_7kse3")
 texture_die = ExtResource("6_63ei1")
 
 [sub_resource type="Resource" id="Resource_cl3im"]
 script = ExtResource("2_y57vj")
-text = "Short Brown Hair"
+text = "Short brown hair"
 texture_walk = ExtResource("5_f3m15")
 texture_sit = ExtResource("7_51dv4")
 texture_die = ExtResource("9_rpxkh")
 
 [sub_resource type="Resource" id="Resource_psayi"]
 script = ExtResource("6_workc")
-text = "Mustard Shirt"
+text = "Mustard shirt"
 texture_walk = ExtResource("7_akx1t")
 texture_sit = ExtResource("10_5pw0p")
 texture_die = ExtResource("13_r1bos")
 
 [sub_resource type="Resource" id="Resource_l01jh"]
 script = ExtResource("6_workc")
-text = "Olive Shirt"
+text = "Olive shirt"
 texture_walk = ExtResource("8_bsm3y")
 texture_sit = ExtResource("12_x43ps")
 texture_die = ExtResource("16_jf2qc")
 
 [sub_resource type="Resource" id="Resource_k2b6l"]
 script = ExtResource("6_workc")
-text = "Red Shirt"
+text = "Red shirt"
 texture_walk = ExtResource("9_djpfy")
 texture_sit = ExtResource("14_mrfm1")
 texture_die = ExtResource("19_3o8gp")
@@ -71,12 +71,12 @@ texture_die = ExtResource("19_3o8gp")
 [sub_resource type="Resource" id="Resource_apqln"]
 script = ExtResource("16_wj8q0")
 anim_name = Array[String](["habit_game"])
-description = "playing video games"
+description = "Likes playing video games"
 
 [sub_resource type="Resource" id="Resource_6sg6n"]
 script = ExtResource("16_wj8q0")
 anim_name = Array[String](["habit_book", "habit_book_1", "habit_book_2", "habit_book_3", "habit_book_4"])
-description = "reading books"
+description = "Likes reading books"
 
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")

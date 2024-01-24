@@ -42,11 +42,11 @@ func _ready():
 	order_timer_visual.max_value = order_timer.wait_time
 	
 	player = get_tree().get_first_node_in_group("Player")
-	var target_manager = get_tree().get_first_node_in_group("target_manager")
+	target_manager = get_tree().get_first_node_in_group("target_manager")
 	if target_manager:
 		data = target_manager.generate_new_customer_data()
-		if data.is_target:
-			$TargetLabel.show()
+		#if data.is_target:
+			#$TargetLabel.show()
 	
 	holdable_item_x = $FoodMarker.position.x
 	
@@ -181,7 +181,7 @@ func state_waiting_food():
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
 				#update score
-				ScoreManager.score += 10 if data.is_target else 5
+				ScoreManager.score += 0.1 * (order_timer.time_left / order_timer.wait_time)
 				# correct food
 				if player.held_item.cooked:
 					# cooked food
@@ -221,6 +221,7 @@ func state_die():
 	if just_entered_state:
 		$AnimationPlayerHands.play("none")
 		$ExitTimer.stop()
+		$DeathCheckIfTargetTimer.start()
 		play_animation("die")
 		just_entered_state = false
 
@@ -260,7 +261,12 @@ func _on_die_from_poison_timer_timeout():
 
 func _on_exit_timer_timeout():
 	state = "exiting"
-	
+
+
 func _on_order_timer_timeout():
 	order_timer_visual.visible = false
 	GameOverManager.game_over()
+
+
+func _on_death_check_if_target_timer_timeout():
+	target_manager.customer_killed(data)
