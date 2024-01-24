@@ -9,6 +9,8 @@ extends Node2D
 
 var player
 
+var order_countdown : float = 5.
+
 var state = "entering"
 
 var target_chair = null
@@ -24,10 +26,20 @@ var poisoned = false
 
 var facing = 1
 
+@export var timer_color : Gradient
+@onready var order_timer_visual : TextureProgressBar = $OrderCountdown/TextureProgressBar
+@onready var order_timer : Timer = $OrderCountdown/TextureProgressBar/OrderTimer
+
+
 @export var animation_players: Array[AnimationPlayer]
 
 func _ready():
 	interactive_prompt.enabled = false
+	
+	#Initialise timer
+	order_timer.wait_time = order_countdown
+	order_timer_visual.max_value = order_countdown
+	
 	player = get_tree().get_first_node_in_group("Player")
 	var target_manager = get_tree().get_first_node_in_group("target_manager")
 	if target_manager:
@@ -42,6 +54,21 @@ func _process(delta):
 	sprite_2dh.flip_h = should_flip
 	sprite_2ds.flip_h = should_flip
 	sprite_2d_hands.flip_h = should_flip
+	
+	#Update texture progress bar
+	order_timer_visual.value = order_timer.time_left
+	order_timer_visual.modulate = timer_color.sample(1.0 - order_timer_visual.value / order_timer_visual.max_value)
+	
+	#play ticker when low time
+	if order_timer_visual.visible:
+		if !$OrderCountdown/Ticker.playing and order_timer_visual.value < 0.25 * order_timer_visual.max_value:
+			#print("bingus")
+			$OrderCountdown/Ticker.play()
+			$OrderCountdown/TextureProgressBar/AnimationPlayer.play("TimerBounce")
+		elif $OrderCountdown/Ticker.playing and order_timer_visual.value >= 0.25 * order_timer_visual.max_value:
+			$OrderCountdown/Ticker.stop()
+			$OrderCountdown/TextureProgressBar/AnimationPlayer.stop()
+	
 	match state:
 		"entering":
 			state_entering(delta)
@@ -84,6 +111,10 @@ func state_entering(delta):
 
 func state_waiting_order():
 	if just_entered_state:
+		#Start timer
+		order_timer.start()
+		order_timer_visual.visible = true
+		
 		play_animation("sit")
 		just_entered_state = false
 	
@@ -188,3 +219,7 @@ func _on_die_from_poison_timer_timeout():
 
 func _on_exit_timer_timeout():
 	state = "exiting"
+	
+func _on_order_timer_timeout():
+	order_timer_visual.visible = false
+	GameOverManager.game_over()
