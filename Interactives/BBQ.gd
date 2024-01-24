@@ -10,7 +10,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _on_left_prompt_interacted():
-	if !left_item and player.held_item and !player.held_item.cooked:
+	#uncooked placement
+	if !left_item and player.held_item:
 		left_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null
@@ -21,7 +22,7 @@ func _on_left_prompt_interacted():
 		left_item = null
 
 func _on_middle_prompt_interacted():
-	if !middle_item and player.held_item and !player.held_item.cooked:
+	if !middle_item and player.held_item:
 		middle_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null
@@ -32,7 +33,7 @@ func _on_middle_prompt_interacted():
 		middle_item = null
 
 func _on_right_prompt_interacted():
-	if !right_item and player.held_item and !player.held_item.cooked:
+	if !right_item and player.held_item:
 		right_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null

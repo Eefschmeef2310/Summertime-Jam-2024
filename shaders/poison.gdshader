@@ -3,6 +3,8 @@ shader_type canvas_item;
 uniform vec4 bottomColor : source_color = vec4(0.15, 0, 0.4, 1.0);
 uniform vec4 topColor : source_color = vec4(0.37, 0.0, 1., 1.);
 
+uniform float alpha = 1.0;
+
 uniform float direction = -50.;
 uniform float speed = 10.0;
 uniform float width = 0.01;
@@ -24,4 +26,5 @@ void fragment() {
 	
 	//Apply color
 	COLOR = texture(TEXTURE, UV) + mix(bottomColor, topColor, outWave) * opacity * COLOR.a;
+	COLOR.a = alpha;
 }
