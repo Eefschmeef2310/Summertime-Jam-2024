@@ -11,6 +11,7 @@ func _on_tutorial_button_pressed():
 
 func _on_leaderboard_button_pressed():
 	print("Leaderboard Loaded")
+	get_tree().change_scene_to_file("res://Levels/menus/Leaderboard.tscn")
 
 func _on_options_button_pressed():
 	print("Options Loaded")
