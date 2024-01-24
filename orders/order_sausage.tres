@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="OrderResource" load_steps=4 format=3 uid="uid://t88ilor1p2sb"]
 
-[ext_resource type="Texture2D" uid="uid://cywy36d7rdrbl" path="res://customer/sprites/table.png" id="1_uijf1"]
+[ext_resource type="Texture2D" uid="uid://ce2hwggs2cyqd" path="res://orders/sprites/food_sausage_cooked.png" id="1_ry2rj"]
 [ext_resource type="Script" path="res://orders/order_resource.gd" id="2_d0ajj"]
-[ext_resource type="Texture2D" uid="uid://dwhmcul8vf6up" path="res://customer/sprites/chair.png" id="3_1vjpk"]
+[ext_resource type="Texture2D" uid="uid://dyk52yfhwrn6r" path="res://orders/sprites/food_sausage_raw.png" id="3_cgtcv"]
 
 [resource]
 script = ExtResource("2_d0ajj")
 name = "Sausage"
-uncooked_texture = ExtResource("3_1vjpk")
-cooked_texture = ExtResource("1_uijf1")
+uncooked_texture = ExtResource("3_cgtcv")
+cooked_texture = ExtResource("1_ry2rj")
