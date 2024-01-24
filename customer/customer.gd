@@ -121,6 +121,7 @@ func state_waiting_food():
 				if player.held_item.cooked:
 					# cooked food
 					if player.held_item.poisoned:
+						print("this is poisoned...")
 						poisoned = true
 					print("Thanks for the food!")
 					just_entered_state = true
@@ -137,6 +138,7 @@ func state_waiting_food():
 func state_eat():
 	interactive_prompt.enabled = false
 	if just_entered_state:
+		print("YEEEEEAP")
 		$AnimationPlayerHands.play("none")
 		$DieFromPoisonTimer.start()
 		$ExitTimer.start()
@@ -147,6 +149,7 @@ func state_die():
 	interactive_prompt.enabled = false
 	if just_entered_state:
 		$AnimationPlayerHands.play("none")
+		$ExitTimer.stop()
 		play_animation("die")
 		just_entered_state = false
 
@@ -178,6 +181,7 @@ func _on_death_despawn_timer_timeout():
 
 func _on_die_from_poison_timer_timeout():
 	if poisoned:
+		just_entered_state = true
 		state = "die"
 		$DeathDespawnTimer.start()
 

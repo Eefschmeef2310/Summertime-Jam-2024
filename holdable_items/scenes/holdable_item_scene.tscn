@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="3_jwkqw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x81nl"]
+resource_local_to_scene = true
 shader = ExtResource("1_iix1y")
 shader_parameter/bottomColor = Color(0.15, 0, 0.4, 1)
 shader_parameter/topColor = Color(0.37, 0, 1, 1)
