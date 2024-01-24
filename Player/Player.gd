@@ -6,7 +6,7 @@ extends CharacterBody2D
 var interactives : Array
 var closest_interactive : Control
 
-var held_item: Node2D
+var held_item: HoldableItemScene
 
 func _process(_delta):
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -20,7 +20,6 @@ func _process(_delta):
 			closest_interactive.toggle_prompt(true)
 			if Input.is_action_just_pressed("Interact"):
 				closest_interactive.interact()
-				print("successful interaction")
 		else:
 			closest_interactive.toggle_prompt(false)
 	else:
