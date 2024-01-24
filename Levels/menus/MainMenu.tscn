@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://heh46q4r4ek4"]
+[gd_scene load_steps=5 format=3 uid="uid://heh46q4r4ek4"]
 
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
 [ext_resource type="Texture2D" uid="uid://dd0tp0xgxaywd" path="res://ui_sprites/Nothing-shady-at-THIS-BBQ-22-01-2024.png" id="2_jdbwi"]
-[ext_resource type="Texture2D" uid="uid://orniqow1yw2s" path="res://PlaceholderSprites/TS7J_l4zfMf60rIP_v_UMY265WEX-4cLno6MV_sHbYQ.png" id="3_m5v2r"]
+[ext_resource type="Texture2D" uid="uid://2ch8et7lf6tx" path="res://PlaceholderSprites/istockphoto-514028377-612x612.jpg" id="2_mtmnc"]
+[ext_resource type="Texture2D" uid="uid://jtq3vxmi6e4j" path="res://ui_sprites/menu.png" id="3_gg56k"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,72 +14,93 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rcmn6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_mtmnc")
 
-[node name="Leftside" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Title" type="TextureRect" parent="HBoxContainer/Leftside"]
-custom_minimum_size = Vector2(0, 113.68)
-layout_mode = 2
-texture = ExtResource("2_jdbwi")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="StartButton" type="Button" parent="HBoxContainer/Leftside"]
-layout_mode = 2
-text = "Play"
-
-[node name="TutorialButton" type="Button" parent="HBoxContainer/Leftside"]
-layout_mode = 2
-text = "Tutorial"
-
-[node name="LeaderboardButton" type="Button" parent="HBoxContainer/Leftside"]
-layout_mode = 2
-text = "Leaderboard"
-
-[node name="OptionsButton" type="Button" parent="HBoxContainer/Leftside"]
-layout_mode = 2
-text = "Options"
-
-[node name="QuitButton" type="Button" parent="HBoxContainer/Leftside"]
-layout_mode = 2
-text = "Quit"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(282.04, 0)
-layout_mode = 2
-texture = ExtResource("3_m5v2r")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="LogoutButton" type="Button" parent="HBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
+offset_left = -569.0
+offset_top = -320.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_gg56k")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 330
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Leftside" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Title" type="TextureRect" parent="MarginContainer/HBoxContainer/Leftside"]
+custom_minimum_size = Vector2(0, 96.53)
+layout_mode = 2
+texture = ExtResource("2_jdbwi")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Play"
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="LeaderboardButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Quit"
+
+[node name="LogoutButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Logout"
 
-[connection signal="pressed" from="HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Leftside/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Leftside/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Leftside/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/TextureRect/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LogoutButton" to="." method="_on_logout_button_pressed"]
