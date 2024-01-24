@@ -4,11 +4,12 @@ class_name HoldableItemScene
 var item_resource : OrderResource = OrderResource.new()
 
 var cooked: bool = false
-var poisoned: bool = false
+var poisoned: bool = false:
+	set(value):
+		(material as ShaderMaterial).set_shader_parameter("opacity", 0.5 if value else 0)
+		poisoned = value
 
-#Use set parent and change position
-
-func _ready():
+func _ready(): 
 	texture = item_resource.cooked_texture if cooked else item_resource.uncooked_texture
 
 func _process(_delta):

@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://nn71prxne0x2"]
+[gd_scene load_steps=6 format=3 uid="uid://nn71prxne0x2"]
 
 [ext_resource type="Script" path="res://holdable_items/scenes/holdable_item_scene.gd" id="1_8a604"]
+[ext_resource type="Shader" path="res://shaders/poison.gdshader" id="1_iix1y"]
 [ext_resource type="Texture2D" uid="uid://bdnp7yq1cn67y" path="res://PlaceholderSprites/3b0bc6d5b8bdcfeb9c3a0f88b76750a9.jpg" id="1_p0dqm"]
 [ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="3_jwkqw"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x81nl"]
+shader = ExtResource("1_iix1y")
+shader_parameter/bottomColor = Color(0.15, 0, 0.4, 1)
+shader_parameter/topColor = Color(0.37, 0, 1, 1)
+shader_parameter/direction = -50.0
+shader_parameter/speed = 10.0
+shader_parameter/width = 0.01
+shader_parameter/height = -0.2
+shader_parameter/opacity = 0.0
+
 [node name="HoldableItemScene" type="Sprite2D"]
+material = SubResource("ShaderMaterial_x81nl")
 texture = ExtResource("1_p0dqm")
 script = ExtResource("1_8a604")
 

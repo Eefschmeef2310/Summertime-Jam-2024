@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-signal PlayerManagerInit()
-
-@export var move_speed: float = 20000
+@export var move_speed: float = 100
 @export var min_interaction_distance : float = 50
 
 var interactives : Array
@@ -10,12 +8,9 @@ var closest_interactive : Control
 
 var held_item: Node2D
 
-func _ready():
-	PlayerManagerInit.emit()
-
-func _process(delta):
+func _process(_delta):
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = direction * move_speed * delta
+	velocity = direction * move_speed
 	move_and_slide()
 	
 	get_closest_interactable()
@@ -34,7 +29,6 @@ func _process(delta):
 	# TODO PLACEHOLDER FOR DEBUG
 	if held_item and Input.is_action_just_pressed("Poison"):
 		held_item.poisoned = true
-		print("Food poisoned. >:)")
 	
 func get_closest_interactable():
 	#Also turns off prompts lol - E
