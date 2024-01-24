@@ -109,34 +109,35 @@ func state_waiting_food():
 	facing = target_chair.scale.x
 	
 	interactive_prompt.enabled = true
-	if just_interacted_with and player.held_item:
-		var player_food_holding: OrderResource = player.held_item.item_resource
-		if data.order_pref == player_food_holding:
-			
-			#update score
-			ScoreManager.score += 10 if data.is_target else 5
-			
-			# correct food
-			if player.held_item.cooked:
-				# cooked food
-				if player.held_item.poisoned:
-					# poisoned food
-					print("You... cunt...")
-					just_entered_state = true
-					player.held_item.queue_free()
-					state = "die"
-					$DeathDespawnTimer.start()
+	if just_interacted_with:
+		if player.held_item:
+			var player_food_holding: OrderResource = player.held_item.item_resource
+			if data.order_pref == player_food_holding:
+				
+				#update score
+				ScoreManager.score += 10 if data.is_target else 5
+				
+				# correct food
+				if player.held_item.cooked:
+					# cooked food
+					if player.held_item.poisoned:
+						# poisoned food
+						print("You... cunt...")
+						just_entered_state = true
+						player.held_item.queue_free()
+						state = "die"
+						$DeathDespawnTimer.start()
+					else:
+						# perfectly good eatable food
+						print("Thanks for the food!")
+						player.held_item.queue_free()
+						state = "exiting"
 				else:
-					# perfectly good eatable food
-					print("Thanks for the food!")
-					player.held_item.queue_free()
-					state = "exiting"
+					# uncooked food
+					print("This isn't cooked! Are you trying to poison me?")
 			else:
-				# uncooked food
-				print("This isn't cooked! Are you trying to poison me?")
-		else:
-			# incorrect food
-			print("Kill yourself!")
+				# incorrect food
+				print("Kill yourself!")
 		just_interacted_with = false
 
 func state_die():
