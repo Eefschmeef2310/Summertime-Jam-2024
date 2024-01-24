@@ -26,5 +26,5 @@ void fragment() {
 	
 	//Apply color
 	COLOR = texture(TEXTURE, UV) + mix(bottomColor, topColor, outWave) * opacity * COLOR.a;
-	COLOR.a = alpha;
+	COLOR.a *= alpha;
 }
