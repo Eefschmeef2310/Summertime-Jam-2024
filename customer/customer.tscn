@@ -1,14 +1,18 @@
-[gd_scene load_steps=33 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=37 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://cb2oixqv3lhv6" path="res://customer/sprites/sit/customer_sit_base.png" id="3_2gpl2"]
 [ext_resource type="Texture2D" uid="uid://dec314busqfjo" path="res://customer/sprites/die/customer_die_face.png" id="3_omw6h"]
 [ext_resource type="Texture2D" uid="uid://fmtypq0g1txn" path="res://customer/sprites/walk/customer_base_walk.png" id="3_pudmt"]
+[ext_resource type="Texture2D" uid="uid://cke1c2htsib4f" path="res://customer/sprites/die/die_effect.png" id="4_ct03p"]
 [ext_resource type="Texture2D" uid="uid://crjnktnnmjve7" path="res://customer/sprites/sit/customer_sit_face.png" id="4_u6kbv"]
+[ext_resource type="Texture2D" uid="uid://5l0dxk4wfa2o" path="res://customer/sprites/ninja/ninja_ball.png" id="5_1u1gk"]
 [ext_resource type="Texture2D" uid="uid://xpa7gtj0i7y4" path="res://customer/sprites/habit/customer_habit_switch.png" id="5_04cfo"]
 [ext_resource type="Texture2D" uid="uid://bnurdkmav0jah" path="res://customer/sprites/habit/customer_habit_book.png" id="6_mm0l5"]
+[ext_resource type="Texture2D" uid="uid://xvr156hcyn4x" path="res://customer/sprites/ninja/smoke_bomb.png" id="6_t02h5"]
 [ext_resource type="Texture2D" uid="uid://den3wyc3wpjo8" path="res://customer/sprites/die/customer_die_base.png" id="6_uis34"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="7_bu2ua"]
+[ext_resource type="Texture2D" uid="uid://cn2catprtqxer" path="res://customer/sprites/ninja/ninja_stand.png" id="8_kgyhh"]
 [ext_resource type="Texture2D" uid="uid://c8ntrepddhw1w" path="res://orders/sprites/wait_bar_under.png" id="10_3jtpx"]
 [ext_resource type="Texture2D" uid="uid://dgfp2tb0ch2oh" path="res://orders/sprites/food_chicken_cooked.png" id="10_f550l"]
 [ext_resource type="Texture2D" uid="uid://cley67yxj72ak" path="res://orders/sprites/wait_bar_progress.png" id="11_bgr0n"]
@@ -164,12 +168,179 @@ tracks/11/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpriteDie:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpriteDie:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpriteNinja:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SpriteNinja:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, -16)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("SpriteNinja:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SpriteNinja:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SpriteNinja:texture")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1u1gk")]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SpriteSmoke:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SpriteSmoke:frame")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sprite2D:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Sprite2DF:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Sprite2DH:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Sprite2DS:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("FoodMarker:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_y7ndo"]
 resource_name = "die"
-length = 11.0
+length = 10.0
 loop_mode = 1
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -306,6 +477,174 @@ tracks/10/keys = {
 "args": ["die"],
 "method": &"set_textures_for_animation"
 }]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpriteDie:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpriteDie:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpriteNinja:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpriteNinja:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = false
+tracks/14/keys = {
+"times": PackedFloat32Array(5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-37, -2), Vector2(-33, -31), Vector2(-24, -40), Vector2(-19, -43), Vector2(-15, -45), Vector2(-8, -43), Vector2(-5, -22.5), Vector2(-5, -24.5)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SpriteNinja:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = false
+tracks/15/keys = {
+"times": PackedFloat32Array(5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0, 1.5708, 3.14159, 4.71239, 0.0, 0.0, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("SpriteNinja:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = false
+tracks/16/keys = {
+"times": PackedFloat32Array(5, 5.1, 5.6, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 0.1), Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SpriteNinja:texture")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(4.9, 5.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_1u1gk"), ExtResource("8_kgyhh")]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SpriteSmoke:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 6, 6.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SpriteSmoke:frame")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(6, 6.1, 6.2, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprite2D:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sprite2DF:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Sprite2DH:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Sprite2DS:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("FoodMarker:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1ngg2"]
@@ -1238,11 +1577,29 @@ hframes = 3
 [node name="Sprite2DS" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 hframes = 3
+frame = 2
 
 [node name="Sprite2DHands" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 hframes = 2
 frame = 1
+
+[node name="SpriteDie" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+texture = ExtResource("4_ct03p")
+hframes = 4
+
+[node name="SpriteNinja" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-37, -16)
+texture = ExtResource("5_1u1gk")
+
+[node name="SpriteSmoke" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5, -24.5)
+texture = ExtResource("6_t02h5")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1267,6 +1624,7 @@ offset_left = -34.0
 offset_top = -49.0
 offset_right = 6.0
 offset_bottom = -26.0
+text = ""
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -10)
@@ -1284,7 +1642,7 @@ label_settings = SubResource("LabelSettings_qaxvb")
 horizontal_alignment = 1
 
 [node name="DeathDespawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 one_shot = true
 
 [node name="DieFromPoisonTimer" type="Timer" parent="."]
@@ -1334,7 +1692,7 @@ texture_under = ExtResource("10_3jtpx")
 texture_progress = ExtResource("11_bgr0n")
 
 [node name="OrderTimer" type="Timer" parent="OrderCountdown/TextureProgressBar"]
-wait_time = 30.0
+wait_time = 40.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OrderCountdown/TextureProgressBar"]
 libraries = {

@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var move_speed: float = 100
 @export var min_interaction_distance : float = 50
 
+@onready var animation_player = $AnimationPlayer
+
 var interactives : Array
 var closest_interactive : Control
 
@@ -45,6 +47,29 @@ func get_closest_interactable():
 				min_index = i
 		closest_interactive = interactives[min_index]
 
+func set_held_item(item):
+	held_item = item
+	if !item.get_parent():
+		$FoodMarker.add_child(item)
+	else:
+		item.reparent($FoodMarker)
+	held_item.position = Vector2(0, 0)
+
 func handle_animation():
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	pass
+	if is_instance_valid(held_item):
+		# holding an item
+		if direction == Vector2(0, 0):
+			animation_player.play("idle_holding")
+		else:
+			animation_player.play("run_holding")
+			if direction.x != 0:
+				scale.x = scale.y * sign(direction.x)
+	else:
+		# not holding an item
+		if direction == Vector2(0, 0):
+			animation_player.play("idle")
+		else:
+			animation_player.play("run")
+			if direction.x != 0:
+				scale.x = scale.y * sign(direction.x)

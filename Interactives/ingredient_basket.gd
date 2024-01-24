@@ -13,5 +13,4 @@ func _on_interactive_prompt_interacted():
 	if !player.held_item:
 		var item = holdable_item_scene.instantiate()
 		item.item_resource = holdable_item_resource
-		player.held_item = item
-		player.add_child(item)
+		player.set_held_item(item)

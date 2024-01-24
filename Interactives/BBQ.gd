@@ -44,5 +44,4 @@ func _on_right_prompt_interacted():
 		right_item = null
 	
 func return_to_player(item):
-	player.held_item = item
-	item.reparent(player)
+	player.set_held_item(item)
