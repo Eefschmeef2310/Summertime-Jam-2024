@@ -9,7 +9,7 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
 
 func _on_tutorial_button_pressed():
-	print("Tutorial Loaded")
+	get_tree().change_scene_to_file("res://Levels/tutorial.tscn")
 
 func _on_leaderboard_button_pressed():
 	get_tree().change_scene_to_file("res://Levels/menus/Leaderboard.tscn")
