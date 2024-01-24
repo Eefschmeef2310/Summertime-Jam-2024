@@ -1310,6 +1310,7 @@ offset_bottom = -20.0
 scale = Vector2(1.5, 0.6)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="OrderCountdown"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

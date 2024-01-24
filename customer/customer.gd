@@ -56,7 +56,7 @@ func _ready():
 	holdable_item.poisoned = poisoned
 	$FoodMarker.add_child(holdable_item)
 	
-	holdable_item.modulate.a = 0
+	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
 
 func _process(delta):
 	var should_flip = (facing < 0)
@@ -171,9 +171,9 @@ func state_waiting_food():
 	position = target_chair.position
 	facing = target_chair.scale.x
 	
-	holdable_item.modulate.a = 0
+	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
 	if interactive_prompt.visible and is_instance_valid(player.held_item) and player.held_item.item_resource == data.order_prefa:
-		holdable_item.modulate.a = 0.2
+		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0.2)
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
@@ -209,7 +209,8 @@ func state_eat():
 		$DieFromPoisonTimer.start()
 		$ExitTimer.start()
 		play_animation("eat")
-		holdable_item.modulate.a = 1
+		holdable_item.poisoned = poisoned
+		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 1)
 		just_entered_state = false
 
 func state_die():
