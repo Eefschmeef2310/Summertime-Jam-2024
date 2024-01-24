@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt6yx3efi0388"]
+[gd_scene load_steps=14 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_hlcwv"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c2c0qjo2pe2u8" path="res://Interactives/ingredient_basket.tscn" id="6_e0uaq"]
 [ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="7_ocrlp"]
 [ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_kebab.tres" id="8_6xudt"]
+[ext_resource type="Texture2D" uid="uid://dyk52yfhwrn6r" path="res://orders/sprites/food_sausage_raw.png" id="8_j80l1"]
 [ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="9_605p5"]
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="10_l2v2k"]
+[ext_resource type="Texture2D" uid="uid://bc1wvvf86t7fq" path="res://orders/sprites/food_kebab_raw.png" id="10_yjf0y"]
 [ext_resource type="Script" path="res://Levels/UI.gd" id="11_wcp83"]
 
 [node name="Level" type="Node2D"]
@@ -58,24 +60,30 @@ position = Vector2(345, 296)
 scale = Vector2(-1, 1)
 
 [node name="Bbq" parent="." instance=ExtResource("5_7wowj")]
-position = Vector2(340, 92)
+position = Vector2(322, 103)
 
 [node name="SausageBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(65, 92)
+position = Vector2(65, 108)
 holdable_item_resource = ExtResource("7_ocrlp")
+
+[node name="IngredientSprite" parent="SausageBasket" index="2"]
+texture = ExtResource("8_j80l1")
 
 [node name="Label" parent="SausageBasket/InteractivePrompt" index="1"]
 text = "Sausage"
 
 [node name="KebabBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(120, 124)
+position = Vector2(121, 108)
 holdable_item_resource = ExtResource("8_6xudt")
+
+[node name="IngredientSprite" parent="KebabBasket" index="2"]
+texture = ExtResource("10_yjf0y")
 
 [node name="Label" parent="KebabBasket/InteractivePrompt" index="1"]
 text = "Kebab"
 
 [node name="ChickenBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(183, 95)
+position = Vector2(177, 108)
 holdable_item_resource = ExtResource("9_605p5")
 
 [node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
