@@ -180,8 +180,9 @@ func state_waiting_food():
 		if player.held_item:
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
-				#update score
-				ScoreManager.score += 10 if data.is_target else 5
+				#update score. Score is 0.1 * the amount of time left as a percentage
+				ScoreManager.score += 0.1 * (order_timer.time_left / order_timer.wait_time)
+				
 				# correct food
 				if player.held_item.cooked:
 					# cooked food
@@ -253,6 +254,12 @@ func _on_death_despawn_timer_timeout():
 
 func _on_die_from_poison_timer_timeout():
 	if poisoned:
+		
+		if data.is_target:
+			ScoreManager.score += 10
+		else:
+			GameOverManager.game_over()
+			
 		just_entered_state = true
 		state = "die"
 		$DeathDespawnTimer.start()
