@@ -219,5 +219,7 @@ func _on_die_from_poison_timer_timeout():
 
 func _on_exit_timer_timeout():
 	state = "exiting"
+	
 func _on_order_timer_timeout():
+	order_timer_visual.visible = false
 	GameOverManager.game_over()

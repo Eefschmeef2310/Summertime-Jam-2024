@@ -1278,6 +1278,7 @@ one_shot = true
 [node name="ExitTimer" type="Timer" parent="."]
 wait_time = 7.0
 one_shot = true
+
 [node name="OrderCountdown" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
