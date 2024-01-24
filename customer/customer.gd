@@ -6,10 +6,9 @@ extends Node2D
 @onready var sprite_2dh = $Sprite2DH
 @onready var sprite_2ds = $Sprite2DS
 @onready var sprite_2d_hands = $Sprite2DHands
+@onready var order_pref_sprite = $OrderPrefSprite
 
 var player
-
-var order_countdown : float = 5.
 
 var state = "entering"
 
@@ -30,6 +29,9 @@ var facing = 1
 @onready var order_timer_visual : TextureProgressBar = $OrderCountdown/TextureProgressBar
 @onready var order_timer : Timer = $OrderCountdown/TextureProgressBar/OrderTimer
 
+@onready var holdable_item_scene : PackedScene = preload("res://holdable_items/scenes/holdable_item_scene.tscn")
+var holdable_item: HoldableItemScene
+var holdable_item_x: float
 
 @export var animation_players: Array[AnimationPlayer]
 
@@ -37,8 +39,7 @@ func _ready():
 	interactive_prompt.enabled = false
 	
 	#Initialise timer
-	order_timer.wait_time = order_countdown
-	order_timer_visual.max_value = order_countdown
+	order_timer_visual.max_value = order_timer.wait_time
 	
 	player = get_tree().get_first_node_in_group("Player")
 	var target_manager = get_tree().get_first_node_in_group("target_manager")
@@ -46,6 +47,16 @@ func _ready():
 		data = target_manager.generate_new_customer_data()
 		if data.is_target:
 			$TargetLabel.show()
+	
+	holdable_item_x = $FoodMarker.position.x
+	
+	holdable_item = holdable_item_scene.instantiate()
+	holdable_item.item_resource = data.order_pref
+	holdable_item.cooked = true
+	holdable_item.poisoned = poisoned
+	$FoodMarker.add_child(holdable_item)
+	
+	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
 
 func _process(delta):
 	var should_flip = (facing < 0)
@@ -54,6 +65,11 @@ func _process(delta):
 	sprite_2dh.flip_h = should_flip
 	sprite_2ds.flip_h = should_flip
 	sprite_2d_hands.flip_h = should_flip
+	
+	var n = 1
+	if should_flip:
+		n = -1
+	$FoodMarker.position.x = holdable_item_x * n
 	
 	#Update texture progress bar
 	order_timer_visual.value = order_timer.time_left
@@ -72,8 +88,8 @@ func _process(delta):
 	match state:
 		"entering":
 			state_entering(delta)
-		"waiting_order":
-			state_waiting_order()
+		#"waiting_order":
+			#state_waiting_order()
 		"waiting_food":
 			state_waiting_food()
 		"exiting":
@@ -106,40 +122,58 @@ func state_entering(delta):
 		facing = -1 * sign(position.x - target_chair.position.x)
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
-			state = "waiting_order"
+			print("I want " + data.order_pref.name + "!")
+			just_interacted_with = false
 			just_entered_state = true
+			state = "waiting_food"
+			print(data.habit.description)
 
-func state_waiting_order():
+#func state_waiting_order():
+	#if just_entered_state:
+		##Start timer
+		#order_timer.start()
+		#order_timer_visual.visible = true
+		#
+		#play_animation("sit")
+		#just_entered_state = false
+	#
+	#elif !$AnimationPlayer.is_playing():
+		#play_animation("sit_hold")
+	#
+	#position = target_chair.position
+	#facing = target_chair.scale.x
+	#
+	#interactive_prompt.enabled = true
+	#if just_interacted_with:
+		#print("I want " + data.order_pref.name + "!")
+		#just_interacted_with = false
+		#just_entered_state = true
+		#state = "waiting_food"
+		#print(data.habit.description)
+
+func state_waiting_food():
 	if just_entered_state:
 		#Start timer
 		order_timer.start()
 		order_timer_visual.visible = true
 		
+		order_pref_sprite.texture = data.order_pref.cooked_texture
+		order_pref_sprite.show()
+		
 		play_animation("sit")
 		just_entered_state = false
-	
-	elif !$AnimationPlayer.is_playing():
 		
+		# Play animations
 		play_animation("sit_hold")
-	
-	position = target_chair.position
-	facing = target_chair.scale.x
-	
-	interactive_prompt.enabled = true
-	if just_interacted_with:
-		print("I want " + data.order_pref.name + "!")
-		just_interacted_with = false
-		just_entered_state = true
-		state = "waiting_food"
-		print(data.habit.description)
-
-func state_waiting_food():
-	if just_entered_state:
 		$AnimationPlayerHands.play(data.habit.anim_name.pick_random())
 		just_entered_state = false
 	
 	position = target_chair.position
 	facing = target_chair.scale.x
+	
+	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
+	if interactive_prompt.visible and is_instance_valid(player.held_item) and player.held_item.item_resource == data.order_pref:
+		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0.5)
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
@@ -170,10 +204,16 @@ func state_eat():
 	interactive_prompt.enabled = false
 	if just_entered_state:
 		print("YEEEEEAP")
+		order_pref_sprite.show()
 		$AnimationPlayerHands.play("none")
 		$DieFromPoisonTimer.start()
 		$ExitTimer.start()
 		play_animation("eat")
+		holdable_item.poisoned = poisoned
+		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 1)
+		order_timer.stop()
+		order_timer_visual.hide()
+		order_pref_sprite.hide()
 		just_entered_state = false
 
 func state_die():
@@ -193,6 +233,7 @@ func state_exiting(delta):
 		facing = -1 * sign(target_chair.scale.x)
 		interactive_prompt.enabled = false
 		target_chair = null
+		holdable_item.queue_free()
 	position.x += move_speed * sign(facing) * delta
 
 func set_textures_for_animation(s: String):

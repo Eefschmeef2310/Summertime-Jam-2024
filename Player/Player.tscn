@@ -8,7 +8,7 @@ size = Vector2(30, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_3wgci")
-move_speed = 300.0
+move_speed = 200.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -32)

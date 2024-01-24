@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=33 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://cb2oixqv3lhv6" path="res://customer/sprites/sit/customer_sit_base.png" id="3_2gpl2"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bnurdkmav0jah" path="res://customer/sprites/habit/customer_habit_book.png" id="6_mm0l5"]
 [ext_resource type="Texture2D" uid="uid://den3wyc3wpjo8" path="res://customer/sprites/die/customer_die_base.png" id="6_uis34"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="7_bu2ua"]
-[ext_resource type="Texture2D" uid="uid://dtx2ibpgfxx0r" path="res://PlaceholderSprites/580b57fbd9996e24bc43c0ce.png" id="10_wir0v"]
+[ext_resource type="Texture2D" uid="uid://c8ntrepddhw1w" path="res://orders/sprites/wait_bar_under.png" id="10_3jtpx"]
+[ext_resource type="Texture2D" uid="uid://dgfp2tb0ch2oh" path="res://orders/sprites/food_chicken_cooked.png" id="10_f550l"]
+[ext_resource type="Texture2D" uid="uid://cley67yxj72ak" path="res://orders/sprites/wait_bar_progress.png" id="11_bgr0n"]
 
 [sub_resource type="Gradient" id="Gradient_iq656"]
 interpolation_mode = 1
@@ -1216,6 +1218,9 @@ script = ExtResource("1_0uimr")
 timer_color = SubResource("Gradient_iq656")
 animation_players = [NodePath("AnimationPlayer")]
 
+[node name="FoodMarker" type="Marker2D" parent="."]
+position = Vector2(23, -24)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 texture = ExtResource("3_2gpl2")
@@ -1290,11 +1295,19 @@ one_shot = true
 wait_time = 7.0
 one_shot = true
 
+[node name="OrderPrefSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -60)
+texture = ExtResource("10_f550l")
+
 [node name="OrderCountdown" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -30.0
+offset_top = -60.0
+offset_right = 10.0
+offset_bottom = -20.0
+scale = Vector2(1.5, 0.6)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="OrderCountdown"]
 visible = false
@@ -1304,18 +1317,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -129.0
+offset_left = -16.0
+offset_top = -8.0
 offset_right = 16.0
-offset_bottom = -81.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(36, 24)
+pivot_offset = Vector2(16, 8)
 step = 0.001
 value = 100.0
-texture_progress = ExtResource("10_wir0v")
+texture_under = ExtResource("10_3jtpx")
+texture_progress = ExtResource("11_bgr0n")
 
 [node name="OrderTimer" type="Timer" parent="OrderCountdown/TextureProgressBar"]
+wait_time = 25.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OrderCountdown/TextureProgressBar"]
 libraries = {
@@ -1324,6 +1339,10 @@ libraries = {
 
 [node name="Ticker" type="AudioStreamPlayer" parent="OrderCountdown"]
 bus = &"SFX"
+
+[node name="Marker2D" type="Marker2D" parent="OrderCountdown"]
+position = Vector2(20, 20)
+gizmo_extents = 20.0
 
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
