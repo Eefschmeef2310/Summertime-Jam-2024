@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://c41njlptj1jmx"]
+
+[ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_g1o3p"]
+[ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="2_suxdn"]
+[ext_resource type="PackedScene" uid="uid://bwa61yens38wp" path="res://customer/chair.tscn" id="3_wjb4j"]
+[ext_resource type="PackedScene" uid="uid://dny2y6h01yq37" path="res://customer/table.tscn" id="4_trk3d"]
+[ext_resource type="PackedScene" uid="uid://d3uce38en0ui4" path="res://Interactives/BBQ.tscn" id="5_1qa1s"]
+[ext_resource type="PackedScene" uid="uid://c2c0qjo2pe2u8" path="res://Interactives/ingredient_basket.tscn" id="6_vn6ct"]
+[ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="7_6c04i"]
+[ext_resource type="Texture2D" uid="uid://dyk52yfhwrn6r" path="res://orders/sprites/food_sausage_raw.png" id="8_8iul4"]
+[ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_kebab.tres" id="9_ynche"]
+[ext_resource type="Texture2D" uid="uid://bc1wvvf86t7fq" path="res://orders/sprites/food_kebab_raw.png" id="10_j0puq"]
+[ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="11_fl7pn"]
+[ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="12_jx477"]
+[ext_resource type="Script" path="res://Levels/UI.gd" id="13_10aie"]
+[ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_mkxmk"]
+
+[node name="Tutorial" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TargetManager" parent="." instance=ExtResource("1_g1o3p")]
+process_mode = 4
+
+[node name="StartupTimer" type="Timer" parent="TargetManager"]
+one_shot = true
+autostart = true
+
+[node name="SpawnTimer" type="Timer" parent="TargetManager"]
+wait_time = 6.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("2_suxdn")]
+position = Vector2(309, 113)
+
+[node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
+position = Vector2(275, 256)
+
+[node name="Table3" parent="." instance=ExtResource("4_trk3d")]
+position = Vector2(310, 255)
+
+[node name="Chair6" parent="." instance=ExtResource("3_wjb4j")]
+position = Vector2(345, 256)
+scale = Vector2(-1, 1)
+
+[node name="Bbq" parent="." instance=ExtResource("5_1qa1s")]
+position = Vector2(365, 56)
+
+[node name="SausageBasket" parent="." instance=ExtResource("6_vn6ct")]
+position = Vector2(121, 68)
+holdable_item_resource = ExtResource("7_6c04i")
+
+[node name="IngredientSprite" parent="SausageBasket" index="2"]
+texture = ExtResource("8_8iul4")
+
+[node name="InteractivePrompt" parent="SausageBasket" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="SausageBasket/InteractivePrompt" index="1"]
+text = "Sausage"
+metadata/_edit_use_anchors_ = true
+
+[node name="KebabBasket" parent="." instance=ExtResource("6_vn6ct")]
+position = Vector2(177, 68)
+holdable_item_resource = ExtResource("9_ynche")
+
+[node name="IngredientSprite" parent="KebabBasket" index="2"]
+texture = ExtResource("10_j0puq")
+
+[node name="InteractivePrompt" parent="KebabBasket" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="KebabBasket/InteractivePrompt" index="1"]
+text = "Kebab"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChickenBasket" parent="." instance=ExtResource("6_vn6ct")]
+position = Vector2(233, 68)
+holdable_item_resource = ExtResource("11_fl7pn")
+
+[node name="InteractivePrompt" parent="ChickenBasket" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
+text = "Chicken"
+metadata/_edit_use_anchors_ = true
+
+[node name="Bin" parent="." instance=ExtResource("12_jx477")]
+position = Vector2(497, 73)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("13_10aie")
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "SCORE: O"
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("14_mkxmk")]
+position = Vector2(0, 180)
+scale = Vector2(1, 20)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("14_mkxmk")]
+position = Vector2(640, 180)
+scale = Vector2(1, 20)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("14_mkxmk")]
+position = Vector2(303, 40)
+scale = Vector2(40, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("14_mkxmk")]
+position = Vector2(303, 360)
+scale = Vector2(40, 1)
+
+[connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
+[connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
+
+[editable path="SausageBasket"]
+[editable path="SausageBasket/InteractivePrompt"]
+[editable path="KebabBasket"]
+[editable path="KebabBasket/InteractivePrompt"]
+[editable path="ChickenBasket"]
+[editable path="ChickenBasket/InteractivePrompt"]

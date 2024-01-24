@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhhkgph4lwbem"]
+[gd_scene load_steps=5 format=3 uid="uid://bhhkgph4lwbem"]
 
 [ext_resource type="Script" path="res://online/LeaderboardManager.gd" id="1_1u4nm"]
 [ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://online/leaderboard_entry.tscn" id="1_ak0xm"]
+[ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_bxw0w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jsh63"]
 font_size = 36
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bxw0w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -124,4 +126,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Loading..."
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="request_completed" from="VBoxContainer/MarginContainer/ScrollContainer/LeaderboardRequest" to="VBoxContainer/MarginContainer/ScrollContainer" method="_on_leaderboard_request_request_completed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
