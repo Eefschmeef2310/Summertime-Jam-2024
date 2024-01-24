@@ -17,3 +17,7 @@ func _on_options_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_logout_button_pressed():
+	get_tree().change_scene_to_file(AirtableManager.usernamePickerScene)

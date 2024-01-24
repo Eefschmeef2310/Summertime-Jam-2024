@@ -63,8 +63,22 @@ texture = ExtResource("3_m5v2r")
 expand_mode = 4
 stretch_mode = 5
 
+[node name="LogoutButton" type="Button" parent="HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Logout"
+
 [connection signal="pressed" from="HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Leftside/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Leftside/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Leftside/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureRect/LogoutButton" to="." method="_on_logout_button_pressed"]

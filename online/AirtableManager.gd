@@ -15,7 +15,7 @@ extends HTTPRequest
 var headers = ["Content-Type: application/json", "Authorization: Bearer pat4TZdDHn5W4cwql.86f6516a64f037bd6545f3a08516d8f7a2ae6eb2b4c12831329800d1beea0237"]
 var usernamePickerScene = "res://Levels/usernamePicker.tscn" #yoink the user to this scene if no account is detected 
 var saveLoaderScene = "res://Levels/saveLoader.tscn" #sent the user to the save loader after they create their user or login
-var menuSceme = "res://Levels/level.tscn" #where to send the user after login is complete
+var menuSceme = "res://Levels/menus/MainMenu.tscn" #where to send the user after login is complete
 
 var saveRes : SaveDataRes
 var savePath : String = "user://savegame.tres"
