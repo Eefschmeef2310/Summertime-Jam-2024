@@ -11,6 +11,8 @@ line_spacing = 2.0
 font_size = 8
 
 [node name="TargetSlip" type="PanelContainer"]
+offset_right = 125.0
+offset_bottom = 91.0
 script = ExtResource("1_jp0jk")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -34,7 +36,7 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "- Short blonde hair
 - Red shirt
-- Plays video games
+- Likes playing video games
 - Likes chicken"
 label_settings = SubResource("LabelSettings_cbvsx")
 

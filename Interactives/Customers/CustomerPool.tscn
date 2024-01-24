@@ -81,7 +81,7 @@ description = "Likes reading books"
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
 headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im")])
-skin_colors = Array[Color]([Color(0.290196, 0, 0, 1), Color(0.894118, 0.752941, 0.482353, 1), Color(1, 0.776471, 0.776471, 1)])
+skin_colors = Array[Color]([Color(1, 0.776471, 0.776471, 1)])
 clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l")])
 habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n")])
 order_pref = Array[Resource("res://orders/order_resource.gd")]([ExtResource("16_dlega"), ExtResource("17_mq1c4"), ExtResource("18_cpgcg")])

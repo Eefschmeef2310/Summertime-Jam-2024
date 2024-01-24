@@ -177,7 +177,7 @@ func state_waiting_food():
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
-		if player.held_item:
+		if is_instance_valid(player.held_item):
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
 				#update score
