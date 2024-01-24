@@ -6,6 +6,9 @@ var target_data: Array[CustomerData]
 var targets_that_have_been_spawned: Array[CustomerData]
 var spawn_target_odds: Array[bool] = []
 
+signal targets_created(target_data)
+signal target_killed(target)
+
 func _ready():
 	# Generate target data
 	for i in CustomerPool.max_targets:
@@ -26,6 +29,8 @@ func _ready():
 	for n in CustomerPool.max_targets:
 		if n < spawn_target_odds.size():
 			spawn_target_odds[n] = true
+	
+	targets_created.emit(target_data)
 	
 
 func instantiate_customer():
@@ -80,6 +85,15 @@ func generate_new_customer_data() -> CustomerData:
 				if CustomerPool.get_similarity(data, target) >= 5:
 					unique = false
 		return data
+
+func customer_killed(data):
+	if data.is_target:
+		# Was a target.
+		target_killed.emit(data)
+	else:
+		# Was not a target.
+		# TODO Trigger game over.
+		pass
 
 #func _ready():
 	#target = get_tree().get_nodes_in_group("Customer").pick_random()

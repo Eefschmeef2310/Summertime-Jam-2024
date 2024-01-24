@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfe07fblqn2wi"]
+
+[ext_resource type="Script" path="res://Levels/target_slip.gd" id="1_jp0jk"]
+[ext_resource type="Texture2D" uid="uid://cslpi7utwwmvl" path="res://orders/sprites/food_chicken_raw.png" id="1_qbs1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqhq4"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbvsx"]
+line_spacing = 2.0
+font_size = 8
+
+[node name="TargetSlip" type="PanelContainer"]
+script = ExtResource("1_jp0jk")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "TARGET"
+label_settings = SubResource("LabelSettings_hqhq4")
+horizontal_alignment = 1
+
+[node name="Details" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "- Short blonde hair
+- Red shirt
+- Plays video games
+- Likes chicken"
+label_settings = SubResource("LabelSettings_cbvsx")
+
+[node name="CompleteTexture" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+texture = ExtResource("1_qbs1g")
