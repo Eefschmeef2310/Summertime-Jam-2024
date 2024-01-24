@@ -3,7 +3,11 @@ class_name HoldableItemScene
 
 var item_resource : OrderResource = OrderResource.new()
 
-var cooked: bool = false
+var cooked: bool = false:
+	set(value):
+		cooked = value
+		$TextureProgressBar.visible = !value
+		
 var poisoned: bool = false:
 	set(value):
 		(material as ShaderMaterial).set_shader_parameter("opacity", 0.5 if value else 0)

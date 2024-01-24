@@ -21,6 +21,7 @@ AirtableManager="*res://online/AirtableManager.gd"
 CustomerPool="*res://Interactives/Customers/CustomerPool.tscn"
 ShaderLoader="*res://Autoloads/shader_loader.gd"
 ScoreManager="*res://Autoloads/score_manager.gd"
+GameOverManager="*res://Autoloads/game_over_manager.gd"
 
 [display]
 
