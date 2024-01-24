@@ -172,8 +172,8 @@ func state_waiting_food():
 	facing = target_chair.scale.x
 	
 	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
-	if interactive_prompt.visible and is_instance_valid(player.held_item) and player.held_item.item_resource == data.order_prefa:
-		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0.2)
+	if interactive_prompt.visible and is_instance_valid(player.held_item) and player.held_item.item_resource == data.order_pref:
+		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0.5)
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
@@ -211,6 +211,9 @@ func state_eat():
 		play_animation("eat")
 		holdable_item.poisoned = poisoned
 		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 1)
+		order_timer.stop()
+		order_timer_visual.hide()
+		order_pref_sprite.hide()
 		just_entered_state = false
 
 func state_die():

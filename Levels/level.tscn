@@ -29,70 +29,82 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_0sgre")]
-position = Vector2(309, 153)
+position = Vector2(309, 113)
 
 [node name="Chair" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(156, 242)
+position = Vector2(156, 202)
 
 [node name="Table" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(191, 241)
+position = Vector2(191, 201)
 
 [node name="Chair2" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(226, 242)
+position = Vector2(226, 202)
 scale = Vector2(-1, 1)
 
 [node name="Chair3" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(394, 242)
+position = Vector2(394, 202)
 
 [node name="Table2" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(429, 241)
+position = Vector2(429, 201)
 
 [node name="Chair4" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(464, 242)
+position = Vector2(464, 202)
 scale = Vector2(-1, 1)
 
 [node name="Chair5" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(275, 296)
+position = Vector2(275, 256)
 
 [node name="Table3" parent="." instance=ExtResource("4_cljbk")]
-position = Vector2(310, 295)
+position = Vector2(310, 255)
 
 [node name="Chair6" parent="." instance=ExtResource("2_hwcln")]
-position = Vector2(345, 296)
+position = Vector2(345, 256)
 scale = Vector2(-1, 1)
 
 [node name="Bbq" parent="." instance=ExtResource("5_7wowj")]
-position = Vector2(365, 96)
+position = Vector2(365, 56)
 
 [node name="SausageBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(121, 108)
+position = Vector2(121, 68)
 holdable_item_resource = ExtResource("7_ocrlp")
 
 [node name="IngredientSprite" parent="SausageBasket" index="2"]
 texture = ExtResource("8_j80l1")
 
+[node name="InteractivePrompt" parent="SausageBasket" index="3"]
+metadata/_edit_use_anchors_ = true
+
 [node name="Label" parent="SausageBasket/InteractivePrompt" index="1"]
 text = "Sausage"
+metadata/_edit_use_anchors_ = true
 
 [node name="KebabBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(177, 108)
+position = Vector2(177, 68)
 holdable_item_resource = ExtResource("8_6xudt")
 
 [node name="IngredientSprite" parent="KebabBasket" index="2"]
 texture = ExtResource("10_yjf0y")
 
+[node name="InteractivePrompt" parent="KebabBasket" index="3"]
+metadata/_edit_use_anchors_ = true
+
 [node name="Label" parent="KebabBasket/InteractivePrompt" index="1"]
 text = "Kebab"
+metadata/_edit_use_anchors_ = true
 
 [node name="ChickenBasket" parent="." instance=ExtResource("6_e0uaq")]
-position = Vector2(233, 108)
+position = Vector2(233, 68)
 holdable_item_resource = ExtResource("9_605p5")
+
+[node name="InteractivePrompt" parent="ChickenBasket" index="3"]
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" parent="ChickenBasket/InteractivePrompt" index="1"]
 text = "Chicken"
+metadata/_edit_use_anchors_ = true
 
 [node name="Bin" parent="." instance=ExtResource("10_l2v2k")]
-position = Vector2(497, 113)
+position = Vector2(497, 73)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("11_wcp83")
