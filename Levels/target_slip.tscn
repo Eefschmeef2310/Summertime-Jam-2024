@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfe07fblqn2wi"]
+[gd_scene load_steps=8 format=3 uid="uid://dfe07fblqn2wi"]
 
 [ext_resource type="Script" path="res://Levels/target_slip.gd" id="1_jp0jk"]
+[ext_resource type="Texture2D" uid="uid://cxll5flfof5hy" path="res://Levels/menus_border.png" id="1_lr27r"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_tc1jw"]
 [ext_resource type="AudioStream" uid="uid://1cxhj7r5p7y7" path="res://audio/sfx/tada-fanfare-a-6313.mp3" id="4_ydn6h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aj2"]
+texture = ExtResource("1_lr27r")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hqhq4"]
 font = ExtResource("2_tc1jw")
 font_size = 24
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbvsx"]
 line_spacing = 2.0
@@ -17,14 +26,15 @@ z_index = 4096
 z_as_relative = false
 offset_right = 125.0
 offset_bottom = 91.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_44aj2")
 script = ExtResource("1_jp0jk")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
 
 [node name="VBox" type="VBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(100, 0)

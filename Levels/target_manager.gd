@@ -106,6 +106,7 @@ func generate_target():
 		if n < spawn_target_odds.size():
 			spawn_target_odds[n] = true
 	
+	print(target_data)
 	targets_created.emit(target_data)
 
 func customer_killed(data: CustomerData):
