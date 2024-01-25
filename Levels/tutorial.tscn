@@ -53,9 +53,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -86.5
+offset_left = -160.0
 offset_top = -217.0
-offset_right = 86.5
+offset_right = 160.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -64,6 +64,7 @@ Press Q to poison the target's food!"
 label_settings = SubResource("LabelSettings_cl12o")
 horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="Control" type="Control" parent="TutorialManager"]
 visible = false
@@ -88,6 +89,8 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back to menu"
+
+[node name="Timer" type="Timer" parent="TutorialManager"]
 
 [node name="PauseManager" parent="." instance=ExtResource("2_nk0o5")]
 
@@ -163,6 +166,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(497, 73)
 
 [node name="TargetUI" type="Node2D" parent="."]
+visible = false
 position = Vector2(8, 261)
 script = ExtResource("15_ivuvc")
 
@@ -205,6 +209,8 @@ volume_db = -15.0
 autoplay = true
 bus = &"Music"
 
+[connection signal="pressed" from="TutorialManager/Control/Button" to="TutorialManager" method="_on_button_pressed"]
+[connection signal="timeout" from="TutorialManager/Timer" to="TutorialManager" method="_on_timer_timeout"]
 [connection signal="target_killed" from="TargetManager" to="TargetUI" method="_on_target_manager_target_killed"]
 [connection signal="targets_created" from="TargetManager" to="TargetUI" method="_on_target_manager_targets_created"]
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]

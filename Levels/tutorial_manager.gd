@@ -49,8 +49,9 @@ func phase_complete():
 		4: #Second customer fed
 			$Popup/Label.text = "Good job!"
 		5: #Second customer off screen
+			$"../TargetUI".show()
 			$"../TargetManager".instantiate_customer()
-			$"../TargetManager".instantiate_customer()
+			$Timer.start()
 		6: #First customer sits
 			pass
 		7: #second customer sits
@@ -64,3 +65,9 @@ func phase_complete():
 			$Popup/Label.text = "Tutorial complete! Make a complete screen"	
 	
 	phase += 1
+
+func _on_timer_timeout():
+	$"../TargetManager".instantiate_customer()
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Levels/menus/MainMenu.tscn")
