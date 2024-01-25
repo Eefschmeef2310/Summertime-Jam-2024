@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_18p78"]
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
-[ext_resource type="Texture2D" uid="uid://2ch8et7lf6tx" path="res://PlaceholderSprites/istockphoto-514028377-612x612.jpg" id="2_mtmnc"]
-[ext_resource type="Texture2D" uid="uid://jtq3vxmi6e4j" path="res://ui_sprites/menu.png" id="3_gg56k"]
+[ext_resource type="Texture2D" uid="uid://cdo5ju2to2ps8" path="res://Levels/menu.png" id="3_do2h5"]
+[ext_resource type="Texture2D" uid="uid://d2c4wu66njg6c" path="res://Levels/menu_guy.png" id="4_w76gm"]
 [ext_resource type="AudioStream" uid="uid://cn8dhruegjdrf" path="res://audio/music/MenuAmbience_free.mp3" id="5_3u85p"]
 [ext_resource type="FontFile" uid="uid://du4ks47g1fbxf" path="res://Fonts/Clouds_of_Despair.ttf" id="5_stlpi"]
 [ext_resource type="AudioStream" uid="uid://bdw2t3wmswepw" path="res://audio/music/Sizzle_EverHeat_Freesound.wav" id="6_1d4h1"]
@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_mtmnc")
+texture = ExtResource("3_do2h5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,7 +45,7 @@ offset_left = -640.0
 offset_top = -360.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("3_gg56k")
+texture = ExtResource("4_w76gm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_right = 330
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -66,7 +66,7 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Leftside"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 text = "Nothing Shady at
 THIS BBQ!"
@@ -99,16 +99,17 @@ layout_mode = 2
 text = "Quit"
 
 [node name="LogoutButton" type="Button" parent="."]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -43.0
+offset_left = -83.0
+offset_top = -350.0
 offset_right = -8.0
-offset_bottom = -12.0
+offset_bottom = -323.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Logout"

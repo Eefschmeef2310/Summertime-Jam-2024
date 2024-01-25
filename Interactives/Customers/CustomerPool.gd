@@ -11,6 +11,14 @@ var similar_target_buffer = 5
 @export var habit : Array[CustomerHabit]
 @export var order_pref : Array[OrderResource]
 
+func _process(delta):
+	if Input.is_action_just_pressed("Fullscreen"):
+		var mode = DisplayServer.window_get_mode()
+		if mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 func get_random_combo() -> CustomerData:
 	var data = CustomerData.new()
 	data.headpiece = CustomerPool.headpieces.pick_random()

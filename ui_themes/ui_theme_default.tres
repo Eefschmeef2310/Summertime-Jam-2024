@@ -22,7 +22,7 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 expand_margin_top = 2.0
 expand_margin_bottom = 4.0
-modulate_color = Color(1, 1, 1, 0.784314)
+modulate_color = Color(1, 1, 1, 0.862745)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqabv"]
 texture = ExtResource("2_giw84")

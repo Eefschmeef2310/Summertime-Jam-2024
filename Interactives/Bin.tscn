@@ -6,13 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://djbbauavefki7" path="res://audio/sfx/bin_pixabay.mp3" id="4_63ei3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_747uc"]
-size = Vector2(40, 10)
+size = Vector2(28, 10)
 
 [node name="Bin" type="StaticBody2D"]
 script = ExtResource("1_wxgtw")
 
 [node name="Bin" type="Sprite2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -22.5)
 texture = ExtResource("2_gf3sw")
 
 [node name="InteractivePrompt" parent="." instance=ExtResource("1_32lpj")]

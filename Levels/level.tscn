@@ -146,7 +146,7 @@ text = "Chicken"
 metadata/_edit_use_anchors_ = true
 
 [node name="Bin" parent="." instance=ExtResource("10_l2v2k")]
-position = Vector2(505, 73)
+position = Vector2(499, 73)
 
 [node name="TargetUI" type="Node2D" parent="."]
 position = Vector2(8, 255)
