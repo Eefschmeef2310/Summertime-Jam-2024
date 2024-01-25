@@ -161,7 +161,7 @@ texture_die = ExtResource("49_tfl2u")
 [sub_resource type="Resource" id="Resource_apqln"]
 script = ExtResource("16_wj8q0")
 anim_name = Array[String](["habit_game"])
-description = "Likes video games"
+description = "Likes playing video games"
 
 [sub_resource type="Resource" id="Resource_6sg6n"]
 script = ExtResource("16_wj8q0")

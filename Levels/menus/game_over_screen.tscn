@@ -1,57 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqk448jx6f5o7"]
+[gd_scene load_steps=3 format=3 uid="uid://dqk448jx6f5o7"]
 
-[ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_0e0k5"]
 [ext_resource type="Script" path="res://Levels/menus/game_over_screen.gd" id="1_oa0xp"]
-[ext_resource type="AudioStream" uid="uid://cy3jpgmcccwwl" path="res://audio/sfx/dun-dun-duuun-v01-105105_pixabay.mp3" id="4_gd6ds"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbwml"]
-bg_color = Color(0.372549, 0.145098, 0.145098, 0.647059)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing_size = 0.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkh31"]
 font_size = 80
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_qeyxx"]
-font_size = 24
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[node name="GameOverScreen" type="Control"]
+[node name="GameOverScreen" type="CanvasLayer"]
 process_mode = 3
-z_index = 999
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_0e0k5")
 script = ExtResource("1_oa0xp")
 
-[node name="BG" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="TextureRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="Panel" type="Panel" parent="BG"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xbwml")
+color = Color(0.2, 0.2, 0.2, 0.694118)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -74,17 +40,10 @@ horizontal_alignment = 1
 [node name="ReasonOfDeath" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Reason of death here"
-label_settings = SubResource("LabelSettings_qeyxx")
 horizontal_alignment = 1
 
 [node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_gd6ds")
-volume_db = -10.0
-autoplay = true
-bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

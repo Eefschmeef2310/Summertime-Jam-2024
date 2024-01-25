@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/target_slip.gd" id="1_jp0jk"]
 [ext_resource type="Texture2D" uid="uid://cxll5flfof5hy" path="res://Levels/menus_border.png" id="1_lr27r"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_tc1jw"]
-[ext_resource type="AudioStream" uid="uid://1cxhj7r5p7y7" path="res://audio/sfx/tada-fanfare-a-6313_pixabay.mp3" id="4_ckn6r"]
+[ext_resource type="AudioStream" uid="uid://1cxhj7r5p7y7" path="res://audio/sfx/tada-fanfare-a-6313.mp3" id="4_ydn6h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aj2"]
 texture = ExtResource("1_lr27r")
@@ -22,8 +22,7 @@ line_spacing = 2.0
 font = ExtResource("2_tc1jw")
 
 [node name="TargetSlip" type="PanelContainer"]
-self_modulate = Color(1, 1, 1, 0.501961)
-z_index = 800
+z_index = 4096
 z_as_relative = false
 offset_right = 125.0
 offset_bottom = 91.0
@@ -56,7 +55,7 @@ text = "- Short blonde hair
 label_settings = SubResource("LabelSettings_cbvsx")
 
 [node name="CompleteSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ckn6r")
+stream = ExtResource("4_ydn6h")
 volume_db = -10.0
 bus = &"SFX"
 

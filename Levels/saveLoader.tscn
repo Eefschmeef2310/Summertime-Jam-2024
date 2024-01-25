@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://s7apoj2rky8g"]
+[gd_scene load_steps=4 format=3 uid="uid://s7apoj2rky8g"]
 
 [ext_resource type="Script" path="res://online/saveLoader.gd" id="1_mdrm8"]
-[ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_0fq40"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yf6s"]
-font = ExtResource("2_0fq40")
-font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcw5e"]
 font_size = 11
@@ -30,10 +27,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
