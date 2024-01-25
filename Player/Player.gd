@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var tutorial_manager : Node
+
 @export var move_speed: float = 100
 @export var min_interaction_distance : float = 50
 
@@ -27,8 +29,7 @@ func _process(_delta):
 	else:
 		closest_interactive = null
 	
-	# TODO PLACEHOLDER FOR DEBUG
-	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison"):
+	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison") and is_instance_valid(tutorial_manager) and tutorial_manager.poison_available:
 		held_item.poisoned = true
 		$Poison.play()
 	

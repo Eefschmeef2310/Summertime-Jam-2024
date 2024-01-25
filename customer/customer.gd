@@ -154,6 +154,9 @@ func state_entering(delta):
 
 func state_waiting_food():
 	if just_entered_state:
+		if tutorial_manager:
+			tutorial_manager.phase_complete()
+		
 		#Start timer
 		order_timer.start()
 		order_timer_visual.visible = true
@@ -184,7 +187,10 @@ func state_waiting_food():
 				# correct food
 				if player.held_item.cooked:
 					
-					$OrderComplete.play()
+					$Streams/OrderComplete.play()
+					
+					if tutorial_manager:
+						tutorial_manager.phase_complete()
 					
 					# cooked food
 					if player.held_item.poisoned:
