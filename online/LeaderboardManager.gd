@@ -38,9 +38,15 @@ func _on_leaderboard_request_request_completed(result, response_code, headers, b
 	print(JSON.stringify(json))
 	$LoadingLabel.visible = false
 	for i : int in range(json.records.size()):
-		print(json.records[i].fields.Username)
+		#print(json.records[i].fields.Username)
 		var newEntry = entryPrefab.instantiate()
-		newEntry.SetEntryData(i+1, json.records[i].fields.Username, json.records[i].fields.Highscore)
+		
+		# EMPTY NAME FIX
+		var uname = "Player"
+		if json.records[i].fields.has("Username"):
+			uname = json.records[i].fields.Username
+		
+		newEntry.SetEntryData(i+1, uname, json.records[i].fields.Highscore)
 		if(json.records[i].id == AirtableManager.saveRes.userID):
 			newEntry.SetLocalEntry()
 		$EntryContainer.add_child(newEntry)

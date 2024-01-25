@@ -20,7 +20,6 @@ func _process(delta):
 	pass
 	# position.x = lerp(position.x, get_index() * separation, 5 * delta)
 
-
 func set_data(d: CustomerData):
 	data = d
 	
@@ -34,6 +33,7 @@ func set_data(d: CustomerData):
 func complete_slip():
 	modulate = Color.GREEN
 	$CompleteSound.play()
+	$SuccessParticles.emitting = true
 	if tween:
 		tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)

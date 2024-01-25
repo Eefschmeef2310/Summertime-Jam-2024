@@ -74,6 +74,7 @@ func _process(delta):
 	if should_flip:
 		n = -1
 	$FoodMarker.position.x = holdable_item_x * n
+	$SuccessParticles.position.x = $FoodMarker.position.x
 	
 	#Update texture progress bar
 	order_timer_visual.value = order_timer.time_left
@@ -117,10 +118,13 @@ func state_entering(delta):
 		for chair in chairs:
 			if chair.occupant == null:
 				free_chairs.append(chair)
-		var chair = free_chairs.pick_random()
-		chair.occupant = self
-		target_chair = chair
-		position.y = target_chair.position.y + 5
+		if !free_chairs.is_empty():
+			var chair = free_chairs.pick_random()
+			chair.occupant = self
+			target_chair = chair
+			position.y = target_chair.position.y + 5
+		elif !data.is_target:
+			queue_free()
 	else:
 		position = position.move_toward(target_chair.position, move_speed * delta)
 		position.y = target_chair.position.y + 5
@@ -213,6 +217,7 @@ func state_eat():
 		$AnimationPlayerHands.play("eat")
 		$DieFromPoisonTimer.start()
 		$ExitTimer.start()
+		$SuccessParticles.emitting = true
 		play_animation("eat")
 		holdable_item.poisoned = poisoned
 		(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 1)
@@ -265,9 +270,10 @@ func _on_die_from_poison_timer_timeout():
 		state = "die"
 		$DeathDespawnTimer.start()
 		$DeathCheckIfTargetTimer.start()
-	else:
-		if data.is_target:
-			GameOverManager.game_over("You let a target get away!")
+	elif data.is_target:
+		$AnimationPlayerBlaze.play("blaze")
+		$Sprite2DF.modulate = Color.RED
+		$GameOverTimer.start()
 
 func _on_exit_timer_timeout():
 	state = "exiting"
@@ -286,3 +292,7 @@ func _on_start_habit_timer_timeout():
 	play_animation("sit_hold")
 	$AnimationPlayerHands.play(data.habit.anim_name.pick_random())
 	just_entered_state = false
+
+
+func _on_game_over_timer_timeout():
+	GameOverManager.game_over("You failed to eliminate your target!")

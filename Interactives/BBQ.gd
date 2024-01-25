@@ -24,6 +24,8 @@ func _on_left_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		left_item.global_position = $LeftPrompt/FoodMarker.global_position
+		left_item.scale = Vector2(1, 1)
+		left_item.rotation = 0
 		if !left_item.cooked:
 			left_item.start_cook_timer()
 	elif left_item and left_item.cooked and !is_instance_valid(player.held_item):
@@ -36,6 +38,8 @@ func _on_middle_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		middle_item.global_position = $MiddlePrompt/FoodMarker.global_position
+		middle_item.scale = Vector2(1, 1)
+		middle_item.rotation = 0
 		if !middle_item.cooked:
 			middle_item.start_cook_timer()
 	elif middle_item and middle_item.cooked and !is_instance_valid(player.held_item):
@@ -48,6 +52,8 @@ func _on_right_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		right_item.global_position = $RightPrompt/FoodMarker.global_position
+		right_item.scale = Vector2(1, 1)
+		right_item.rotation = 0
 		if !right_item.cooked:
 			right_item.start_cook_timer()
 	elif right_item and right_item.cooked and !is_instance_valid(player.held_item):
