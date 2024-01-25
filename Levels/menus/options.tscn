@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmy82ok8mbnuw"]
+[gd_scene load_steps=10 format=3 uid="uid://dmy82ok8mbnuw"]
 
 [ext_resource type="Script" path="res://Levels/menus/added_menu.gd" id="1_bviks"]
-[ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_vgxo8"]
 [ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="3_4xx44"]
 [ext_resource type="Script" path="res://Levels/menus/volume_slider.gd" id="3_o3kyl"]
 [ext_resource type="Texture2D" uid="uid://dyk52yfhwrn6r" path="res://orders/sprites/food_sausage_raw.png" id="4_arvkr"]
@@ -15,19 +14,11 @@ font_size = 80
 [sub_resource type="LabelSettings" id="LabelSettings_dfais"]
 font_size = 24
 
-[node name="Options" type="Control"]
+[node name="Options" type="CanvasLayer"]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_vgxo8")
 script = ExtResource("1_bviks")
 
 [node name="BG" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,7 +38,6 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

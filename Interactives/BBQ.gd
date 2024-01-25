@@ -26,7 +26,7 @@ func _on_left_prompt_interacted():
 		left_item.global_position = $LeftPrompt/FoodMarker.global_position
 		if !left_item.cooked:
 			left_item.start_cook_timer()
-	elif left_item and left_item.cooked:
+	elif left_item and left_item.cooked and !is_instance_valid(player.held_item):
 		return_to_player(left_item)
 		left_item = null
 
@@ -38,7 +38,7 @@ func _on_middle_prompt_interacted():
 		middle_item.global_position = $MiddlePrompt/FoodMarker.global_position
 		if !middle_item.cooked:
 			middle_item.start_cook_timer()
-	elif middle_item and middle_item.cooked:
+	elif middle_item and middle_item.cooked and !is_instance_valid(player.held_item):
 		return_to_player(middle_item)
 		middle_item = null
 
@@ -50,7 +50,7 @@ func _on_right_prompt_interacted():
 		right_item.global_position = $RightPrompt/FoodMarker.global_position
 		if !right_item.cooked:
 			right_item.start_cook_timer()
-	elif right_item and right_item.cooked:
+	elif right_item and right_item.cooked and !is_instance_valid(player.held_item):
 		return_to_player(right_item)
 		right_item = null
 	

@@ -62,7 +62,6 @@ func phase_complete():
 		9: #First customer leaves
 			pass
 		10: #Second customer leaves
-			$Popup/Label.text = "Tutorial complete!"
 			$Control.show()
 	
 	phase += 1
