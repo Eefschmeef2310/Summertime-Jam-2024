@@ -24,7 +24,7 @@ var idOfLastCheck : String = ""
 var offlineModeActive = false
 
 var debugNewSave = false #set to true to force a new username to be picked
-var GAME_VERSION = 1 #increment this for leaderboard resets!
+var GAME_VERSION = 2 #increment this for leaderboard resets!
 
 signal response(string)
 signal noUserSet

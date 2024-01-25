@@ -46,7 +46,7 @@ wait_time = 8.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_0sgre")]
-position = Vector2(279, 124)
+position = Vector2(322, 141)
 
 [node name="Chair" parent="." instance=ExtResource("2_hwcln")]
 position = Vector2(114, 154)

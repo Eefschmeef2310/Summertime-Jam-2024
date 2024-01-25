@@ -135,7 +135,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("tutorial_manager") instance=ExtResource("2_suxdn")]
-position = Vector2(309, 113)
+position = Vector2(324, 142)
 tutorial_manager = NodePath("../TutorialManager")
 
 [node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
