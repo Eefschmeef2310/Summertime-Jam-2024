@@ -12,7 +12,7 @@ func _process(_delta):
 		_on_continue_pressed()
 
 func _on_continue_pressed():
-	if options_instantiated:
+	if is_instance_valid(options_instantiated):
 		options_instantiated.queue_free()
 	
 	get_tree().paused = false
