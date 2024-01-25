@@ -20,8 +20,8 @@ func _on_continue_pressed():
 
 func _on_menu_button_pressed():
 	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Levels/menus/MainMenu.tscn")
 	queue_free()
-	get_tree().change_scene_to_file("res://Levels/MainMenu.tscn")
 
 func _on_options_pressed():
 	options_instantiated = options.instantiate()
