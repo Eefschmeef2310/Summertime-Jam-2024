@@ -97,7 +97,6 @@ func customer_killed(data: CustomerData):
 	if data.is_target:
 		# Was a target.
 		ScoreManager.score += 10
-		print("Target eliminated.")
 		target_killed.emit(data)
 		target_data.erase(data)
 		generate_target()

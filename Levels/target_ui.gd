@@ -5,7 +5,6 @@ const TARGET_SLIP = preload("res://Levels/target_slip.tscn")
 
 
 func _on_target_manager_targets_created(target_data):
-	print(target_data)
 	for target in target_data:
 		var slip = TARGET_SLIP.instantiate()
 		slip.set_data(target)

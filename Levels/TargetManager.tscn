@@ -4,5 +4,3 @@
 
 [node name="TargetManager" type="Node" groups=["target_manager"]]
 script = ExtResource("1_y5atj")
-
-[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

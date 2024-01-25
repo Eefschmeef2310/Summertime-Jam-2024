@@ -78,7 +78,6 @@ func _process(delta):
 	#play ticker when low time
 	if order_timer_visual.visible:
 		if !$OrderCountdown/Ticker.playing and order_timer_visual.value < 0.25 * order_timer_visual.max_value:
-			#print("bingus")
 			$OrderCountdown/Ticker.play()
 			$OrderCountdown/TextureProgressBar/AnimationPlayer.play("TimerBounce")
 		elif $OrderCountdown/Ticker.playing and order_timer_visual.value >= 0.25 * order_timer_visual.max_value:
@@ -124,11 +123,9 @@ func state_entering(delta):
 		facing = -1 * sign(position.x - target_chair.position.x)
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
-			#print("I want " + data.order_pref.name + "!")
 			just_interacted_with = false
 			just_entered_state = true
 			state = "waiting_food"
-			#print(data.habit.description)
 
 #func state_waiting_order():
 	#if just_entered_state:
@@ -147,11 +144,9 @@ func state_entering(delta):
 	#
 	#interactive_prompt.enabled = true
 	#if just_interacted_with:
-		#print("I want " + data.order_pref.name + "!")
 		#just_interacted_with = false
 		#just_entered_state = true
 		#state = "waiting_food"
-		#print(data.habit.description)
 
 func state_waiting_food():
 	if just_entered_state:
@@ -187,9 +182,7 @@ func state_waiting_food():
 				if player.held_item.cooked:
 					# cooked food
 					if player.held_item.poisoned:
-						print("this is poisoned...")
 						poisoned = true
-					print("Thanks for the food!")
 					just_entered_state = true
 					player.held_item.queue_free()
 					state = "eat"
@@ -201,13 +194,12 @@ func state_waiting_food():
 					print("This isn't cooked! Are you trying to poison me?")
 			else:
 				# incorrect food
-				print("Kill yourself!")
+				print("Incorrect food!")
 		just_interacted_with = false
 
 func state_eat():
 	interactive_prompt.enabled = false
 	if just_entered_state:
-		#print("YEEEEEAP")
 		order_pref_sprite.show()
 		$AnimationPlayerHands.play("none")
 		$DieFromPoisonTimer.start()
@@ -256,14 +248,12 @@ func _on_death_despawn_timer_timeout():
 		target_chair = null
 	queue_free()
 
-
 func _on_die_from_poison_timer_timeout():
 	if poisoned:
 		just_entered_state = true
 		state = "die"
 		$DeathDespawnTimer.start()
 		$DeathCheckIfTargetTimer.start()
-
 
 func _on_exit_timer_timeout():
 	state = "exiting"
@@ -272,7 +262,5 @@ func _on_order_timer_timeout():
 	order_timer_visual.visible = false
 	GameOverManager.game_over("An order ran out of time!")
 
-
 func _on_death_check_if_target_timer_timeout():
-	print("Timer!")
 	target_manager.customer_killed(data)
