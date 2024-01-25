@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=45 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://cb2oixqv3lhv6" path="res://customer/sprites/sit/customer_sit_base.png" id="3_2gpl2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cley67yxj72ak" path="res://orders/sprites/wait_bar_progress.png" id="11_bgr0n"]
 [ext_resource type="Texture2D" uid="uid://gkke4bcvuwdo" path="res://customer/sprites/habit/customer_habit_smoke.png" id="13_eoqma"]
 [ext_resource type="Texture2D" uid="uid://cj3y0iyw81heg" path="res://customer/sprites/habit/customer_habit_laptop.png" id="14_jrgir"]
+[ext_resource type="Texture2D" uid="uid://b8lxc3ed5a4a0" path="res://customer/sprites/habit/customer_habit_phone.png" id="15_pi8s8"]
 [ext_resource type="AudioStream" uid="uid://dtaqkw7kiup8p" path="res://audio/sfx/Good.mp3" id="17_lvrpy"]
 [ext_resource type="AudioStream" uid="uid://bb6qor148jiow" path="res://audio/sfx/doorslam_pixabay.mp3" id="17_ss1gc"]
 
@@ -1613,6 +1614,47 @@ tracks/2/keys = {
 "values": [0, 1, 0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_0umdr"]
+resource_name = "habit_phone"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2DHands:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_pi8s8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2DHands:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2DHands:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d3nh5"]
 _data = {
 "RESET": SubResource("Animation_exegt"),
@@ -1623,6 +1665,7 @@ _data = {
 "habit_book_4": SubResource("Animation_vhtab"),
 "habit_game": SubResource("Animation_v3dg2"),
 "habit_laptop": SubResource("Animation_oun86"),
+"habit_phone": SubResource("Animation_0umdr"),
 "habit_smoke": SubResource("Animation_np1ii"),
 "none": SubResource("Animation_glagw")
 }
