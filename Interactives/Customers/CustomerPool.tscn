@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b7htgkoo6ouf7"]
+[gd_scene load_steps=73 format=3 uid="uid://b7htgkoo6ouf7"]
 
 [ext_resource type="Script" path="res://Interactives/Customers/CustomerPool.gd" id="1_wanuu"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_headpiece.gd" id="2_y57vj"]
@@ -12,19 +12,16 @@
 [ext_resource type="Script" path="res://Interactives/Customers/customer_clothes.gd" id="6_workc"]
 [ext_resource type="Texture2D" uid="uid://crda5t0468i0d" path="res://customer/sprites/sit/customer_sit_h1brown.png" id="7_51dv4"]
 [ext_resource type="Texture2D" uid="uid://h8nmpry5xyca" path="res://customer/sprites/walk/customer_walk_s1mustard.png" id="7_akx1t"]
-[ext_resource type="Texture2D" uid="uid://dhri4jgdm2iqs" path="res://customer/sprites/walk/customer_walk_s1olive.png" id="8_bsm3y"]
 [ext_resource type="Texture2D" uid="uid://ddbmrxrwl64he" path="res://customer/sprites/walk/customer_walk_s1red.png" id="9_djpfy"]
 [ext_resource type="Texture2D" uid="uid://b5oi2cob23j1s" path="res://customer/sprites/die/customer_die_h1brown.png" id="9_rpxkh"]
 [ext_resource type="Texture2D" uid="uid://v0fvyv6bd5si" path="res://customer/sprites/sit/customer_sit_s1mustard.png" id="10_5pw0p"]
 [ext_resource type="Texture2D" uid="uid://bekoywiv0ua8u" path="res://customer/sprites/die/customer_die_h2black.png" id="12_mfs1w"]
-[ext_resource type="Texture2D" uid="uid://ccyj007ru3oil" path="res://customer/sprites/sit/customer_sit_s1olive.png" id="12_x43ps"]
 [ext_resource type="Texture2D" uid="uid://cp5o8lw08rg6k" path="res://customer/sprites/sit/customer_sit_h2black.png" id="13_7h6fc"]
 [ext_resource type="Texture2D" uid="uid://ceq243pa08p8q" path="res://customer/sprites/die/customer_die_s1mustard.png" id="13_r1bos"]
 [ext_resource type="Texture2D" uid="uid://c1aimgerc0whm" path="res://customer/sprites/walk/customer_walk_h2black.png" id="14_hp661"]
 [ext_resource type="Texture2D" uid="uid://c717hjs6vyb6" path="res://customer/sprites/sit/customer_sit_s1red.png" id="14_mrfm1"]
 [ext_resource type="Texture2D" uid="uid://nmms4ab5td1g" path="res://customer/sprites/die/customer_die_h2blond.png" id="15_udy3w"]
 [ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="16_dlega"]
-[ext_resource type="Texture2D" uid="uid://dmkjat6vfuc2" path="res://customer/sprites/die/customer_die_s1olive.png" id="16_jf2qc"]
 [ext_resource type="Texture2D" uid="uid://jcfe055s47ek" path="res://customer/sprites/sit/customer_sit_h2blond.png" id="16_syjfm"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_habit.gd" id="16_wj8q0"]
 [ext_resource type="Texture2D" uid="uid://deqnvieytu3tt" path="res://customer/sprites/walk/customer_walk_h2blond.png" id="17_a4gb1"]
@@ -126,13 +123,6 @@ texture_walk = ExtResource("7_akx1t")
 texture_sit = ExtResource("10_5pw0p")
 texture_die = ExtResource("13_r1bos")
 
-[sub_resource type="Resource" id="Resource_l01jh"]
-script = ExtResource("6_workc")
-text = "Grey shirt"
-texture_walk = ExtResource("8_bsm3y")
-texture_sit = ExtResource("12_x43ps")
-texture_die = ExtResource("16_jf2qc")
-
 [sub_resource type="Resource" id="Resource_k2b6l"]
 script = ExtResource("6_workc")
 text = "Red shirt"
@@ -196,6 +186,6 @@ description = "Likes their phone"
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
 headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im"), SubResource("Resource_aeqo3"), SubResource("Resource_qq3ir"), SubResource("Resource_ag7nx"), SubResource("Resource_o6qjc"), SubResource("Resource_deca0"), SubResource("Resource_gojlr")])
-clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l"), SubResource("Resource_81po4"), SubResource("Resource_8teoj"), SubResource("Resource_7kjcj"), SubResource("Resource_rgi71")])
+clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_k2b6l"), SubResource("Resource_81po4"), SubResource("Resource_8teoj"), SubResource("Resource_7kjcj"), SubResource("Resource_rgi71")])
 habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n"), SubResource("Resource_nx1e1"), SubResource("Resource_ab6qr"), SubResource("Resource_s31s7")])
 order_pref = Array[Resource("res://orders/order_resource.gd")]([ExtResource("16_dlega"), ExtResource("17_mq1c4"), ExtResource("18_cpgcg")])

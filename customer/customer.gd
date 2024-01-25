@@ -204,7 +204,7 @@ func state_eat():
 	interactive_prompt.enabled = false
 	if just_entered_state:
 		order_pref_sprite.show()
-		$AnimationPlayerHands.play("none")
+		$AnimationPlayerHands.play("eat")
 		$DieFromPoisonTimer.start()
 		$ExitTimer.start()
 		play_animation("eat")

@@ -1,8 +1,51 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcma3f2wjixis"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bcma3f2wjixis"]
 
+[ext_resource type="Texture2D" uid="uid://domn45x3hfvgd" path="res://Levels/menus_button.png" id="2_giw84"]
+[ext_resource type="Texture2D" uid="uid://cslpi7utwwmvl" path="res://orders/sprites/food_chicken_raw.png" id="2_s7vjx"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_t8mkk"]
+[ext_resource type="Texture2D" uid="uid://dgfp2tb0ch2oh" path="res://orders/sprites/food_chicken_cooked.png" id="3_1uyb3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0wbv"]
+texture = ExtResource("2_giw84")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62mb2"]
+texture = ExtResource("2_giw84")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+modulate_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqabv"]
+texture = ExtResource("2_giw84")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxd06"]
+bg_color = Color(0.180392, 0.105882, 0.168627, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 6.0
 
 [resource]
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("2_t8mkk")
+Button/styles/hover = SubResource("StyleBoxTexture_q0wbv")
+Button/styles/normal = SubResource("StyleBoxTexture_62mb2")
+Button/styles/pressed = SubResource("StyleBoxTexture_oqabv")
+HSlider/icons/grabber = ExtResource("2_s7vjx")
+HSlider/icons/grabber_highlight = ExtResource("3_1uyb3")
+HSlider/styles/slider = SubResource("StyleBoxFlat_fxd06")
+Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("2_t8mkk")
