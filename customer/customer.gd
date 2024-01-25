@@ -19,6 +19,7 @@ var just_interacted_with = false
 var move_speed = 75
 
 var target_manager
+var tutorial_manager
 var data: CustomerData
 
 var poisoned = false
@@ -43,10 +44,13 @@ func _ready():
 	
 	player = get_tree().get_first_node_in_group("Player")
 	target_manager = get_tree().get_first_node_in_group("target_manager")
+	tutorial_manager = get_tree().get_first_node_in_group("tutorial_manager")
 	if target_manager:
 		data = target_manager.generate_new_customer_data()
 		#if data.is_target:
 			#$TargetLabel.show()
+	elif tutorial_manager:
+		data = tutorial_manager.get_data($OrderCountdown)
 	
 	holdable_item_x = $FoodMarker.position.x
 	
@@ -181,6 +185,7 @@ func state_waiting_food():
 				if player.held_item.cooked:
 					
 					$OrderComplete.play()
+					
 					# cooked food
 					if player.held_item.poisoned:
 						poisoned = true
@@ -241,6 +246,8 @@ func set_textures_for_animation(s: String):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if state == "exiting":
+		if tutorial_manager:
+			tutorial_manager.phase_complete()
 		queue_free()
 
 func _on_death_despawn_timer_timeout():

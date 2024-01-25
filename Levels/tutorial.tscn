@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c41njlptj1jmx"]
+[gd_scene load_steps=20 format=3 uid="uid://c41njlptj1jmx"]
 
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_g1o3p"]
 [ext_resource type="Script" path="res://Levels/tutorial_manager.gd" id="1_ia1w8"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="12_jx477"]
 [ext_resource type="Script" path="res://Levels/UI.gd" id="13_10aie"]
 [ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_mkxmk"]
+[ext_resource type="Script" path="res://Levels/target_ui.gd" id="15_ivuvc"]
 [ext_resource type="AudioStream" uid="uid://coqvjtryqu7mh" path="res://audio/music/LevelMusic_att_in_chat.mp3" id="17_1c8ch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cl12o"]
@@ -25,7 +26,7 @@ shadow_color = Color(0, 0, 0, 1)
 [node name="Tutorial" type="Node2D"]
 y_sort_enabled = true
 
-[node name="TutorialManager" type="Node" parent="."]
+[node name="TutorialManager" type="Node" parent="." groups=["tutorial_manager"]]
 process_mode = 3
 script = ExtResource("1_ia1w8")
 
@@ -76,13 +77,13 @@ one_shot = true
 position = Vector2(309, 113)
 
 [node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(275, 256)
+position = Vector2(280, 215)
 
 [node name="Table3" parent="." instance=ExtResource("4_trk3d")]
-position = Vector2(310, 255)
+position = Vector2(320, 214)
 
 [node name="Chair6" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(345, 256)
+position = Vector2(360, 215)
 scale = Vector2(-1, 1)
 
 [node name="Bbq" parent="." instance=ExtResource("5_1qa1s")]
@@ -129,6 +130,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Bin" parent="." instance=ExtResource("12_jx477")]
 position = Vector2(497, 73)
+
+[node name="TargetUI" type="Node2D" parent="."]
+position = Vector2(8, 261)
+script = ExtResource("15_ivuvc")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("13_10aie")
