@@ -6,6 +6,11 @@ var target_data: Array[CustomerData]
 var targets_that_have_been_spawned: Array[CustomerData]
 var spawn_target_odds: Array[bool] = []
 
+var spawn_timer: Timer
+var current_spawn_timer
+var spawn_timer_decrement = 0.1
+var spawn_timer_minimum = 4
+
 var similar_target_buffer
 
 signal targets_created(target_data)
@@ -14,6 +19,9 @@ signal target_killed(target)
 func _ready():
 	generate_target()
 	similar_target_buffer = CustomerPool.similar_target_buffer
+	
+	spawn_timer = $SpawnTimer
+	current_spawn_timer = spawn_timer.wait_time
 
 func instantiate_customer():
 	# Check if there is at least 1 empty chair
@@ -140,3 +148,10 @@ func _on_startup_timer_timeout():
 
 func _on_spawn_timer_timeout():
 	instantiate_customer()
+	
+	# Make timer shorter next time
+	current_spawn_timer -= spawn_timer_decrement
+	spawn_timer.wait_time = current_spawn_timer
+	spawn_timer.start()
+	
+	print("Spawn Timer is now at " + str(current_spawn_timer) + " seconds.")
