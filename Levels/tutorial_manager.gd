@@ -5,13 +5,9 @@ var phase = 0
 var poison_available: bool = false
 
 func _ready():
-	get_tree().paused = true
 	$Popup/Label.text = "Welcome to the game! \n WASD to move"
 	
 func _process(_delta):
-	if Input.is_anything_pressed() and !Input.is_action_just_pressed("Pause"):
-		get_tree().paused = false
-		
 	if Input.is_action_just_pressed("Poison") and phase == 7:
 		phase_complete()
 
@@ -43,14 +39,12 @@ func get_data(customer_timer_control : Control):
 func phase_complete():	
 	match phase:
 		0:
-			get_tree().paused = true
 			$Popup/Label.text = "Press Space or E to pick up what someone wants, \nthen cook, then serve!"
 		1: #First customer fed
 			$Popup/Label.text = "If you served someone correctly, \nyour score will increase! ->"
 		2: #First customer off-screen
 			$"../TargetManager".instantiate_customer()
 		3: #Second customer sat down
-			get_tree().paused = true
 			$Popup/Label.text = "People have timers on their orders. \nIf any timers run out, it's Game Over!"
 		4: #Second customer fed
 			$Popup/Label.text = "Good job!"
@@ -60,7 +54,6 @@ func phase_complete():
 		6: #First customer sits
 			pass
 		7: #second customer sits
-			get_tree().paused = true
 			$Popup/Label.text = "Some people will be targets for you to eliminate.\nPress Q to poison the target's food, then cook and serve!"
 			poison_available = true
 		8: #First poision
