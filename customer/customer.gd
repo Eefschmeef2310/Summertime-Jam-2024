@@ -78,7 +78,6 @@ func _process(delta):
 	#play ticker when low time
 	if order_timer_visual.visible:
 		if !$OrderCountdown/Ticker.playing and order_timer_visual.value < 0.25 * order_timer_visual.max_value:
-			#print("bingus")
 			$OrderCountdown/Ticker.play()
 			$OrderCountdown/TextureProgressBar/AnimationPlayer.play("TimerBounce")
 		elif $OrderCountdown/Ticker.playing and order_timer_visual.value >= 0.25 * order_timer_visual.max_value:
@@ -110,23 +109,23 @@ func state_entering(delta):
 	play_animation("walk")
 	if !target_chair:
 		var chairs = get_tree().get_nodes_in_group("chair")
+		var free_chairs = []
 		for chair in chairs:
 			if chair.occupant == null:
-				chair.occupant = self
-				target_chair = chair
-				position.y = target_chair.position.y + 5
-				break
+				free_chairs.append(chair)
+		var chair = free_chairs.pick_random()
+		chair.occupant = self
+		target_chair = chair
+		position.y = target_chair.position.y + 5
 	else:
 		position = position.move_toward(target_chair.position, move_speed * delta)
 		position.y = target_chair.position.y + 5
 		facing = -1 * sign(position.x - target_chair.position.x)
 		if position.distance_to(target_chair.position) <= 6:
 			#sit down
-			print("I want " + data.order_pref.name + "!")
 			just_interacted_with = false
 			just_entered_state = true
 			state = "waiting_food"
-			print(data.habit.description)
 
 #func state_waiting_order():
 	#if just_entered_state:
@@ -145,11 +144,9 @@ func state_entering(delta):
 	#
 	#interactive_prompt.enabled = true
 	#if just_interacted_with:
-		#print("I want " + data.order_pref.name + "!")
 		#just_interacted_with = false
 		#just_entered_state = true
 		#state = "waiting_food"
-		#print(data.habit.description)
 
 func state_waiting_food():
 	if just_entered_state:
@@ -169,7 +166,7 @@ func state_waiting_food():
 		just_entered_state = false
 	
 	position = target_chair.position
-	facing = target_chair.scale.x
+	facing = target_chair.scale.y
 	
 	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
 	if interactive_prompt.visible and is_instance_valid(player.held_item) and player.held_item.item_resource == data.order_pref:
@@ -180,30 +177,29 @@ func state_waiting_food():
 		if is_instance_valid(player.held_item):
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
-				#update score
-				ScoreManager.score += 0.1 * (order_timer.time_left / order_timer.wait_time)
+				
 				# correct food
 				if player.held_item.cooked:
 					# cooked food
 					if player.held_item.poisoned:
-						print("this is poisoned...")
 						poisoned = true
-					print("Thanks for the food!")
 					just_entered_state = true
 					player.held_item.queue_free()
 					state = "eat"
+					
+					#update score. Score is 0.1 * the amount of time left as a percentage
+					ScoreManager.score += ceil(100 * (order_timer.time_left / order_timer.wait_time))
 				else:
 					# uncooked food
 					print("This isn't cooked! Are you trying to poison me?")
 			else:
 				# incorrect food
-				print("Kill yourself!")
+				print("Incorrect food!")
 		just_interacted_with = false
 
 func state_eat():
 	interactive_prompt.enabled = false
 	if just_entered_state:
-		print("YEEEEEAP")
 		order_pref_sprite.show()
 		$AnimationPlayerHands.play("none")
 		$DieFromPoisonTimer.start()
@@ -215,13 +211,14 @@ func state_eat():
 		order_timer_visual.hide()
 		order_pref_sprite.hide()
 		just_entered_state = false
+		#if !poisoned and !data.is_target:
+			#ScoreManager.score += 
 
 func state_die():
 	interactive_prompt.enabled = false
 	if just_entered_state:
 		$AnimationPlayerHands.play("none")
 		$ExitTimer.stop()
-		$DeathCheckIfTargetTimer.start()
 		play_animation("die")
 		just_entered_state = false
 
@@ -251,22 +248,19 @@ func _on_death_despawn_timer_timeout():
 		target_chair = null
 	queue_free()
 
-
 func _on_die_from_poison_timer_timeout():
 	if poisoned:
 		just_entered_state = true
 		state = "die"
 		$DeathDespawnTimer.start()
-
+		$DeathCheckIfTargetTimer.start()
 
 func _on_exit_timer_timeout():
 	state = "exiting"
-
-
+	
 func _on_order_timer_timeout():
 	order_timer_visual.visible = false
-	GameOverManager.game_over()
-
+	GameOverManager.game_over("An order ran out of time!")
 
 func _on_death_check_if_target_timer_timeout():
 	target_manager.customer_killed(data)

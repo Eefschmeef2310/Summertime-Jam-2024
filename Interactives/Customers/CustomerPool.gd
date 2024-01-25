@@ -1,8 +1,8 @@
 extends Node
 
 var max_targets: int = 1
-var number_of_customers_total = 999
-var chance_of_target: int = 8
+var number_of_customers_total = 99999
+var chance_of_target = 3
 
 @export var headpieces: Array[CustomerHeadpiece]
 @export var skin_colors : Array[Color]

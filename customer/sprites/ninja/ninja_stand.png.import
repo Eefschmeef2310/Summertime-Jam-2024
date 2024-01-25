@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl422qow3endi"
-path="res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"
+uid="uid://cn2catprtqxer"
+path="res://.godot/imported/ninja_stand.png-1616c1867ccc8f8ec1347f48f9ad892b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/sprites/player_food_carry.png"
-dest_files=["res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"]
+source_file="res://customer/sprites/ninja/ninja_stand.png"
+dest_files=["res://.godot/imported/ninja_stand.png-1616c1867ccc8f8ec1347f48f9ad892b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl422qow3endi"
-path="res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"
+uid="uid://2ch8et7lf6tx"
+path="res://.godot/imported/istockphoto-514028377-612x612.jpg-ea2efafb0dc5e27a22cb1855b577c741.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/sprites/player_food_carry.png"
-dest_files=["res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"]
+source_file="res://PlaceholderSprites/istockphoto-514028377-612x612.jpg"
+dest_files=["res://.godot/imported/istockphoto-514028377-612x612.jpg-ea2efafb0dc5e27a22cb1855b577c741.ctex"]
 
 [params]
 

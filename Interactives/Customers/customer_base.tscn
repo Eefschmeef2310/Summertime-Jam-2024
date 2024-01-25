@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c68xchab0wojc"]
-
-[ext_resource type="PackedScene" uid="uid://df4ao4eauwen" path="res://Interactives/BaseInteractive.tscn" id="1_14luh"]
-[ext_resource type="Script" path="res://Interactives/Customers/CustomerInit.gd" id="2_dlj65"]
-
-[node name="Customer" instance=ExtResource("1_14luh")]
-
-[node name="CustomerInit" type="Node" parent="." index="1" groups=["Customer"]]
-script = ExtResource("2_dlj65")

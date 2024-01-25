@@ -12,59 +12,30 @@ signal target_killed(target)
 func _ready():
 	generate_target()
 
-func _process(_delta):
-	if target_data.is_empty():
-		print("lol")
-		generate_target()
-
 func instantiate_customer():
-	# Check if there are any customers left to spawn
-	if !spawn_target_odds.is_empty():
-		# Check if there is at least 1 empty chair
-		var chairs = get_tree().get_nodes_in_group("chair")
-		var free_chair = false
-		for chair in chairs:
-			if chair.occupant == null:
-				free_chair = true
-				break
-		
-		if free_chair:
-			# Spawn customer
-			var customer = customer_scene.instantiate()
-			if randi_range(0, 1) == 0:
-				customer.position.x = 0 - 20
-			else:
-				customer.position.x = 640 + 20
-			get_parent().add_child(customer)
+	# Check if there is at least 1 empty chair
+	var chairs = get_tree().get_nodes_in_group("chair")
+	var free_chair = false
+	for chair in chairs:
+		if chair.occupant == null:
+			free_chair = true
+			break
+	
+	if free_chair:
+		# Spawn customer
+		var customer = customer_scene.instantiate()
+		if randi_range(0, 1) == 0:
+			customer.position.x = 0 - 20
+		else:
+			customer.position.x = 640 + 20
+		get_parent().add_child(customer)
 		
 	# Start spawn timer
 	$SpawnTimer.start()
 
-func generate_target():
-	# Generate target data
-	targets_that_have_been_spawned.clear()
-	for i in CustomerPool.max_targets:
-		var data: CustomerData
-		var unique = false
-		while !unique:
-			data = CustomerPool.get_random_combo()
-			unique = true
-			for target in target_data:
-				if CustomerPool.get_similarity(data, target) >= 5:
-					unique = false
-		data.is_target = true
-		target_data.append(data)
-	
-	# Create random spawn map
-	spawn_target_odds.resize(CustomerPool.chance_of_target)
-	spawn_target_odds.fill(false)
-	for n in CustomerPool.max_targets:
-		if n < spawn_target_odds.size():
-			spawn_target_odds[n] = true
-	
-	targets_created.emit(target_data)
-
 func generate_new_customer_data() -> CustomerData:
+	print("Current target spawn odds: 1 in " + str(spawn_target_odds.size()))
+	
 	# Decide if this customer should be a target or not
 	var spawn_target = false
 	if !spawn_target_odds.is_empty():
@@ -97,15 +68,42 @@ func generate_new_customer_data() -> CustomerData:
 					unique = false
 		return data
 
-func customer_killed(data):
+func generate_target():
+	targets_that_have_been_spawned.clear()
+	
+	# Generate target data
+	for i in CustomerPool.max_targets:
+		var data: CustomerData
+		var unique = false
+		while !unique:
+			data = CustomerPool.get_random_combo()
+			unique = true
+			for target in target_data:
+				if CustomerPool.get_similarity(data, target) >= 5:
+					unique = false
+		data.is_target = true
+		target_data.append(data)
+	
+	# Create random spawn map
+	spawn_target_odds.resize(CustomerPool.chance_of_target)
+	spawn_target_odds.fill(false)
+	for n in CustomerPool.max_targets:
+		if n < spawn_target_odds.size():
+			spawn_target_odds[n] = true
+	
+	targets_created.emit(target_data)
+
+func customer_killed(data: CustomerData):
 	if data.is_target:
 		# Was a target.
+		ScoreManager.score += 10
 		target_killed.emit(data)
 		target_data.erase(data)
+		generate_target()
 	else:
 		# Was not a target.
-		# TODO Trigger game over.
-		pass
+		GameOverManager.game_over("A non-target was eliminated!")
+			
 
 #func _ready():
 	#target = get_tree().get_nodes_in_group("Customer").pick_random()

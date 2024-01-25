@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl422qow3endi"
-path="res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"
+uid="uid://jtq3vxmi6e4j"
+path="res://.godot/imported/menu.png-841751b500def1a6bb7030140f874eb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/sprites/player_food_carry.png"
-dest_files=["res://.godot/imported/player_food_carry.png-5e248ecb10cbac88c199fda82b2c2665.ctex"]
+source_file="res://ui_sprites/menu.png"
+dest_files=["res://.godot/imported/menu.png-841751b500def1a6bb7030140f874eb0.ctex"]
 
 [params]
 
