@@ -97,6 +97,7 @@ grow_vertical = 2
 text = "Back to menu"
 
 [node name="Timer" type="Timer" parent="TutorialManager"]
+one_shot = true
 
 [node name="PauseManager" parent="." instance=ExtResource("2_nk0o5")]
 
@@ -116,13 +117,13 @@ position = Vector2(309, 113)
 tutorial_manager = NodePath("../TutorialManager")
 
 [node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(280, 215)
+position = Vector2(280, 200)
 
 [node name="Table3" parent="." instance=ExtResource("4_trk3d")]
-position = Vector2(320, 214)
+position = Vector2(320, 200)
 
 [node name="Chair6" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(360, 215)
+position = Vector2(360, 200)
 rotation = 3.14159
 scale = Vector2(1, -1)
 

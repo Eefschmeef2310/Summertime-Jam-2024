@@ -55,14 +55,15 @@ func phase_complete():
 		6: #First customer sits
 			pass
 		7: #second customer sits
-			$Popup/Label.text = "Some people will be targets for you to eliminate.\nPress Q to poison the target's food, then cook and serve!"
+			$Popup/Label.text = "Some people will be targets you must eliminate.\nPress Q to poison the target's food, then cook and serve!"
 			poison_available = true
 		8: #First poision
 			$Popup/Label.text = "Be careful! If a non-target is eliminated,\nor a target is left alive, it's Game Over (again)!"
 		9: #First customer leaves
 			pass
 		10: #Second customer leaves
-			$Popup/Label.text = "Tutorial complete! Make a complete screen"	
+			$Popup/Label.text = "Tutorial complete!"
+			$Control.show()
 	
 	phase += 1
 
