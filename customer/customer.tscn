@@ -1552,9 +1552,10 @@ _data = {
 "TimerBounce": SubResource("Animation_ka128")
 }
 
-[node name="Customer" type="Node2D"]
+[node name="Customer" type="Node2D" node_paths=PackedStringArray("animation_players")]
 script = ExtResource("1_0uimr")
 timer_color = SubResource("Gradient_iq656")
+animation_players = [NodePath("AnimationPlayer")]
 
 [node name="FoodMarker" type="Marker2D" parent="."]
 position = Vector2(23, -24)
