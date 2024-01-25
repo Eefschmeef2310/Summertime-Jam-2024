@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dixm3k61fwbew"]
 
-[ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_1a3wx"]
+[ext_resource type="Script" path="res://Levels/menus/leaderboard.gd" id="1_6huvd"]
 [ext_resource type="Texture2D" uid="uid://dvlb010nyydyy" path="res://ui_sprites/SteamTingrayGradient.png" id="2_qefrl"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_vjnol"]
 
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1a3wx")
+script = ExtResource("1_6huvd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
