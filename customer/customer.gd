@@ -177,10 +177,9 @@ func state_waiting_food():
 		if player.held_item:
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
+				
 				# correct food
 				if player.held_item.cooked:
-					
-					$OrderComplete.play()
 					# cooked food
 					if player.held_item.poisoned:
 						poisoned = true

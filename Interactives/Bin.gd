@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 var player
 
@@ -8,4 +8,3 @@ func _ready():
 func _on_interactive_prompt_interacted():
 	if player.held_item:
 		player.held_item.queue_free()
-		$Player.play()

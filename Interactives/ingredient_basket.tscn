@@ -31,9 +31,6 @@ offset_right = 40.5
 offset_bottom = -33.0
 text = "Ingredient"
 
-[node name="Pickup" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
-
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 
 [editable path="InteractivePrompt"]

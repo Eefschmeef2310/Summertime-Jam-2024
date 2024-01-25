@@ -14,4 +14,3 @@ func _on_interactive_prompt_interacted():
 		var item = holdable_item_scene.instantiate()
 		item.item_resource = holdable_item_resource
 		player.set_held_item(item)
-		$Pickup.play()

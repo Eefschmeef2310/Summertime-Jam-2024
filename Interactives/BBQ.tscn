@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3uce38en0ui4"]
+[gd_scene load_steps=5 format=3 uid="uid://d3uce38en0ui4"]
 
 [ext_resource type="Script" path="res://Interactives/BBQ.gd" id="1_rsa00"]
 [ext_resource type="Texture2D" uid="uid://dhbumisgi8kxl" path="res://orders/sprites/grill.png" id="2_72cs3"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="2_nhwhn"]
-[ext_resource type="AudioStream" uid="uid://bdw2t3wmswepw" path="res://audio/music/Sizzle_EverHeat_Freesound.wav" id="4_r0ply"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1o1k"]
 size = Vector2(144, 24)
@@ -54,10 +53,6 @@ offset_bottom = -4.5
 text = "Cook"
 
 [node name="FoodMarker" type="Marker2D" parent="RightPrompt"]
-
-[node name="Sizzler" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_r0ply")
-bus = &"SFX"
 
 [connection signal="interacted" from="LeftPrompt" to="." method="_on_left_prompt_interacted"]
 [connection signal="interacted" from="MiddlePrompt" to="." method="_on_middle_prompt_interacted"]

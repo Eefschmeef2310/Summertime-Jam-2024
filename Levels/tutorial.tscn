@@ -1,8 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://c41njlptj1jmx"]
+[gd_scene load_steps=16 format=3 uid="uid://c41njlptj1jmx"]
 
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_g1o3p"]
-[ext_resource type="Script" path="res://Levels/tutorial_manager.gd" id="1_ia1w8"]
-[ext_resource type="PackedScene" uid="uid://dncoh68r24wiq" path="res://Levels/pause_manager.tscn" id="2_nk0o5"]
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="2_suxdn"]
 [ext_resource type="PackedScene" uid="uid://bwa61yens38wp" path="res://customer/chair.tscn" id="3_wjb4j"]
 [ext_resource type="PackedScene" uid="uid://dny2y6h01yq37" path="res://customer/table.tscn" id="4_trk3d"]
@@ -16,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bcqnkx76lt3jc" path="res://Interactives/Bin.tscn" id="12_jx477"]
 [ext_resource type="Script" path="res://Levels/UI.gd" id="13_10aie"]
 [ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_mkxmk"]
-[ext_resource type="AudioStream" uid="uid://coqvjtryqu7mh" path="res://audio/music/LevelMusic_att_in_chat.mp3" id="17_1c8ch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cl12o"]
 shadow_size = 10
@@ -25,9 +22,16 @@ shadow_color = Color(0, 0, 0, 1)
 [node name="Tutorial" type="Node2D"]
 y_sort_enabled = true
 
-[node name="TutorialManager" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("1_ia1w8")
+[node name="TutorialManager" parent="." instance=ExtResource("1_g1o3p")]
+
+[node name="StartupTimer" type="Timer" parent="TutorialManager"]
+one_shot = true
+autostart = true
+
+[node name="SpawnTimer" type="Timer" parent="TutorialManager"]
+process_mode = 4
+wait_time = 6.0
+one_shot = true
 
 [node name="Popup" type="Control" parent="TutorialManager"]
 layout_mode = 3
@@ -58,19 +62,6 @@ text = "Welcome to the game!
 WASD to move"
 label_settings = SubResource("LabelSettings_cl12o")
 horizontal_alignment = 1
-
-[node name="PauseManager" parent="." instance=ExtResource("2_nk0o5")]
-
-[node name="TargetManager" parent="." instance=ExtResource("1_g1o3p")]
-
-[node name="StartupTimer" type="Timer" parent="TargetManager"]
-one_shot = true
-autostart = true
-
-[node name="SpawnTimer" type="Timer" parent="TargetManager"]
-process_mode = 4
-wait_time = 6.0
-one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_suxdn")]
 position = Vector2(309, 113)
@@ -163,14 +154,8 @@ scale = Vector2(40, 1)
 position = Vector2(303, 360)
 scale = Vector2(40, 1)
 
-[node name="Background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_1c8ch")
-volume_db = -15.0
-autoplay = true
-bus = &"Music"
-
-[connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
-[connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="TutorialManager/StartupTimer" to="TutorialManager" method="_on_startup_timer_timeout"]
+[connection signal="timeout" from="TutorialManager/SpawnTimer" to="TutorialManager" method="_on_spawn_timer_timeout"]
 
 [editable path="SausageBasket"]
 [editable path="SausageBasket/InteractivePrompt"]

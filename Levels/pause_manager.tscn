@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dncoh68r24wiq"]
-
-[ext_resource type="Script" path="res://Levels/pause_manager.gd" id="1_33ufn"]
-
-[node name="PauseManager" type="Node"]
-process_mode = 3
-script = ExtResource("1_33ufn")
