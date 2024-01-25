@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="1_wv61g"]
 
 [node name="InteractivePrompt" type="Control" groups=["Interactive"]]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bju06")

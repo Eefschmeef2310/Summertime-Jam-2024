@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://heh46q4r4ek4"]
+[gd_scene load_steps=7 format=3 uid="uid://heh46q4r4ek4"]
 
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
 [ext_resource type="Texture2D" uid="uid://dd0tp0xgxaywd" path="res://ui_sprites/Nothing-shady-at-THIS-BBQ-22-01-2024.png" id="2_jdbwi"]
 [ext_resource type="Texture2D" uid="uid://2ch8et7lf6tx" path="res://PlaceholderSprites/istockphoto-514028377-612x612.jpg" id="2_mtmnc"]
 [ext_resource type="Texture2D" uid="uid://jtq3vxmi6e4j" path="res://ui_sprites/menu.png" id="3_gg56k"]
+[ext_resource type="AudioStream" uid="uid://cn8dhruegjdrf" path="res://audio/music/MenuAmbience_free.mp3" id="5_3u85p"]
+[ext_resource type="AudioStream" uid="uid://bdw2t3wmswepw" path="res://audio/music/Sizzle_EverHeat_Freesound.wav" id="6_1d4h1"]
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,6 +79,10 @@ text = "Tutorial"
 layout_mode = 2
 text = "Leaderboard"
 
+[node name="CreditsButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+text = "Credits"
+
 [node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/Leftside"]
 layout_mode = 2
 text = "Options"
@@ -98,9 +105,18 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Logout"
 
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3u85p")
+autoplay = true
+
+[node name="Sizzle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1d4h1")
+autoplay = true
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/CreditsButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LogoutButton" to="." method="_on_logout_button_pressed"]

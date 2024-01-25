@@ -3,6 +3,7 @@ extends Control
 const OPTIONS = preload("res://Levels/menus/options.tscn")
 
 func _ready():
+	get_tree().paused = false
 	$MarginContainer/HBoxContainer/Leftside/QuitButton.visible = OS.get_name() != "Web"
 
 func _on_start_button_pressed():

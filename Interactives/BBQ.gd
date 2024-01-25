@@ -8,6 +8,12 @@ var right_item : HoldableItemScene
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	
+func _process(delta):
+	if (left_item or middle_item or right_item) and !$Sizzler.playing:
+		$Sizzler.play()
+	elif (!left_item and !middle_item and !right_item):
+		$Sizzler.stop()
 
 func _on_left_prompt_interacted():
 	#uncooked placement
@@ -16,7 +22,8 @@ func _on_left_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		left_item.global_position = $LeftPrompt/FoodMarker.global_position
-		left_item.start_cook_timer()
+		if !left_item.cooked:
+			left_item.start_cook_timer()
 	elif left_item and left_item.cooked:
 		return_to_player(left_item)
 		left_item = null
@@ -27,7 +34,8 @@ func _on_middle_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		middle_item.global_position = $MiddlePrompt/FoodMarker.global_position
-		middle_item.start_cook_timer()
+		if !middle_item.cooked:
+			middle_item.start_cook_timer()
 	elif middle_item and middle_item.cooked:
 		return_to_player(middle_item)
 		middle_item = null
@@ -38,7 +46,8 @@ func _on_right_prompt_interacted():
 		player.held_item.reparent(self)
 		player.held_item = null
 		right_item.global_position = $RightPrompt/FoodMarker.global_position
-		right_item.start_cook_timer()
+		if !right_item.cooked:
+			right_item.start_cook_timer()
 	elif right_item and right_item.cooked:
 		return_to_player(right_item)
 		right_item = null
