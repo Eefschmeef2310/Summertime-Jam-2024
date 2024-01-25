@@ -6,11 +6,14 @@ var target_data: Array[CustomerData]
 var targets_that_have_been_spawned: Array[CustomerData]
 var spawn_target_odds: Array[bool] = []
 
+var similar_target_buffer
+
 signal targets_created(target_data)
 signal target_killed(target)
 
 func _ready():
 	generate_target()
+	similar_target_buffer = CustomerPool.similar_target_buffer
 
 func instantiate_customer():
 	# Check if there is at least 1 empty chair
@@ -56,15 +59,27 @@ func generate_new_customer_data() -> CustomerData:
 	else:
 		# Create regular customer
 		# Make sure they do not match target exactly
-		# TODO: implement similarity functionality to make some customers similar to a target
 		print("Generating")
 		var data: CustomerData
 		var unique = false
+		
+		# Similarity functionality to make some customers similar to a target
+		var similar_to_target = false
+		if similar_target_buffer > 0:
+			similar_target_buffer -= 1
+		else:
+			similar_to_target = (randi_range(1, CustomerPool.chance_of_similar_to_target) == 1)
+		
 		while !unique:
 			data = CustomerPool.get_random_combo()
+			if similar_to_target and !target_data.is_empty():
+				data.headpiece = target_data[0].headpiece
+				data.clothing = target_data[0].clothing
+				similar_target_buffer = CustomerPool.similar_target_buffer
+				print("THIS CUSTOMER IS SIMILAR TO THE TARGET!!")
 			unique = true
 			for target in target_data:
-				if CustomerPool.get_similarity(data, target) >= 5:
+				if CustomerPool.get_similarity(data, target) >= 4:
 					unique = false
 		return data
 

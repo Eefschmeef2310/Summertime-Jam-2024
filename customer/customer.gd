@@ -161,12 +161,9 @@ func state_waiting_food():
 		order_pref_sprite.texture = data.order_pref.cooked_texture
 		order_pref_sprite.show()
 		
-		play_animation("sit")
-		just_entered_state = false
+		$StartHabitTimer.start()
 		
-		# Play animations
-		play_animation("sit_hold")
-		$AnimationPlayerHands.play(data.habit.anim_name.pick_random())
+		play_animation("sit")
 		just_entered_state = false
 	
 	position = target_chair.position
@@ -275,3 +272,10 @@ func _on_order_timer_timeout():
 
 func _on_death_check_if_target_timer_timeout():
 	target_manager.customer_killed(data)
+
+
+func _on_start_habit_timer_timeout():
+	# Play animations
+	play_animation("sit_hold")
+	$AnimationPlayerHands.play(data.habit.anim_name.pick_random())
+	just_entered_state = false

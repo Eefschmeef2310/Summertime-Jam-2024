@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b7htgkoo6ouf7"]
+[gd_scene load_steps=76 format=3 uid="uid://b7htgkoo6ouf7"]
 
 [ext_resource type="Script" path="res://Interactives/Customers/CustomerPool.gd" id="1_wanuu"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_headpiece.gd" id="2_y57vj"]
@@ -178,9 +178,19 @@ script = ExtResource("16_wj8q0")
 anim_name = Array[String](["habit_book", "habit_book_1", "habit_book_2", "habit_book_3", "habit_book_4"])
 description = "Likes reading books"
 
+[sub_resource type="Resource" id="Resource_nx1e1"]
+script = ExtResource("16_wj8q0")
+anim_name = Array[String](["habit_smoke"])
+description = "Likes smoking"
+
+[sub_resource type="Resource" id="Resource_ab6qr"]
+script = ExtResource("16_wj8q0")
+anim_name = Array[String](["habit_laptop"])
+description = "Likes their laptop"
+
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
 headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im"), SubResource("Resource_aeqo3"), SubResource("Resource_qq3ir"), SubResource("Resource_ag7nx"), SubResource("Resource_o6qjc"), SubResource("Resource_deca0"), SubResource("Resource_gojlr")])
 clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l"), SubResource("Resource_81po4"), SubResource("Resource_8teoj"), SubResource("Resource_7kjcj"), SubResource("Resource_rgi71")])
-habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n")])
+habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n"), SubResource("Resource_nx1e1"), SubResource("Resource_ab6qr")])
 order_pref = Array[Resource("res://orders/order_resource.gd")]([ExtResource("16_dlega"), ExtResource("17_mq1c4"), ExtResource("18_cpgcg")])
