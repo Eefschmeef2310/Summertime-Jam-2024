@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nn71prxne0x2"]
+[gd_scene load_steps=8 format=3 uid="uid://nn71prxne0x2"]
 
 [ext_resource type="Script" path="res://holdable_items/scenes/holdable_item_scene.gd" id="1_8a604"]
 [ext_resource type="Shader" path="res://shaders/poison.gdshader" id="1_iix1y"]
@@ -19,34 +19,23 @@ shader_parameter/width = 0.01
 shader_parameter/height = -0.5
 shader_parameter/opacity = 0.0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q0qef"]
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(8, 0, 0)
-direction = Vector3(0, 0, 0)
-spread = 10.778
-flatness = 1.0
-initial_velocity_min = 50.0
-initial_velocity_max = 50.0
-angular_velocity_min = -50.0
-angular_velocity_max = 50.0
-gravity = Vector3(0, -30, 0)
-scale_min = 0.5
-
 [node name="HoldableItemScene" type="Sprite2D"]
 material = SubResource("ShaderMaterial_x81nl")
 texture = ExtResource("2_6ijs1")
 script = ExtResource("1_8a604")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 24
-process_material = SubResource("ParticleProcessMaterial_q0qef")
-texture = ExtResource("6_3giyv")
 lifetime = 3.0
-fixed_fps = 0
-draw_order = 0
+lifetime_randomness = 0.6
+texture = ExtResource("6_3giyv")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 0)
+spread = 15.0
+gravity = Vector2(0, -30)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.5
 
 [node name="CookTimer" type="Timer" parent="."]
 wait_time = 5.0

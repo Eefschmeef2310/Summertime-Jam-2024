@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4dqulc66ytm4"]
+[gd_scene load_steps=4 format=3 uid="uid://dpb5wcn4v3nou"]
 
 [ext_resource type="Script" path="res://online/usernamePicker.gd" id="1_rscvl"]
+[ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_p41at"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_16ysa"]
+font = ExtResource("2_p41at")
+font_size = 24
 
 [node name="UsernamePicker" type="Control"]
 layout_mode = 3
@@ -37,20 +40,28 @@ horizontal_alignment = 1
 [node name="LoginInfo" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.615686, 0.615686, 0.615686, 1)
+theme_override_fonts/normal_font = ExtResource("2_p41at")
+theme_override_font_sizes/normal_font_size = 24
 text = "If this is your first time playing please enter a username for the leaderboards, if you've played before type in the username you used last time and you can log in :3"
 fit_content = true
 
 [node name="UsernameFeild" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p41at")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Username"
 alignment = 1
 
 [node name="SubmitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p41at")
+theme_override_font_sizes/font_size = 24
 text = "Submit"
 
 [node name="Login Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p41at")
+theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Login"
 

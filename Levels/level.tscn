@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dt6yx3efi0388"]
+[gd_scene load_steps=21 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
 [ext_resource type="PackedScene" uid="uid://dncoh68r24wiq" path="res://Levels/pause_manager.tscn" id="1_b4ktl"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Levels/UI.gd" id="11_wcp83"]
 [ext_resource type="Script" path="res://Levels/target_ui.gd" id="14_40s3l"]
 [ext_resource type="PackedScene" uid="uid://fyh5jmuwi63m" path="res://Levels/wall.tscn" id="14_pnhxy"]
-[ext_resource type="PackedScene" uid="uid://dfe07fblqn2wi" path="res://Levels/target_slip.tscn" id="16_kf6w5"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="17_00ln3"]
 [ext_resource type="AudioStream" uid="uid://coqvjtryqu7mh" path="res://audio/music/LevelMusic_att_in_chat.mp3" id="17_n8k5q"]
 
@@ -152,11 +151,6 @@ position = Vector2(505, 73)
 [node name="TargetUI" type="Node2D" parent="."]
 position = Vector2(8, 255)
 script = ExtResource("14_40s3l")
-
-[node name="TargetSlip" parent="TargetUI" instance=ExtResource("16_kf6w5")]
-offset_top = -4.0
-offset_right = 184.0
-offset_bottom = 97.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("11_wcp83")

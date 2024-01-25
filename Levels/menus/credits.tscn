@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dixm3k61fwbew"]
+[gd_scene load_steps=8 format=3 uid="uid://dixm3k61fwbew"]
+
+[ext_resource type="Script" path="res://Levels/menus/leaderboard.gd" id="1_51uej"]
+[ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="2_clfa5"]
 
 [ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_1a3wx"]
 [ext_resource type="Texture2D" uid="uid://dvlb010nyydyy" path="res://ui_sprites/SteamTingrayGradient.png" id="2_qefrl"]
@@ -10,7 +13,9 @@ font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_vv6dg"]
 font = ExtResource("2_vjnol")
-font_size = 20
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3gvb"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -21,164 +26,179 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1a3wx")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.345098, 0.345098, 0.345098, 1)
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="NinePatchRect" parent="BG"]
+layout_mode = 2
+texture = ExtResource("2_clfa5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 40
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "CREDITS"
 label_settings = SubResource("LabelSettings_jsh63")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="EntryContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
+[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
-text = "CREATED BY TEAM STINGRAY"
-label_settings = SubResource("LabelSettings_vv6dg")
-horizontal_alignment = 1
+theme_override_constants/separation = 45
+alignment = 1
 
-[node name="TeamStingray" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+texture = ExtResource("2_qefrl")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TeamStingray" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/h_separation = 45
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/TeamStingray"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer/TeamStingray"]
 layout_mode = 2
 text = "Ethan Lucas"
 label_settings = SubResource("LabelSettings_vv6dg")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/TeamStingray"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer/TeamStingray"]
 layout_mode = 2
 text = "Xander Akkari"
 label_settings = SubResource("LabelSettings_vv6dg")
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/TeamStingray"]
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer/TeamStingray"]
 layout_mode = 2
 text = "Tom Howarth"
 label_settings = SubResource("LabelSettings_vv6dg")
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/TeamStingray"]
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer/TeamStingray"]
 layout_mode = 2
 text = "Lauren Szmandiuk"
 label_settings = SubResource("LabelSettings_vv6dg")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "SOUNDS USED"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 horizontal_alignment = 1
 
-[node name="Label7" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Weird Neighbours - Locran, Uppbeat
     https://uppbeat.io/t/locran/weird-neighbors"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label8" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Sizzle(loop) - Everheat, Freesound.org 
     https://freesound.org/people/EverHeat/sounds/208748/"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label9" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Big Bubble 1 - Floraphonic, Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label10" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Paper Bin - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label11" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label11" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Doorslam - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label12" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label12" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Icebin - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label13" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label13" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Poof of smoke - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label14" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label14" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Spew After Effects - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="Label15" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="Label15" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 text = "Tada Fanfare A - Pixabay"
-label_settings = SubResource("LabelSettings_vv6dg")
+label_settings = SubResource("LabelSettings_j3gvb")
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
-custom_minimum_size = Vector2(0, 250)
-layout_mode = 2
-texture = ExtResource("2_qefrl")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 5
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer2"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
