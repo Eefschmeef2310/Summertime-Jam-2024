@@ -1,7 +1,8 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcma3f2wjixis"]
 
-[ext_resource type="FontFile" uid="uid://b7bb3r1nvjtu4" path="res://Fonts/ChewedPenBB.otf" id="1_8v31l"]
+[ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_t8mkk"]
 
 [resource]
-Button/font_sizes/font_size = 40
-Button/fonts/font = ExtResource("1_8v31l")
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("2_t8mkk")
+Label/fonts/font = ExtResource("2_t8mkk")

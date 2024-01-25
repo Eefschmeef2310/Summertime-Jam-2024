@@ -2,7 +2,7 @@ extends Node
 
 var max_targets: int = 1
 var number_of_customers_total = 99999
-var chance_of_target = 3
+var chance_of_target = 7
 var chance_of_similar_to_target = 3
 var similar_target_buffer = 5
 

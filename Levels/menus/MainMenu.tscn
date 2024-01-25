@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://heh46q4r4ek4"]
+[gd_scene load_steps=8 format=3 uid="uid://heh46q4r4ek4"]
 
+[ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_18p78"]
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
 [ext_resource type="Texture2D" uid="uid://dd0tp0xgxaywd" path="res://ui_sprites/Nothing-shady-at-THIS-BBQ-22-01-2024.png" id="2_jdbwi"]
 [ext_resource type="Texture2D" uid="uid://2ch8et7lf6tx" path="res://PlaceholderSprites/istockphoto-514028377-612x612.jpg" id="2_mtmnc"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_18p78")
 script = ExtResource("1_rcmn6")
 
 [node name="Background" type="TextureRect" parent="."]

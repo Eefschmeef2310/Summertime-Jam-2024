@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfe07fblqn2wi"]
+[gd_scene load_steps=6 format=3 uid="uid://dfe07fblqn2wi"]
 
 [ext_resource type="Script" path="res://Levels/target_slip.gd" id="1_jp0jk"]
 [ext_resource type="Texture2D" uid="uid://cslpi7utwwmvl" path="res://orders/sprites/food_chicken_raw.png" id="1_qbs1g"]
+[ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_tc1jw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hqhq4"]
-font_size = 12
+font = ExtResource("2_tc1jw")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbvsx"]
 line_spacing = 2.0
-font_size = 8
+font = ExtResource("2_tc1jw")
 
 [node name="TargetSlip" type="PanelContainer"]
+z_index = 4096
+z_as_relative = false
 offset_right = 125.0
 offset_bottom = 91.0
 script = ExtResource("1_jp0jk")
