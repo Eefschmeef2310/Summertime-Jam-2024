@@ -126,7 +126,7 @@ func customer_killed(data: CustomerData):
 		generate_target()
 	else:
 		# Was not a target.
-		GameOverManager.game_over("A eliminated an innocent person!")
+		GameOverManager.game_over("You eliminated an innocent person!")
 			
 
 #func _ready():
