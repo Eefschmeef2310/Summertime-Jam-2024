@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://b8lxc3ed5a4a0" path="res://customer/sprites/habit/customer_habit_phone.png" id="15_pi8s8"]
 [ext_resource type="AudioStream" uid="uid://dtaqkw7kiup8p" path="res://audio/sfx/Good.mp3" id="17_lvrpy"]
 [ext_resource type="AudioStream" uid="uid://bb6qor148jiow" path="res://audio/sfx/doorslam_pixabay.mp3" id="17_ss1gc"]
+[ext_resource type="AudioStream" uid="uid://cjnglxe35yyck" path="res://audio/sfx/spew-after-effects_pixabay.mp3" id="20_6r6hk"]
+[ext_resource type="AudioStream" uid="uid://b26jva8ca2c3f" path="res://audio/sfx/poof-of-smoke-87381_pixabay.mp3" id="21_gqtvy"]
 
 [sub_resource type="Gradient" id="Gradient_iq656"]
 interpolation_mode = 1
@@ -655,11 +657,39 @@ tracks/24/keys = {
 tracks/25/type = "method"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("Eliminated")
+tracks/25/path = NodePath("Streams/Eliminated")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(1.2),
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/26/type = "method"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Streams/Choke")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Streams/Poof")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -1493,87 +1523,6 @@ tracks/2/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_np1ii"]
-resource_name = "habit_smoke"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2DHands:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_eoqma")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2DHands:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2DHands:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_glagw"]
-resource_name = "none"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2DHands:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2DHands:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2DHands:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="Animation" id="Animation_oun86"]
 resource_name = "habit_laptop"
 length = 0.4
@@ -1630,6 +1579,87 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("15_pi8s8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2DHands:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2DHands:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_np1ii"]
+resource_name = "habit_smoke"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2DHands:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_eoqma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2DHands:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2DHands:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_glagw"]
+resource_name = "none"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2DHands:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1746,7 +1776,7 @@ timer_color = SubResource("Gradient_iq656")
 animation_players = [NodePath("AnimationPlayer")]
 
 [node name="FoodMarker" type="Marker2D" parent="."]
-position = Vector2(23, -24)
+position = Vector2(23, -29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -1755,7 +1785,7 @@ hframes = 3
 
 [node name="Sprite2DF" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("4_u6kbv")
+texture = ExtResource("3_omw6h")
 hframes = 3
 
 [node name="Sprite2DH" type="Sprite2D" parent="."]
@@ -1842,7 +1872,7 @@ wait_time = 7.0
 one_shot = true
 
 [node name="DeathCheckIfTargetTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="StartHabitTimer" type="Timer" parent="."]
@@ -1898,13 +1928,24 @@ bus = &"SFX"
 position = Vector2(20, 20)
 gizmo_extents = 20.0
 
-[node name="OrderComplete" type="AudioStreamPlayer" parent="."]
+[node name="Streams" type="Node" parent="."]
+
+[node name="OrderComplete" type="AudioStreamPlayer" parent="Streams"]
 stream = ExtResource("17_lvrpy")
 volume_db = -15.0
 
-[node name="Eliminated" type="AudioStreamPlayer" parent="."]
+[node name="Eliminated" type="AudioStreamPlayer" parent="Streams"]
 stream = ExtResource("17_ss1gc")
 volume_db = -5.0
+bus = &"SFX"
+
+[node name="Choke" type="AudioStreamPlayer" parent="Streams"]
+stream = ExtResource("20_6r6hk")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Poof" type="AudioStreamPlayer" parent="Streams"]
+stream = ExtResource("21_gqtvy")
 bus = &"SFX"
 
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]

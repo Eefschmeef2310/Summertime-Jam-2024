@@ -154,6 +154,9 @@ func state_entering(delta):
 
 func state_waiting_food():
 	if just_entered_state:
+		if tutorial_manager:
+			tutorial_manager.phase_complete()
+		
 		#Start timer
 		order_timer.start()
 		order_timer_visual.visible = true
@@ -181,7 +184,10 @@ func state_waiting_food():
 				# correct food
 				if player.held_item.cooked:
 					
-					$OrderComplete.play()
+					$Streams/OrderComplete.play()
+					
+					if tutorial_manager:
+						tutorial_manager.phase_complete()
 					
 					# cooked food
 					if player.held_item.poisoned:
@@ -271,7 +277,8 @@ func _on_order_timer_timeout():
 	GameOverManager.game_over("An order ran out of time!")
 
 func _on_death_check_if_target_timer_timeout():
-	target_manager.customer_killed(data)
+	if target_manager:
+		target_manager.customer_killed(data)
 
 
 func _on_start_habit_timer_timeout():
