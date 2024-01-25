@@ -13,6 +13,8 @@ line_spacing = -8.0
 font = ExtResource("5_stlpi")
 font_size = 24
 font_color = Color(0.223529, 0.184314, 0.211765, 1)
+outline_size = 8
+outline_color = Color(1, 0.901961, 0.819608, 1)
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -68,8 +70,8 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Leftside"]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
-text = "Nothing Shady at
-THIS BBQ!"
+text = "Nothing Shady
+at THIS BBQ!"
 label_settings = SubResource("LabelSettings_1fxug")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -117,7 +119,7 @@ text = "Logout"
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3u85p")
 autoplay = true
-bus = &"SFX"
+bus = &"Music"
 
 [node name="Sizzle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1d4h1")
