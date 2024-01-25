@@ -5,6 +5,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkh31"]
 font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Paused" type="CanvasLayer" groups=["pause_screen"]]
 process_mode = 3
