@@ -277,7 +277,8 @@ func _on_order_timer_timeout():
 	GameOverManager.game_over("An order ran out of time!")
 
 func _on_death_check_if_target_timer_timeout():
-	target_manager.customer_killed(data)
+	if target_manager:
+		target_manager.customer_killed(data)
 
 
 func _on_start_habit_timer_timeout():

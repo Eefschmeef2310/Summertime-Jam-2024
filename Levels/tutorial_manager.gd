@@ -6,7 +6,8 @@ var poison_available: bool = false
 
 func _ready():
 	get_tree().paused = true
-	$Popup/Label.text = "Welcome to the game! \n WASD to move"
+	$Popup/Label.text = "Welcome to the game! \n WASD to move."
+	$"../TargetUI".hide()
 	
 func _process(_delta):
 	if Input.is_anything_pressed() and !Input.is_action_just_pressed("Pause"):
@@ -44,7 +45,7 @@ func phase_complete():
 	match phase:
 		0:
 			get_tree().paused = true
-			$Popup/Label.text = "Press Space or E to pick up what someone wants, \nthen cook, then serve!"
+			$Popup/Label.text = "Press Space to pick up what someone wants, \nthen cook, then serve!"
 		1: #First customer fed
 			$Popup/Label.text = "If you served someone correctly, \nyour score will increase! ->"
 		2: #First customer off-screen
@@ -61,10 +62,12 @@ func phase_complete():
 			pass
 		7: #second customer sits
 			get_tree().paused = true
-			$Popup/Label.text = "Some people will be targets for you to eliminate.\nPress Q to poison the target's food, then cook and serve!"
+			$Popup/Label
+			$Popup/Label.text = "Some people will be targets for you to eliminate.\nPress Q to poison the target's food!"
+			$"../TargetUI".show()
 			poison_available = true
 		8: #First poision
-			$Popup/Label.text = "Be careful!\nIf a non-target is eliminated, or a target is not, it's Game Over (again)!"
+			$Popup/Label.text = "Be careful! If a non-target is eliminated,\nor a target is left alive, it's Game Over (again)!"
 		9: #First customer leaves
 			pass
 		10: #Second customer leaves

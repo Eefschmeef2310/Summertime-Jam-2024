@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_l2867")]
+"values": [ExtResource("5_mpdej")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -38,7 +38,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -50,7 +50,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -62,7 +62,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_w6r7l")]
+"values": [ExtResource("7_x2tax")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -74,7 +74,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [2]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -98,7 +98,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_gmsw8")]
+"values": [ExtResource("6_giw5t")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -110,7 +110,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [2]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -604,19 +604,17 @@ move_speed = 200.0
 
 [node name="SpriteHandsBack" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("2_gmsw8")
-hframes = 6
+texture = ExtResource("6_giw5t")
+hframes = 2
 
 [node name="SpriteBody" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("2_l2867")
-hframes = 6
-frame = 1
+texture = ExtResource("5_mpdej")
 
 [node name="SpriteHandsFront" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("4_w6r7l")
-hframes = 6
+texture = ExtResource("7_x2tax")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
