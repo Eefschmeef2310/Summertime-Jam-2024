@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c41njlptj1jmx"]
+[gd_scene load_steps=22 format=3 uid="uid://c41njlptj1jmx"]
 
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_g1o3p"]
 [ext_resource type="Script" path="res://Levels/tutorial_manager.gd" id="1_ia1w8"]
@@ -23,7 +23,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_cl12o"]
 font = ExtResource("2_558k5")
 font_size = 24
-outline_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ydnmd"]
+font = ExtResource("2_558k5")
+font_size = 24
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Tutorial" type="Node2D"]
@@ -179,11 +185,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
+offset_left = -84.0
+offset_top = -31.0
+offset_right = -12.0
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "SCORE: O"
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_ydnmd")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Walls" type="Node2D" parent="."]
 
