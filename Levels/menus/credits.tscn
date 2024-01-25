@@ -88,15 +88,15 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(175, 75)
 layout_mode = 2
 texture = ExtResource("2_qefrl")
 expand_mode = 3
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="TeamStingray" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer/HBoxContainer"]
 layout_mode = 2

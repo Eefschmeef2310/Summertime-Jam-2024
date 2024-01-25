@@ -11,9 +11,7 @@ config_version=5
 [application]
 
 config/name="Nothing Shady at THIS BBQ!"
-config/description="For UTS Playmakers Summertime Game Jam 2024
-
-Created by Team Stingray"
+config/description="Nothing Shady at THIS BBQ!"
 run/main_scene="res://Levels/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.270588, 0.270588, 0.270588, 1)
