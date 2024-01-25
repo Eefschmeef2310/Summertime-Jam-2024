@@ -115,10 +115,12 @@ text = "Logout"
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3u85p")
 autoplay = true
+bus = &"SFX"
 
 [node name="Sizzle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1d4h1")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]

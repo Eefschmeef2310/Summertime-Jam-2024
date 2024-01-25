@@ -1,6 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqk448jx6f5o7"]
+[gd_scene load_steps=5 format=3 uid="uid://dqk448jx6f5o7"]
 
 [ext_resource type="Script" path="res://Levels/menus/game_over_screen.gd" id="1_oa0xp"]
+[ext_resource type="AudioStream" uid="uid://cxnxavligkqb1" path="res://audio/sfx/dun-dun-duuun-v01-105105_pixabay.mp3" id="2_2xm0q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojeth"]
+bg_color = Color(0.372549, 0.145098, 0.145098, 0.501961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing_size = 0.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkh31"]
 font_size = 80
@@ -9,13 +18,20 @@ font_size = 80
 process_mode = 3
 script = ExtResource("1_oa0xp")
 
-[node name="TextureRect" type="ColorRect" parent="."]
+[node name="BG" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.2, 0.2, 0.694118)
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TextureRect" type="Panel" parent="BG"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojeth")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -45,5 +61,11 @@ horizontal_alignment = 1
 [node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2xm0q")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

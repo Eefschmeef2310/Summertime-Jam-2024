@@ -196,7 +196,7 @@ position = Vector2(497, 73)
 
 [node name="TargetUI" type="Node2D" parent="."]
 visible = false
-position = Vector2(8, 261)
+position = Vector2(8, 253)
 script = ExtResource("15_ivuvc")
 
 [node name="UI" type="CanvasLayer" parent="."]

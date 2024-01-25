@@ -22,6 +22,7 @@ line_spacing = 2.0
 font = ExtResource("2_tc1jw")
 
 [node name="TargetSlip" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.501961)
 z_index = 4096
 z_as_relative = false
 offset_right = 125.0

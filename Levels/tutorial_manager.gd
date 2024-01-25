@@ -39,13 +39,13 @@ func get_data(customer_timer_control : Control):
 func phase_complete():	
 	match phase:
 		0:
-			$Popup/Label.text = "Press Space or E to pick up what someone wants, \nthen cook, then serve!"
+			$Popup/Label.text = "Press SPACE to pick up what someone wants, then cook, then serve!"
 		1: #First customer fed
-			$Popup/Label.text = "If you served someone correctly, \nyour score will increase! ->"
+			$Popup/Label.text = "If you served someone correctly, your score will increase! ->"
 		2: #First customer off-screen
 			$"../TargetManager".instantiate_customer()
 		3: #Second customer sat down
-			$Popup/Label.text = "People have timers on their orders. \nIf any timers run out, it's Game Over!"
+			$Popup/Label.text = "People have timers on their orders. If any timers run out, it's Game Over!"
 		4: #Second customer fed
 			$Popup/Label.text = "Good job!"
 		5: #Second customer off screen
@@ -55,10 +55,10 @@ func phase_complete():
 		6: #First customer sits
 			pass
 		7: #second customer sits
-			$Popup/Label.text = "Some people will be targets you must eliminate.\nPress Q to poison the target's food, then cook and serve!"
+			$Popup/Label.text = "Some people will be targets you must eliminate. Press Q to poison the target's food, then cook and serve!"
 			poison_available = true
 		8: #First poision
-			$Popup/Label.text = "Be careful! If a non-target is eliminated,\nor a target is left alive, it's Game Over (again)!"
+			$Popup/Label.text = "Be careful! If a non-target is eliminated, or a target is left alive, it's Game Over (again)!"
 		9: #First customer leaves
 			pass
 		10: #Second customer leaves
