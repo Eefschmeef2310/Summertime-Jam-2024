@@ -2135,7 +2135,7 @@ gizmo_extents = 20.0
 
 [node name="OrderComplete" type="AudioStreamPlayer" parent="Streams"]
 stream = ExtResource("17_lvrpy")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Eliminated" type="AudioStreamPlayer" parent="Streams"]
 stream = ExtResource("17_ss1gc")

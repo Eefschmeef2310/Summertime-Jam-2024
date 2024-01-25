@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dixm3k61fwbew"]
+[gd_scene load_steps=9 format=3 uid="uid://dixm3k61fwbew"]
 
 [ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_1a3wx"]
 [ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="2_clfa5"]
@@ -12,6 +12,11 @@ font_size = 70
 [sub_resource type="LabelSettings" id="LabelSettings_vv6dg"]
 font = ExtResource("2_vjnol")
 font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfffs"]
+bg_color = Color(0.180392, 0.105882, 0.168627, 1)
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3gvb"]
 
@@ -70,6 +75,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -84,6 +90,7 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
@@ -132,6 +139,8 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxFlat_dfffs")
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
 layout_mode = 2
@@ -186,7 +195,18 @@ layout_mode = 2
 text = "Tada Fanfare A - Pixabay"
 label_settings = SubResource("LabelSettings_j3gvb")
 
+[node name="Label16" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+layout_mode = 2
+text = "Dun Dun Duuun - Pixabay"
+label_settings = SubResource("LabelSettings_j3gvb")
+
+[node name="Label17" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+layout_mode = 2
+text = "Horn Stabs Entrance - Pixabay"
+label_settings = SubResource("LabelSettings_j3gvb")
+
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/EntryContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
