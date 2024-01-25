@@ -17,7 +17,7 @@ func _process(delta):
 
 func _on_left_prompt_interacted():
 	#uncooked placement
-	if !left_item and player.held_item:
+	if !left_item and is_instance_valid(player.held_item):
 		left_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null
@@ -29,7 +29,7 @@ func _on_left_prompt_interacted():
 		left_item = null
 
 func _on_middle_prompt_interacted():
-	if !middle_item and player.held_item:
+	if !middle_item and is_instance_valid(player.held_item):
 		middle_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null
@@ -41,7 +41,7 @@ func _on_middle_prompt_interacted():
 		middle_item = null
 
 func _on_right_prompt_interacted():
-	if !right_item and player.held_item:
+	if !right_item and is_instance_valid(player.held_item):
 		right_item = player.held_item
 		player.held_item.reparent(self)
 		player.held_item = null

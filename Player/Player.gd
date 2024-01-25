@@ -29,9 +29,10 @@ func _process(_delta):
 	else:
 		closest_interactive = null
 	
-	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison") and is_instance_valid(tutorial_manager) and tutorial_manager.poison_available:
-		held_item.poisoned = true
-		$Poison.play()
+	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison"):
+		if !(is_instance_valid(tutorial_manager) and !tutorial_manager.poison_available):
+			held_item.poisoned = true
+			$Poison.play()
 	
 	handle_animation()
 	

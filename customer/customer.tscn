@@ -660,7 +660,7 @@ tracks/25/path = NodePath("Streams/Eliminated")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(1.2),
+"times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -1733,7 +1733,7 @@ timer_color = SubResource("Gradient_iq656")
 animation_players = [NodePath("AnimationPlayer")]
 
 [node name="FoodMarker" type="Marker2D" parent="."]
-position = Vector2(23, -24)
+position = Vector2(23, -29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -1742,7 +1742,7 @@ hframes = 3
 
 [node name="Sprite2DF" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("4_u6kbv")
+texture = ExtResource("3_omw6h")
 hframes = 3
 
 [node name="Sprite2DH" type="Sprite2D" parent="."]
@@ -1829,7 +1829,7 @@ wait_time = 7.0
 one_shot = true
 
 [node name="DeathCheckIfTargetTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="StartHabitTimer" type="Timer" parent="."]

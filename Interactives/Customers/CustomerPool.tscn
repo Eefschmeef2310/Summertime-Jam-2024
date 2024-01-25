@@ -58,21 +58,21 @@
 
 [sub_resource type="Resource" id="Resource_kkbhf"]
 script = ExtResource("2_y57vj")
-text = "Short black hair"
+text = "Slick black hair"
 texture_walk = ExtResource("3_mbuhm")
 texture_sit = ExtResource("3_j5our")
 texture_die = ExtResource("3_2itd2")
 
 [sub_resource type="Resource" id="Resource_7ksuu"]
 script = ExtResource("2_y57vj")
-text = "Short blonde hair"
+text = "Slick blonde hair"
 texture_walk = ExtResource("4_2522i")
 texture_sit = ExtResource("5_7kse3")
 texture_die = ExtResource("6_63ei1")
 
 [sub_resource type="Resource" id="Resource_cl3im"]
 script = ExtResource("2_y57vj")
-text = "Short brown hair"
+text = "Slick brown hair"
 texture_walk = ExtResource("5_f3m15")
 texture_sit = ExtResource("7_51dv4")
 texture_die = ExtResource("9_rpxkh")
@@ -100,21 +100,21 @@ texture_die = ExtResource("18_jwxwj")
 
 [sub_resource type="Resource" id="Resource_o6qjc"]
 script = ExtResource("2_y57vj")
-text = "Spiky black hair"
+text = "Messy black hair"
 texture_walk = ExtResource("23_oercy")
 texture_sit = ExtResource("22_14kp2")
 texture_die = ExtResource("21_gmh2x")
 
 [sub_resource type="Resource" id="Resource_deca0"]
 script = ExtResource("2_y57vj")
-text = "Spiky blonde hair"
+text = "Messy blonde hair"
 texture_walk = ExtResource("26_qmldr")
 texture_sit = ExtResource("25_vf6jv")
 texture_die = ExtResource("24_wo13i")
 
 [sub_resource type="Resource" id="Resource_gojlr"]
 script = ExtResource("2_y57vj")
-text = "Spiky brown hair"
+text = "Messy brown hair"
 texture_walk = ExtResource("29_0yqpk")
 texture_sit = ExtResource("28_true4")
 texture_die = ExtResource("27_47fn0")

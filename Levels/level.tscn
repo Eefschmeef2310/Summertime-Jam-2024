@@ -30,7 +30,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="TargetManager"]
-wait_time = 8.0
+wait_time = 0.5
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_0sgre")]

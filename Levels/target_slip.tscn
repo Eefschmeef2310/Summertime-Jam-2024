@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfe07fblqn2wi"]
 
 [ext_resource type="Script" path="res://Levels/target_slip.gd" id="1_jp0jk"]
-[ext_resource type="Texture2D" uid="uid://cslpi7utwwmvl" path="res://orders/sprites/food_chicken_raw.png" id="1_qbs1g"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_tc1jw"]
+[ext_resource type="AudioStream" uid="uid://1cxhj7r5p7y7" path="res://audio/sfx/tada-fanfare-a-6313.mp3" id="4_ydn6h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hqhq4"]
 font = ExtResource("2_tc1jw")
@@ -44,8 +44,9 @@ text = "- Short blonde hair
 - Likes chicken"
 label_settings = SubResource("LabelSettings_cbvsx")
 
-[node name="CompleteTexture" type="TextureRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.501961)
-layout_mode = 2
-texture = ExtResource("1_qbs1g")
+[node name="CompleteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ydn6h")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="finished" from="CompleteSound" to="." method="_on_complete_sound_finished"]

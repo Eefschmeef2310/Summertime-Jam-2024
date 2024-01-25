@@ -7,16 +7,18 @@ var tween: Tween
 
 func _ready():
 	modulate.a = 0
-	position = Vector2(get_index() * separation, 200)
+	position = Vector2(0, 200)
 	if tween:
 		tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_interval(1)
 	tween.tween_property(self, "modulate:a", 1, 1)
 	tween.parallel().tween_property(self, "position:y", 0, 1)
 
 
 func _process(delta):
-	position.x = lerp(position.x, get_index() * separation, 5 * delta)
+	pass
+	# position.x = lerp(position.x, get_index() * separation, 5 * delta)
 
 
 func set_data(d: CustomerData):
@@ -30,10 +32,14 @@ func set_data(d: CustomerData):
 	$Margin/VBox/Details.text = s
 
 func complete_slip():
-	$CompleteTexture.show()
+	modulate = Color.GREEN
+	$CompleteSound.play()
 	if tween:
 		tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "modulate:a", 0, 1)
 	tween.parallel().tween_property(self, "position:y", 200, 1)
+
+
+func _on_complete_sound_finished():
 	tween.tween_callback(queue_free)
