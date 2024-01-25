@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn8inqvlch863"]
+[gd_scene load_steps=7 format=3 uid="uid://cn8inqvlch863"]
 
 [ext_resource type="Script" path="res://online/leaderboard_entry.gd" id="1_7mpdf"]
+[ext_resource type="Texture2D" uid="uid://domn45x3hfvgd" path="res://Levels/menus_button.png" id="1_g30e5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4oj6"]
-bg_color = Color(0.215686, 0.305882, 0.290196, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3djw"]
+texture = ExtResource("1_g30e5")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_52wf5"]
 
@@ -20,7 +21,7 @@ content_margin_right = 8.0
 custom_minimum_size = Vector2(0, 28)
 offset_right = 127.0
 offset_bottom = 28.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c4oj6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_r3djw")
 script = ExtResource("1_7mpdf")
 
 [node name="Columns" type="HBoxContainer" parent="."]

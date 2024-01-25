@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhhkgph4lwbem"]
+[gd_scene load_steps=6 format=3 uid="uid://bhhkgph4lwbem"]
 
 [ext_resource type="Script" path="res://online/LeaderboardManager.gd" id="1_1u4nm"]
-[ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_2k4og"]
+[ext_resource type="Script" path="res://Levels/menus/leaderboard.gd" id="1_2k4og"]
 [ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://online/leaderboard_entry.tscn" id="1_ak0xm"]
+[ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="2_dwss6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jsh63"]
 font_size = 36
@@ -16,133 +17,153 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2k4og")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BG" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TextureRect" type="NinePatchRect" parent="BG"]
+layout_mode = 2
+texture = ExtResource("2_dwss6")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="BG2" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 616.0
+offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BG2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BG2/VBoxContainer"]
 layout_mode = 2
 text = "Leaderboard"
 label_settings = SubResource("LabelSettings_jsh63")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BG2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 70
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="BG2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 script = ExtResource("1_1u4nm")
 entryPrefab = ExtResource("1_ak0xm")
 
-[node name="EntryContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="EntryContainer" type="VBoxContainer" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Leaderboard Entry" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry2" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry2" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry3" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry3" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry4" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry4" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry5" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry5" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry6" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry6" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry7" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry7" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry8" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry8" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry9" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry9" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry10" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry10" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry11" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry11" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Leaderboard Entry12" parent="VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
+[node name="Leaderboard Entry12" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer/EntryContainer" instance=ExtResource("1_ak0xm")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="LeaderboardRequest" type="HTTPRequest" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="LeaderboardRequest" type="HTTPRequest" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer"]
 
-[node name="LoadingLabel" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="LoadingLabel" type="Label" parent="BG2/VBoxContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Loading..."
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="BG2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer2"]
+[node name="Button" type="Button" parent="BG2/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "Back"
 
-[connection signal="request_completed" from="VBoxContainer/MarginContainer/ScrollContainer/LeaderboardRequest" to="VBoxContainer/MarginContainer/ScrollContainer" method="_on_leaderboard_request_request_completed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="request_completed" from="BG2/VBoxContainer/MarginContainer/ScrollContainer/LeaderboardRequest" to="BG2/VBoxContainer/MarginContainer/ScrollContainer" method="_on_leaderboard_request_request_completed"]
+[connection signal="pressed" from="BG2/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
