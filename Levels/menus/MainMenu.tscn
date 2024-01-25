@@ -11,7 +11,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_1fxug"]
 line_spacing = -8.0
 font = ExtResource("5_stlpi")
-font_size = 28
+font_size = 24
 font_color = Color(0.223529, 0.184314, 0.211765, 1)
 
 [node name="MainMenu" type="Control"]
@@ -66,6 +66,7 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Leftside"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Nothing Shady at
 THIS BBQ!"
