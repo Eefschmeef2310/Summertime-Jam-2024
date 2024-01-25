@@ -59,7 +59,7 @@ func _ready():
 	holdable_item.cooked = true
 	holdable_item.poisoned = poisoned
 	$FoodMarker.add_child(holdable_item)
-	
+
 	(holdable_item.material as ShaderMaterial).set_shader_parameter("alpha", 0)
 
 func _process(delta):
