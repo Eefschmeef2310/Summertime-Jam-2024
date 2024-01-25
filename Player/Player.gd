@@ -28,7 +28,7 @@ func _process(_delta):
 		closest_interactive = null
 	
 	# TODO PLACEHOLDER FOR DEBUG
-	if held_item and Input.is_action_just_pressed("Poison"):
+	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison"):
 		held_item.poisoned = true
 	
 	handle_animation()

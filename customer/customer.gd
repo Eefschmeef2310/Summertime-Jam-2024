@@ -254,6 +254,9 @@ func _on_die_from_poison_timer_timeout():
 		state = "die"
 		$DeathDespawnTimer.start()
 		$DeathCheckIfTargetTimer.start()
+	else:
+		if data.is_target:
+			GameOverManager.game_over("You let a target get away!")
 
 func _on_exit_timer_timeout():
 	state = "exiting"

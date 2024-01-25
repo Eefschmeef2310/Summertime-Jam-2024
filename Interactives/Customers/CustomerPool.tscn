@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7htgkoo6ouf7"]
+[gd_scene load_steps=74 format=3 uid="uid://b7htgkoo6ouf7"]
 
 [ext_resource type="Script" path="res://Interactives/Customers/CustomerPool.gd" id="1_wanuu"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_headpiece.gd" id="2_y57vj"]
@@ -16,15 +16,45 @@
 [ext_resource type="Texture2D" uid="uid://ddbmrxrwl64he" path="res://customer/sprites/walk/customer_walk_s1red.png" id="9_djpfy"]
 [ext_resource type="Texture2D" uid="uid://b5oi2cob23j1s" path="res://customer/sprites/die/customer_die_h1brown.png" id="9_rpxkh"]
 [ext_resource type="Texture2D" uid="uid://v0fvyv6bd5si" path="res://customer/sprites/sit/customer_sit_s1mustard.png" id="10_5pw0p"]
+[ext_resource type="Texture2D" uid="uid://bekoywiv0ua8u" path="res://customer/sprites/die/customer_die_h2black.png" id="12_mfs1w"]
 [ext_resource type="Texture2D" uid="uid://ccyj007ru3oil" path="res://customer/sprites/sit/customer_sit_s1olive.png" id="12_x43ps"]
+[ext_resource type="Texture2D" uid="uid://cp5o8lw08rg6k" path="res://customer/sprites/sit/customer_sit_h2black.png" id="13_7h6fc"]
 [ext_resource type="Texture2D" uid="uid://ceq243pa08p8q" path="res://customer/sprites/die/customer_die_s1mustard.png" id="13_r1bos"]
+[ext_resource type="Texture2D" uid="uid://c1aimgerc0whm" path="res://customer/sprites/walk/customer_walk_h2black.png" id="14_hp661"]
 [ext_resource type="Texture2D" uid="uid://c717hjs6vyb6" path="res://customer/sprites/sit/customer_sit_s1red.png" id="14_mrfm1"]
+[ext_resource type="Texture2D" uid="uid://nmms4ab5td1g" path="res://customer/sprites/die/customer_die_h2blond.png" id="15_udy3w"]
 [ext_resource type="Resource" uid="uid://t88ilor1p2sb" path="res://orders/order_sausage.tres" id="16_dlega"]
 [ext_resource type="Texture2D" uid="uid://dmkjat6vfuc2" path="res://customer/sprites/die/customer_die_s1olive.png" id="16_jf2qc"]
+[ext_resource type="Texture2D" uid="uid://jcfe055s47ek" path="res://customer/sprites/sit/customer_sit_h2blond.png" id="16_syjfm"]
 [ext_resource type="Script" path="res://Interactives/Customers/customer_habit.gd" id="16_wj8q0"]
+[ext_resource type="Texture2D" uid="uid://deqnvieytu3tt" path="res://customer/sprites/walk/customer_walk_h2blond.png" id="17_a4gb1"]
 [ext_resource type="Resource" uid="uid://b17gbc3qv43ga" path="res://orders/order_chicken.tres" id="17_mq1c4"]
 [ext_resource type="Resource" uid="uid://k01bx8srpdcj" path="res://orders/order_kebab.tres" id="18_cpgcg"]
+[ext_resource type="Texture2D" uid="uid://bqid887sorkc4" path="res://customer/sprites/die/customer_die_h2brown.png" id="18_jwxwj"]
 [ext_resource type="Texture2D" uid="uid://ch6lmsd4nnlvt" path="res://customer/sprites/die/customer_die_s1red.png" id="19_3o8gp"]
+[ext_resource type="Texture2D" uid="uid://b2msli5ayx2k3" path="res://customer/sprites/sit/customer_sit_h2brown.png" id="19_3puhv"]
+[ext_resource type="Texture2D" uid="uid://d2uvjfwlu2sm2" path="res://customer/sprites/walk/customer_walk_h2brown.png" id="20_drtmo"]
+[ext_resource type="Texture2D" uid="uid://bhi2ejh7x7y3d" path="res://customer/sprites/die/customer_die_h3black.png" id="21_gmh2x"]
+[ext_resource type="Texture2D" uid="uid://dolv67gix4wvh" path="res://customer/sprites/sit/customer_sit_h3black.png" id="22_14kp2"]
+[ext_resource type="Texture2D" uid="uid://c7ohcfdqdprmg" path="res://customer/sprites/walk/customer_walk_h3black.png" id="23_oercy"]
+[ext_resource type="Texture2D" uid="uid://cy4nnl7qjc08a" path="res://customer/sprites/die/customer_die_h3blond.png" id="24_wo13i"]
+[ext_resource type="Texture2D" uid="uid://covk2on2hb3iy" path="res://customer/sprites/sit/customer_sit_h3blond.png" id="25_vf6jv"]
+[ext_resource type="Texture2D" uid="uid://dd8y7jvf25pry" path="res://customer/sprites/walk/customer_walk_h3blond.png" id="26_qmldr"]
+[ext_resource type="Texture2D" uid="uid://dkln7kjdsd077" path="res://customer/sprites/die/customer_die_h3brown.png" id="27_47fn0"]
+[ext_resource type="Texture2D" uid="uid://bcgrpxkl11eex" path="res://customer/sprites/sit/customer_sit_h3brown.png" id="28_true4"]
+[ext_resource type="Texture2D" uid="uid://dsil1h74ye46o" path="res://customer/sprites/walk/customer_walk_h3brown.png" id="29_0yqpk"]
+[ext_resource type="Texture2D" uid="uid://dq0jr660bib0r" path="res://customer/sprites/die/customer_die_s1purple.png" id="40_d3ht6"]
+[ext_resource type="Texture2D" uid="uid://bxfra6ympsick" path="res://customer/sprites/sit/customer_sit_s1purple.png" id="41_35ujk"]
+[ext_resource type="Texture2D" uid="uid://cw003vhe3jveg" path="res://customer/sprites/walk/customer_walk_s1purple.png" id="42_l4b4w"]
+[ext_resource type="Texture2D" uid="uid://byhavlooldrxo" path="res://customer/sprites/die/customer_die_s1pink.png" id="43_vxisr"]
+[ext_resource type="Texture2D" uid="uid://w08fu44aasc7" path="res://customer/sprites/sit/customer_sit_s1pink.png" id="44_3w2s1"]
+[ext_resource type="Texture2D" uid="uid://csqiu47wowf2d" path="res://customer/sprites/walk/customer_walk_s1pink.png" id="45_bb8o6"]
+[ext_resource type="Texture2D" uid="uid://icye1mqn5xk" path="res://customer/sprites/die/customer_die_s1orange.png" id="46_34jcl"]
+[ext_resource type="Texture2D" uid="uid://b1jljrowlpjkj" path="res://customer/sprites/sit/customer_sit_s1orange.png" id="47_h7sav"]
+[ext_resource type="Texture2D" uid="uid://0indafq365vl" path="res://customer/sprites/walk/customer_walk_s1orange.png" id="48_ubkxr"]
+[ext_resource type="Texture2D" uid="uid://bl0oppogd838h" path="res://customer/sprites/die/customer_die_s1white.png" id="49_tfl2u"]
+[ext_resource type="Texture2D" uid="uid://crw3gaw582pqc" path="res://customer/sprites/sit/customer_sit_s1white.png" id="50_t2nq5"]
+[ext_resource type="Texture2D" uid="uid://c8s7xun2htpem" path="res://customer/sprites/walk/customer_walk_s1white.png" id="51_ja6gb"]
 
 [sub_resource type="Resource" id="Resource_kkbhf"]
 script = ExtResource("2_y57vj")
@@ -47,16 +77,58 @@ texture_walk = ExtResource("5_f3m15")
 texture_sit = ExtResource("7_51dv4")
 texture_die = ExtResource("9_rpxkh")
 
+[sub_resource type="Resource" id="Resource_aeqo3"]
+script = ExtResource("2_y57vj")
+text = "Black twintails"
+texture_walk = ExtResource("14_hp661")
+texture_sit = ExtResource("13_7h6fc")
+texture_die = ExtResource("12_mfs1w")
+
+[sub_resource type="Resource" id="Resource_qq3ir"]
+script = ExtResource("2_y57vj")
+text = "Blonde twintails"
+texture_walk = ExtResource("17_a4gb1")
+texture_sit = ExtResource("16_syjfm")
+texture_die = ExtResource("15_udy3w")
+
+[sub_resource type="Resource" id="Resource_ag7nx"]
+script = ExtResource("2_y57vj")
+text = "Brown twintails"
+texture_walk = ExtResource("20_drtmo")
+texture_sit = ExtResource("19_3puhv")
+texture_die = ExtResource("18_jwxwj")
+
+[sub_resource type="Resource" id="Resource_o6qjc"]
+script = ExtResource("2_y57vj")
+text = "Spiky black hair"
+texture_walk = ExtResource("23_oercy")
+texture_sit = ExtResource("22_14kp2")
+texture_die = ExtResource("21_gmh2x")
+
+[sub_resource type="Resource" id="Resource_deca0"]
+script = ExtResource("2_y57vj")
+text = "Spiky blonde hair"
+texture_walk = ExtResource("26_qmldr")
+texture_sit = ExtResource("25_vf6jv")
+texture_die = ExtResource("24_wo13i")
+
+[sub_resource type="Resource" id="Resource_gojlr"]
+script = ExtResource("2_y57vj")
+text = "Spiky brown hair"
+texture_walk = ExtResource("29_0yqpk")
+texture_sit = ExtResource("28_true4")
+texture_die = ExtResource("27_47fn0")
+
 [sub_resource type="Resource" id="Resource_psayi"]
 script = ExtResource("6_workc")
-text = "Mustard shirt"
+text = "Yellow shirt"
 texture_walk = ExtResource("7_akx1t")
 texture_sit = ExtResource("10_5pw0p")
 texture_die = ExtResource("13_r1bos")
 
 [sub_resource type="Resource" id="Resource_l01jh"]
 script = ExtResource("6_workc")
-text = "Olive shirt"
+text = "Grey shirt"
 texture_walk = ExtResource("8_bsm3y")
 texture_sit = ExtResource("12_x43ps")
 texture_die = ExtResource("16_jf2qc")
@@ -67,6 +139,34 @@ text = "Red shirt"
 texture_walk = ExtResource("9_djpfy")
 texture_sit = ExtResource("14_mrfm1")
 texture_die = ExtResource("19_3o8gp")
+
+[sub_resource type="Resource" id="Resource_81po4"]
+script = ExtResource("6_workc")
+text = "Purple shirt"
+texture_walk = ExtResource("42_l4b4w")
+texture_sit = ExtResource("41_35ujk")
+texture_die = ExtResource("40_d3ht6")
+
+[sub_resource type="Resource" id="Resource_8teoj"]
+script = ExtResource("6_workc")
+text = "Pink shirt"
+texture_walk = ExtResource("45_bb8o6")
+texture_sit = ExtResource("44_3w2s1")
+texture_die = ExtResource("43_vxisr")
+
+[sub_resource type="Resource" id="Resource_7kjcj"]
+script = ExtResource("6_workc")
+text = "Orange shirt"
+texture_walk = ExtResource("48_ubkxr")
+texture_sit = ExtResource("47_h7sav")
+texture_die = ExtResource("46_34jcl")
+
+[sub_resource type="Resource" id="Resource_rgi71"]
+script = ExtResource("6_workc")
+text = "White shirt"
+texture_walk = ExtResource("51_ja6gb")
+texture_sit = ExtResource("50_t2nq5")
+texture_die = ExtResource("49_tfl2u")
 
 [sub_resource type="Resource" id="Resource_apqln"]
 script = ExtResource("16_wj8q0")
@@ -80,8 +180,7 @@ description = "Likes reading books"
 
 [node name="CustomerPool" type="Node"]
 script = ExtResource("1_wanuu")
-headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im")])
-skin_colors = Array[Color]([Color(1, 0.776471, 0.776471, 1)])
-clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l")])
+headpieces = Array[ExtResource("2_y57vj")]([SubResource("Resource_kkbhf"), SubResource("Resource_7ksuu"), SubResource("Resource_cl3im"), SubResource("Resource_aeqo3"), SubResource("Resource_qq3ir"), SubResource("Resource_ag7nx"), SubResource("Resource_o6qjc"), SubResource("Resource_deca0"), SubResource("Resource_gojlr")])
+clothes = Array[ExtResource("6_workc")]([SubResource("Resource_psayi"), SubResource("Resource_l01jh"), SubResource("Resource_k2b6l"), SubResource("Resource_81po4"), SubResource("Resource_8teoj"), SubResource("Resource_7kjcj"), SubResource("Resource_rgi71")])
 habit = Array[ExtResource("16_wj8q0")]([SubResource("Resource_apqln"), SubResource("Resource_6sg6n")])
 order_pref = Array[Resource("res://orders/order_resource.gd")]([ExtResource("16_dlega"), ExtResource("17_mq1c4"), ExtResource("18_cpgcg")])
