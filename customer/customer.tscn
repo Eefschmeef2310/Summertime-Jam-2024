@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=41 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://cb2oixqv3lhv6" path="res://customer/sprites/sit/customer_sit_base.png" id="3_2gpl2"]
@@ -16,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://c8ntrepddhw1w" path="res://orders/sprites/wait_bar_under.png" id="10_3jtpx"]
 [ext_resource type="Texture2D" uid="uid://dgfp2tb0ch2oh" path="res://orders/sprites/food_chicken_cooked.png" id="10_f550l"]
 [ext_resource type="Texture2D" uid="uid://cley67yxj72ak" path="res://orders/sprites/wait_bar_progress.png" id="11_bgr0n"]
+[ext_resource type="Texture2D" uid="uid://gkke4bcvuwdo" path="res://customer/sprites/habit/customer_habit_smoke.png" id="13_eoqma"]
 [ext_resource type="AudioStream" uid="uid://dtaqkw7kiup8p" path="res://audio/sfx/Good.mp3" id="17_lvrpy"]
 [ext_resource type="AudioStream" uid="uid://bb6qor148jiow" path="res://audio/sfx/doorslam_pixabay.mp3" id="17_ss1gc"]
-[ext_resource type="Texture2D" uid="uid://gkke4bcvuwdo" path="res://customer/sprites/habit/customer_habit_smoke.png" id="13_eoqma"]
 
 [sub_resource type="Gradient" id="Gradient_iq656"]
 interpolation_mode = 1
@@ -1490,46 +1490,6 @@ tracks/2/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_glagw"]
-resource_name = "none"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2DHands:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2DHands:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2DHands:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="Animation" id="Animation_np1ii"]
 resource_name = "habit_smoke"
 length = 0.6
@@ -1569,6 +1529,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_glagw"]
+resource_name = "none"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2DHands:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2DHands:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2DHands:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d3nh5"]

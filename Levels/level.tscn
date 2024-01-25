@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://dt6yx3efi0388"]
 
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="1_0sgre"]
-[ext_resource type="PackedScene" uid="uid://dncoh68r24wiq" path="res://Levels/pause_manager.tscn" id="1_b4ktl"]
+[ext_resource type="PackedScene" path="res://Levels/pause_manager.tscn" id="1_b4ktl"]
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_hlcwv"]
 [ext_resource type="PackedScene" uid="uid://bwa61yens38wp" path="res://customer/chair.tscn" id="2_hwcln"]
 [ext_resource type="PackedScene" uid="uid://dny2y6h01yq37" path="res://customer/table.tscn" id="4_cljbk"]
@@ -183,6 +183,8 @@ volume_db = -15.0
 autoplay = true
 bus = &"Music"
 
+[connection signal="target_killed" from="TargetManager" to="TargetUI" method="_on_target_manager_target_killed"]
+[connection signal="targets_created" from="TargetManager" to="TargetUI" method="_on_target_manager_targets_created"]
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
 [connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
 
