@@ -27,7 +27,8 @@ func _process(_delta):
 	else:
 		closest_interactive = null
 	
-	if held_item and Input.is_action_just_pressed("Poison"):
+	# TODO PLACEHOLDER FOR DEBUG
+	if is_instance_valid(held_item) and Input.is_action_just_pressed("Poison"):
 		held_item.poisoned = true
 		$Poison.play()
 	

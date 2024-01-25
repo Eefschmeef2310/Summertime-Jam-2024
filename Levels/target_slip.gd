@@ -1,7 +1,7 @@
 extends PanelContainer
 
 var data: CustomerData
-var separation = 125.0
+var separation = 135.0
 
 var tween: Tween
 

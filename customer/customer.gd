@@ -178,7 +178,7 @@ func state_waiting_food():
 	
 	interactive_prompt.enabled = true
 	if just_interacted_with:
-		if player.held_item:
+		if is_instance_valid(player.held_item):
 			var player_food_holding: OrderResource = player.held_item.item_resource
 			if data.order_pref == player_food_holding:
 				# correct food
@@ -262,6 +262,9 @@ func _on_die_from_poison_timer_timeout():
 		state = "die"
 		$DeathDespawnTimer.start()
 		$DeathCheckIfTargetTimer.start()
+	else:
+		if data.is_target:
+			GameOverManager.game_over("You let a target get away!")
 
 func _on_exit_timer_timeout():
 	state = "exiting"
