@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhhkgph4lwbem"]
 
 [ext_resource type="Script" path="res://online/LeaderboardManager.gd" id="1_1u4nm"]
-[ext_resource type="Script" path="res://Levels/menus/leaderboard.gd" id="1_2k4og"]
+[ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_2k4og"]
 [ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://online/leaderboard_entry.tscn" id="1_ak0xm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jsh63"]
