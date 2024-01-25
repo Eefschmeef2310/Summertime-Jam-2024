@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://heh46q4r4ek4"]
+[gd_scene load_steps=10 format=3 uid="uid://heh46q4r4ek4"]
 
 [ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_18p78"]
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
 [ext_resource type="Texture2D" uid="uid://cdo5ju2to2ps8" path="res://Levels/menu.png" id="3_do2h5"]
 [ext_resource type="Texture2D" uid="uid://d2c4wu66njg6c" path="res://Levels/menu_guy.png" id="4_w76gm"]
 [ext_resource type="AudioStream" uid="uid://cn8dhruegjdrf" path="res://audio/music/MenuAmbience_free.mp3" id="5_3u85p"]
+[ext_resource type="Texture2D" uid="uid://cxpslwnjxl2d1" path="res://Levels/logo.png" id="5_d7t6f"]
 [ext_resource type="FontFile" uid="uid://du4ks47g1fbxf" path="res://Fonts/Clouds_of_Despair.ttf" id="5_stlpi"]
 [ext_resource type="AudioStream" uid="uid://bdw2t3wmswepw" path="res://audio/music/Sizzle_EverHeat_Freesound.wav" id="6_1d4h1"]
 
@@ -67,7 +68,12 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Leftside"]
+layout_mode = 2
+texture = ExtResource("5_d7t6f")
+
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Leftside"]
+visible = false
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 text = "Nothing Shady
