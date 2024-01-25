@@ -32,13 +32,10 @@ offset_right = 40.5
 offset_bottom = -33.0
 text = "Ingredient"
 
-<<<<<<< Updated upstream
-=======
 [node name="Pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g5v35")
 bus = &"SFX"
 
->>>>>>> Stashed changes
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 
 [editable path="InteractivePrompt"]

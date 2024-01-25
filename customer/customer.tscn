@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://noad0i08d3s3"]
+[gd_scene load_steps=39 format=3 uid="uid://noad0i08d3s3"]
 
 [ext_resource type="Script" path="res://customer/customer.gd" id="1_0uimr"]
 [ext_resource type="Texture2D" uid="uid://cb2oixqv3lhv6" path="res://customer/sprites/sit/customer_sit_base.png" id="3_2gpl2"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c8ntrepddhw1w" path="res://orders/sprites/wait_bar_under.png" id="10_3jtpx"]
 [ext_resource type="Texture2D" uid="uid://dgfp2tb0ch2oh" path="res://orders/sprites/food_chicken_cooked.png" id="10_f550l"]
 [ext_resource type="Texture2D" uid="uid://cley67yxj72ak" path="res://orders/sprites/wait_bar_progress.png" id="11_bgr0n"]
+[ext_resource type="AudioStream" uid="uid://dtaqkw7kiup8p" path="res://audio/sfx/Good.mp3" id="17_lvrpy"]
+[ext_resource type="AudioStream" uid="uid://bb6qor148jiow" path="res://audio/sfx/doorslam_pixabay.mp3" id="17_ss1gc"]
 
 [sub_resource type="Gradient" id="Gradient_iq656"]
 interpolation_mode = 1
@@ -645,6 +647,20 @@ tracks/24/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/25/type = "method"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Eliminated")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1ngg2"]
@@ -1552,9 +1568,10 @@ _data = {
 "TimerBounce": SubResource("Animation_ka128")
 }
 
-[node name="Customer" type="Node2D"]
+[node name="Customer" type="Node2D" node_paths=PackedStringArray("animation_players")]
 script = ExtResource("1_0uimr")
 timer_color = SubResource("Gradient_iq656")
+animation_players = [NodePath("AnimationPlayer")]
 
 [node name="FoodMarker" type="Marker2D" parent="."]
 position = Vector2(23, -24)
@@ -1704,6 +1721,15 @@ bus = &"SFX"
 [node name="Marker2D" type="Marker2D" parent="OrderCountdown"]
 position = Vector2(20, 20)
 gizmo_extents = 20.0
+
+[node name="OrderComplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_lvrpy")
+volume_db = -15.0
+
+[node name="Eliminated" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ss1gc")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
