@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o0pewapqwtmf"
+path="res://.godot/imported/Clock Ticking Sound Effect.mp3-15adaa5c415e736ba29ea97aee903098.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/Clock Ticking Sound Effect.mp3"
+dest_files=["res://.godot/imported/Clock Ticking Sound Effect.mp3-15adaa5c415e736ba29ea97aee903098.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

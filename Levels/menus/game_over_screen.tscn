@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqk448jx6f5o7"]
+[gd_scene load_steps=3 format=3 uid="uid://dqk448jx6f5o7"]
 
 [ext_resource type="Script" path="res://Levels/menus/game_over_screen.gd" id="1_oa0xp"]
-[ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="2_tyrkk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkh31"]
 font_size = 80
@@ -16,14 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oa0xp")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tyrkk")
+color = Color(0.2, 0.2, 0.2, 0.694118)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

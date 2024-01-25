@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://dtaqkw7kiup8p" path="res://audio/sfx/Good.mp3" id="17_lvrpy"]
 [ext_resource type="AudioStream" uid="uid://bb6qor148jiow" path="res://audio/sfx/doorslam_pixabay.mp3" id="17_ss1gc"]
 [ext_resource type="AudioStream" uid="uid://cjnglxe35yyck" path="res://audio/sfx/spew-after-effects_pixabay.mp3" id="20_6r6hk"]
+[ext_resource type="AudioStream" uid="uid://o0pewapqwtmf" path="res://audio/sfx/Clock Ticking Sound Effect.mp3" id="20_sgtrx"]
 [ext_resource type="AudioStream" uid="uid://b26jva8ca2c3f" path="res://audio/sfx/poof-of-smoke-87381_pixabay.mp3" id="21_gqtvy"]
 
 [sub_resource type="Gradient" id="Gradient_iq656"]
@@ -1922,6 +1923,8 @@ libraries = {
 }
 
 [node name="Ticker" type="AudioStreamPlayer" parent="OrderCountdown"]
+stream = ExtResource("20_sgtrx")
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="Marker2D" type="Marker2D" parent="OrderCountdown"]

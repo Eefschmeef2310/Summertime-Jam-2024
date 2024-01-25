@@ -14,6 +14,8 @@ func _process(delta):
 		$Sizzler.play()
 	elif (!left_item and !middle_item and !right_item):
 		$Sizzler.stop()
+		
+	$LeftPrompt/Label.text = "Collect" if (left_item and left_item.cooked) else "Cook"
 
 func _on_left_prompt_interacted():
 	#uncooked placement
