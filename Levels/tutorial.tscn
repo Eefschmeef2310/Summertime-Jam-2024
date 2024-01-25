@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://c41njlptj1jmx"]
+[gd_scene load_steps=23 format=3 uid="uid://c41njlptj1jmx"]
 
 [ext_resource type="PackedScene" uid="uid://daururjx3hnck" path="res://Levels/TargetManager.tscn" id="1_g1o3p"]
 [ext_resource type="Script" path="res://Levels/tutorial_manager.gd" id="1_ia1w8"]
+[ext_resource type="Texture2D" uid="uid://cygy07mt1seni" path="res://Levels/gamebg.png" id="1_swnx3"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_558k5"]
 [ext_resource type="PackedScene" uid="uid://dncoh68r24wiq" path="res://Levels/pause_manager.tscn" id="2_nk0o5"]
 [ext_resource type="PackedScene" uid="uid://b2dba2snopj2" path="res://Player/Player.tscn" id="2_suxdn"]
@@ -34,6 +35,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Tutorial" type="Node2D"]
 y_sort_enabled = true
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_swnx3")
+centered = false
 
 [node name="TutorialManager" type="Node" parent="." groups=["tutorial_manager"]]
 process_mode = 3
@@ -113,13 +118,13 @@ position = Vector2(309, 113)
 tutorial_manager = NodePath("../TutorialManager")
 
 [node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(280, 215)
+position = Vector2(280, 196)
 
 [node name="Table3" parent="." instance=ExtResource("4_trk3d")]
-position = Vector2(320, 214)
+position = Vector2(320, 195)
 
 [node name="Chair6" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(360, 215)
+position = Vector2(360, 196)
 rotation = 3.14159
 scale = Vector2(1, -1)
 

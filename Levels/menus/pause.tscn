@@ -1,29 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b11245ku0hnpb"]
+[gd_scene load_steps=5 format=3 uid="uid://b11245ku0hnpb"]
 
+[ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_phqvy"]
 [ext_resource type="Script" path="res://Levels/menus/pause_screen.gd" id="1_usky6"]
-[ext_resource type="Texture2D" uid="uid://dqlfvhva03y0t" path="res://icon.svg" id="2_uoqtn"]
+[ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="3_88rsk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkh31"]
 font_size = 80
 
 [node name="Paused" type="Control" groups=["pause_screen"]]
 process_mode = 3
+z_index = 890
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_phqvy")
 script = ExtResource("1_usky6")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BG" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_uoqtn")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TextureRect" type="NinePatchRect" parent="BG"]
+layout_mode = 2
+texture = ExtResource("3_88rsk")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
