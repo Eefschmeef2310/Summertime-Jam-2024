@@ -1,8 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dixm3k61fwbew"]
 
-[ext_resource type="Script" path="res://Levels/menus/leaderboard.gd" id="1_51uej"]
+[ext_resource type="Script" path="res://Levels/menus/Leaderboard.gd" id="1_1a3wx"]
 [ext_resource type="Texture2D" uid="uid://d0f2hvsserfpk" path="res://Levels/menus_border_x2.png" id="2_clfa5"]
-
 [ext_resource type="Texture2D" uid="uid://dvlb010nyydyy" path="res://ui_sprites/SteamTingrayGradient.png" id="2_qefrl"]
 [ext_resource type="FontFile" uid="uid://blu2jentl2c08" path="res://Fonts/monogram.ttf" id="2_vjnol"]
 
@@ -23,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6huvd")
+script = ExtResource("1_1a3wx")
 
 [node name="BG" type="MarginContainer" parent="."]
 layout_mode = 1
