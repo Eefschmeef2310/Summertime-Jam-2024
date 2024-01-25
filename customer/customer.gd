@@ -260,7 +260,7 @@ func _on_exit_timer_timeout():
 	
 func _on_order_timer_timeout():
 	order_timer_visual.visible = false
-	GameOverManager.game_over()
+	GameOverManager.game_over("An order ran out of time!")
 
 func _on_death_check_if_target_timer_timeout():
 	target_manager.customer_killed(data)
