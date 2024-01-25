@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2c0qjo2pe2u8"]
+[gd_scene load_steps=7 format=3 uid="uid://c2c0qjo2pe2u8"]
 
 [ext_resource type="Script" path="res://Interactives/ingredient_basket.gd" id="1_omud1"]
 [ext_resource type="PackedScene" uid="uid://dvv5nlyq1crgg" path="res://Interactives/InteractivePrompt.tscn" id="2_6a7kf"]
 [ext_resource type="Texture2D" uid="uid://b078kw3y8t7ai" path="res://orders/sprites/bucket.png" id="2_kpp6y"]
 [ext_resource type="Texture2D" uid="uid://cslpi7utwwmvl" path="res://orders/sprites/food_chicken_raw.png" id="3_06bvi"]
+[ext_resource type="AudioStream" uid="uid://4hy5g1tnhp0l" path="res://audio/sfx/ingredient_basket_pixabay.mp3" id="5_g5v35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxafb"]
 size = Vector2(40, 10)
@@ -31,6 +32,13 @@ offset_right = 40.5
 offset_bottom = -33.0
 text = "Ingredient"
 
+<<<<<<< Updated upstream
+=======
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g5v35")
+bus = &"SFX"
+
+>>>>>>> Stashed changes
 [connection signal="interacted" from="InteractivePrompt" to="." method="_on_interactive_prompt_interacted"]
 
 [editable path="InteractivePrompt"]

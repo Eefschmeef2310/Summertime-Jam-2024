@@ -132,12 +132,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Bin" parent="." instance=ExtResource("10_l2v2k")]
 position = Vector2(505, 73)
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("11_wcp83")
-
-[node name="TargetUI" type="Node2D" parent="UI"]
+[node name="TargetUI" type="Node2D" parent="."]
 position = Vector2(8, 261)
 script = ExtResource("14_40s3l")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("11_wcp83")
 
 [node name="Label" type="Label" parent="UI"]
 anchors_preset = 3
@@ -173,8 +173,19 @@ scale = Vector2(40, 1)
 position = Vector2(303, 360)
 scale = Vector2(40, 1)
 
+<<<<<<< Updated upstream
 [connection signal="target_killed" from="TargetManager" to="UI/TargetUI" method="_on_target_manager_target_killed"]
 [connection signal="targets_created" from="TargetManager" to="UI/TargetUI" method="_on_target_manager_targets_created"]
+=======
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_n8k5q")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="target_killed" from="TargetManager" to="TargetUI" method="_on_target_manager_target_killed"]
+[connection signal="targets_created" from="TargetManager" to="TargetUI" method="_on_target_manager_targets_created"]
+>>>>>>> Stashed changes
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]
 [connection signal="timeout" from="TargetManager/SpawnTimer" to="TargetManager" method="_on_spawn_timer_timeout"]
 
