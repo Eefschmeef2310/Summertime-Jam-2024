@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 func _on_menu_button_pressed():
 	queue_free()

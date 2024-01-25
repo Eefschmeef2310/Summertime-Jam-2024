@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://heh46q4r4ek4"]
+[gd_scene load_steps=11 format=3 uid="uid://heh46q4r4ek4"]
 
 [ext_resource type="Theme" uid="uid://bcma3f2wjixis" path="res://ui_themes/ui_theme_default.tres" id="1_18p78"]
 [ext_resource type="Script" path="res://Levels/menus/MainMenu.gd" id="1_rcmn6"]
@@ -7,6 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://jtq3vxmi6e4j" path="res://ui_sprites/menu.png" id="3_gg56k"]
 [ext_resource type="AudioStream" uid="uid://cn8dhruegjdrf" path="res://audio/music/MenuAmbience_free.mp3" id="5_3u85p"]
 [ext_resource type="AudioStream" uid="uid://bdw2t3wmswepw" path="res://audio/music/Sizzle_EverHeat_Freesound.wav" id="6_1d4h1"]
+[ext_resource type="PackedScene" uid="uid://nn71prxne0x2" path="res://holdable_items/scenes/holdable_item_scene.tscn" id="8_12685"]
+[ext_resource type="Shader" path="res://shaders/poison.gdshader" id="9_032sl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywrq5"]
+resource_local_to_scene = true
+shader = ExtResource("9_032sl")
+shader_parameter/bottomColor = Color(0.15, 0, 0.4, 1)
+shader_parameter/topColor = Color(0.37, 0, 1, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/direction = -50.0
+shader_parameter/speed = 10.0
+shader_parameter/width = 0.01
+shader_parameter/height = -0.2
+shader_parameter/opacity = 0.0
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -100,8 +114,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -62.0
-offset_top = -31.0
+offset_left = -71.0
+offset_top = -44.0
+offset_right = -9.0
+offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Logout"
@@ -109,10 +125,16 @@ text = "Logout"
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3u85p")
 autoplay = true
+bus = &"SFX"
 
 [node name="Sizzle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1d4h1")
 autoplay = true
+bus = &"Music"
+
+[node name="HoldableItemScene" parent="." instance=ExtResource("8_12685")]
+material = SubResource("ShaderMaterial_ywrq5")
+position = Vector2(-78, 148)
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
