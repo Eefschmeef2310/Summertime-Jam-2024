@@ -38,12 +38,15 @@ folder_colors={
 "res://Fonts/": "green",
 "res://Interactives/": "yellow",
 "res://Levels/": "blue",
-"res://Levels/Tests/": "red",
 "res://PlaceholderSprites/": "red",
 "res://Player/": "green",
 "res://audio/": "pink",
 "res://shaders/": "green"
 }
+
+[gui]
+
+theme/custom="res://ui_themes/ui_theme_default.tres"
 
 [input]
 

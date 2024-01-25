@@ -118,7 +118,7 @@ autoplay = true
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/CreditsButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Leftside/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LogoutButton" to="." method="_on_logout_button_pressed"]
