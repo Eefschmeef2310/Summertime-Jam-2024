@@ -64,10 +64,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -220.5
-offset_top = -210.0
-offset_right = 220.5
-offset_bottom = -10.0
+offset_left = -160.0
+offset_top = -217.0
+offset_right = 160.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Some people will be targets for you to eliminate.
@@ -75,6 +75,7 @@ Press Q to poison the target's food!"
 label_settings = SubResource("LabelSettings_cl12o")
 horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="Control" type="Control" parent="TutorialManager"]
 visible = false
@@ -100,6 +101,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back to menu"
 
+[node name="Timer" type="Timer" parent="TutorialManager"]
+one_shot = true
+
 [node name="PauseManager" parent="." instance=ExtResource("2_nk0o5")]
 
 [node name="TargetManager" parent="." instance=ExtResource("1_g1o3p")]
@@ -118,13 +122,13 @@ position = Vector2(309, 113)
 tutorial_manager = NodePath("../TutorialManager")
 
 [node name="Chair5" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(280, 196)
+position = Vector2(280, 200)
 
 [node name="Table3" parent="." instance=ExtResource("4_trk3d")]
-position = Vector2(320, 195)
+position = Vector2(320, 200)
 
 [node name="Chair6" parent="." instance=ExtResource("3_wjb4j")]
-position = Vector2(360, 196)
+position = Vector2(360, 200)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
@@ -174,6 +178,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(497, 73)
 
 [node name="TargetUI" type="Node2D" parent="."]
+visible = false
 position = Vector2(8, 261)
 script = ExtResource("15_ivuvc")
 
@@ -221,6 +226,8 @@ volume_db = -15.0
 autoplay = true
 bus = &"Music"
 
+[connection signal="pressed" from="TutorialManager/Control/Button" to="TutorialManager" method="_on_button_pressed"]
+[connection signal="timeout" from="TutorialManager/Timer" to="TutorialManager" method="_on_timer_timeout"]
 [connection signal="target_killed" from="TargetManager" to="TargetUI" method="_on_target_manager_target_killed"]
 [connection signal="targets_created" from="TargetManager" to="TargetUI" method="_on_target_manager_targets_created"]
 [connection signal="timeout" from="TargetManager/StartupTimer" to="TargetManager" method="_on_startup_timer_timeout"]

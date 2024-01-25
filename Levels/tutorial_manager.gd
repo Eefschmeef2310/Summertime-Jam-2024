@@ -49,18 +49,26 @@ func phase_complete():
 		4: #Second customer fed
 			$Popup/Label.text = "Good job!"
 		5: #Second customer off screen
+			$"../TargetUI".show()
 			$"../TargetManager".instantiate_customer()
-			$"../TargetManager".instantiate_customer()
+			$Timer.start()
 		6: #First customer sits
 			pass
 		7: #second customer sits
-			$Popup/Label.text = "Some people will be targets for you to eliminate.\nPress Q to poison the target's food, then cook and serve!"
+			$Popup/Label.text = "Some people will be targets you must eliminate.\nPress Q to poison the target's food, then cook and serve!"
 			poison_available = true
 		8: #First poision
 			$Popup/Label.text = "Be careful! If a non-target is eliminated,\nor a target is left alive, it's Game Over (again)!"
 		9: #First customer leaves
 			pass
 		10: #Second customer leaves
-			$Popup/Label.text = "Tutorial complete! Make a complete screen"	
+			$Popup/Label.text = "Tutorial complete!"
+			$Control.show()
 	
 	phase += 1
+
+func _on_timer_timeout():
+	$"../TargetManager".instantiate_customer()
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Levels/menus/MainMenu.tscn")
